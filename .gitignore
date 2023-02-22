@@ -10,4 +10,8 @@ obj/
 Assets/*.json
 Assets/*.plist
 Assets/*.meta
-
+Editor Default Resources/
+ExternalDependencyManager/
+Firebase/
+Plugins/
+StreamingAssets/
