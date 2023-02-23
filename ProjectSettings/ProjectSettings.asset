@@ -9,7 +9,7 @@ PlayerSettings:
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
   defaultScreenOrientation: 4
-  targetDevice: 2
+  targetDevice: 0
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: SoraEnter
@@ -157,6 +157,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.SoraEnter.StarRoad
     Standalone: com.DefaultCompany.2DProject
+    iPhone: com.SoraEnter.StarRoad
   buildNumber:
     Standalone: 0
     iPhone: 0
