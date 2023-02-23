@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         }
 
         SoundManager.instance.BGM((int)Sound.BGM2);
-        FirebaseManager.instance.AutoLogin();
+        FirebaseManager.instance.AutoSignIn();
     }
 
     /* 해상도 설정하는 함수 */

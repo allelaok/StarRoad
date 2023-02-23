@@ -135,15 +135,20 @@ public class SceneManager : MonoBehaviour
 
     public void OnClick_SignUp()
     {
-        FirebaseManager.instance.ID = signUpID.text;
-        FirebaseManager.instance.PW = signUpPW.text;
-        FirebaseManager.instance.SingUp();
+        //FirebaseManager.instance.ID = signUpID.text;
+        // FirebaseManager.instance.PW = signUpPW.text;
+
+
+        PlayerPrefs.SetString("Email", signUpID.text);
+        PlayerPrefs.SetString("Password", signUpPW.text);
+
+        FirebaseManager.instance.SignUp(signUpID.text, signUpPW.text);
     }
     public void OnClick_LogIn()
     {
-        FirebaseManager.instance.ID = logInID.text;
-        FirebaseManager.instance.PW = logInPW.text;
-        FirebaseManager.instance.LogIn();
+       // FirebaseManager.instance.ID = logInID.text;
+      //  FirebaseManager.instance.PW = logInPW.text;
+        FirebaseManager.instance.SignIn(logInID.text, logInPW.text);
     }
 
     [SerializeField]
@@ -199,7 +204,7 @@ public class SceneManager : MonoBehaviour
 
             player.lifeImg[i].sprite = _lifeSprite;
         }
-
-
     }
+
+
 }

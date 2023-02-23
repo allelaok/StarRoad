@@ -31,13 +31,13 @@ public class FirebaseManager : MonoBehaviour
             Destroy(gameObject);
 
         reference = FirebaseDatabase.DefaultInstance.RootReference;
+        auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
     }
 
     public string ID { set { id = value; } }
-    public string PW { set { password = value; } }
+    //public string PW { set { password = value; } }
 
     string id;
-    string password;
 
 
 #if UNITY_EDITOR
@@ -46,48 +46,48 @@ public class FirebaseManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (ExceptedString(id, password)) return;
+            if (ExceptedString(id)) return;
             reference.Child("users").Child(id).Child("score").SetValueAsync(0).Wait(5);
         }
     }
 #endif
 
-    public void LogIn()
-    {
-        if (ExceptedString(id, password)) return;
+    //public void LogIn()
+    //{
+    //    if (ExceptedString(id)) return;
 
-        reference.Child("users").Child(id).Child("password").GetValueAsync().ContinueWithOnMainThread(task =>
-        {
-            if (task.IsFaulted)
-            {
-                print("login error");
-            }
-            else if (task.IsCompleted)
-            {
-                DataSnapshot snapshot = task.Result;
-                if ((string)snapshot.Value == password)
-                {
+    //    reference.Child("users").Child(id).Child("password").GetValueAsync().ContinueWithOnMainThread(task =>
+    //    {
+    //        if (task.IsFaulted)
+    //        {
+    //            print("login error");
+    //        }
+    //        else if (task.IsCompleted)
+    //        {
+    //            DataSnapshot snapshot = task.Result;
+    //            if ((string)snapshot.Value == password)
+    //            {
 
-                    PlayerPrefs.SetString("userId", id);
-                    PlayerPrefs.SetString("password", password);
+    //                PlayerPrefs.SetString("userId", id);
+    //                PlayerPrefs.SetString("password", password);
 
-                    GetBestScore(SceneManager.instance.PlayStartPanel);
-                    print("login sucssece");
-                }
-                else
-                {
-                    print("login fail.");
-                }
-            }
-        });
-    }
+    //                GetBestScore(SceneManager.instance.PlayStartPanel);
+    //                print("login sucssece");
+    //            }
+    //            else
+    //            {
+    //                print("login fail.");
+    //            }
+    //        }
+    //    });
+    //}
 
     public void AutoLogin()
     {
         id = PlayerPrefs.GetString("userId");
         string password = PlayerPrefs.GetString("password");
 
-        if (ExceptedString(id, password))
+        if (ExceptedString(id))
         {
             SceneManager.instance.LoginStartPanel();
             return;
@@ -115,7 +115,7 @@ public class FirebaseManager : MonoBehaviour
         });
     }
 
-    bool ExceptedString(string id, string password)
+    bool ExceptedString(string id)
     {
         if (string.IsNullOrEmpty(id))
         {
@@ -127,16 +127,6 @@ public class FirebaseManager : MonoBehaviour
             print("id error");
             return true;
         }
-        else if (string.IsNullOrEmpty(password))
-        {
-            print("password null");
-            return true;
-        }
-        else if (password.Contains(".") | password.Contains("$") | password.Contains("[") | password.Contains("]"))
-        {
-            print("password error");
-            return true;
-        }
 
         return false;
 
@@ -145,7 +135,7 @@ public class FirebaseManager : MonoBehaviour
 
     public void SingUp()
     {
-        if (ExceptedString(id, password)) return;
+        if (ExceptedString(id)) return;
 
         reference.Child("users").Child(id).Child("password").GetValueAsync().ContinueWithOnMainThread(task =>
         {
@@ -160,7 +150,6 @@ public class FirebaseManager : MonoBehaviour
                 DataSnapshot snapshot = task.Result;
                 if (string.IsNullOrEmpty((string)snapshot.Value))
                 {
-                    reference.Child("users").Child(id).Child("password").SetValueAsync(password);
                     reference.Child("users").Child(id).Child("score").SetValueAsync(0);
                     SceneManager.instance.LoginStartPanel();
                     print("sucssese");
@@ -186,7 +175,13 @@ public class FirebaseManager : MonoBehaviour
 
     public void GetBestScore(Action callback)
     {
-        if (string.IsNullOrEmpty(id)) return; 
+        print(4);
+        if (string.IsNullOrEmpty(id))
+
+        {
+            print("id null");
+            return;
+        }
 
         reference.Child("users").Child(id).Child("score").GetValueAsync().ContinueWithOnMainThread(task =>
         {
@@ -306,6 +301,92 @@ public class FirebaseManager : MonoBehaviour
         });
     }
 
+    // 인증을 관리할 객체
+    Firebase.Auth.FirebaseAuth auth;
 
-   
+
+
+    // 회원가입 버튼을 눌렀을 때 작동할 함수
+    public void SignUp(string email, string password)
+    {
+        // 회원가입 버튼은 인풋 필드가 비어있지 않을 때 작동한다.
+        if (email.Length != 0 && password.Length > 5)
+        {
+            auth.CreateUserWithEmailAndPasswordAsync(id, password).ContinueWith(
+                task =>
+                {
+                    if (!task.IsCanceled && !task.IsFaulted)
+                    {
+                        id = email.Replace(".", "dot");
+                        reference.Child("users").Child(id).Child("score").SetValueAsync(0);
+                        SceneManager.instance.LoginStartPanel();
+                        print("success");
+                    }
+                    else
+                    {
+                        print("fail");
+                    }
+                });
+        }
+    }
+
+    // 로그인 버튼을 눌렀을 때 작동할 함수
+    public void SignIn(string email, string pw)
+    {
+        // 로그인 버튼은 인풋 필드가 비어있지 않을 때 작동한다.
+        if (email.Length != 0 && pw.Length > 5)
+        {
+            auth.SignInWithEmailAndPasswordAsync(email, pw).ContinueWith(
+                task =>
+                {
+                    if (task.IsCompleted && !task.IsCanceled && !task.IsFaulted)
+                    {
+                        Firebase.Auth.FirebaseUser newUser = task.Result;
+
+                        id = email.Replace(".", "dot");
+                        GetBestScore(SceneManager.instance.PlayStartPanel);
+                        print("login success");
+
+                    }
+                    else
+                    {
+                        print("fail");
+                    }
+                });
+        }
+    }
+
+    public void AutoSignIn()
+    {
+
+        string email = PlayerPrefs.GetString("Email");
+       string password = PlayerPrefs.GetString("Password");
+
+        if (email.Length != 0 && password.Length > 5)
+        {
+            auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWith(
+                task =>
+                {
+                    if (task.IsCompleted && !task.IsCanceled && !task.IsFaulted)
+                    {
+                        Firebase.Auth.FirebaseUser newUser = task.Result;
+                        id = email.Replace(".", "dot");
+                        GetBestScore(SceneManager.instance.PlayStartPanel);
+                        print("auto login sucssece");
+
+                    }
+                    else
+                    {
+                        SceneManager.instance.LoginStartPanel();
+                        print("fail");
+                    }
+                });
+        }
+        else
+        {
+            SceneManager.instance.LoginStartPanel();
+        }
+
+    }
+
 }
