@@ -37,6 +37,7 @@ public class BaseButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerClick(PointerEventData eventData)
     {
         image.enabled = false;
+        SoundManager.instance.ClickBtnSound();
         invokeMethod.Invoke();
     }
 }

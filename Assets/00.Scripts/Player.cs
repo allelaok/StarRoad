@@ -10,8 +10,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     TMPro.TMP_Text bestScoreText;
     [SerializeField]
-    Image[] lifeImg;
-    [SerializeField]
     Image[] tornadoImg;
     [SerializeField]
     Transform subwayPool;
@@ -23,6 +21,11 @@ public class Player : MonoBehaviour
     GameObject camMoveBG;
     [SerializeField]
     Transform heartPositions;
+   
+    public Image[] lifeImg;
+
+    [HideInInspector]
+    public Animator anim;
 
     Camera cam;
     int dieCnt;
@@ -48,6 +51,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
         state = STATE.Defualt;
         animSprite = GetComponentInChildren<SpriteRenderer>();
         //PlayerAndHeart.Add(transform);
@@ -339,6 +343,7 @@ public class Player : MonoBehaviour
             dieCnt++;
             lifeImg[GameManager.instance.LifeCnt - dieCnt].enabled = false;
             GameManager.instance.Speed = GameManager.instance.BaseSpeed;
+            SoundManager.instance.Coll();
 
             if (dieCnt < GameManager.instance.LifeCnt)
             {
@@ -355,7 +360,6 @@ public class Player : MonoBehaviour
         {
             collision.gameObject.layer = LayerMask.NameToLayer("Wall");
             hearts.Add(collision.transform);
-
             // ???? ????
             score += point;
             GameManager.instance.Speed = GameManager.instance.BaseSpeed + (hearts.Count + 1) * 0.2f;
@@ -468,6 +472,7 @@ public class Player : MonoBehaviour
   
     void GameOver()
     {
+        SoundManager.instance.BGM((int)Sound.BGM2);
         state = STATE.Defualt;
         print("Bset : " + GameManager.instance.BestScore);
         print("Score : " + score);

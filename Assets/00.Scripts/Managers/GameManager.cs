@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        SoundManager.instance.BGM((int)Sound.BGM2);
         FirebaseManager.instance.AutoLogin();
     }
 

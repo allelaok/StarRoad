@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class SceneManager : MonoBehaviour
 {
@@ -49,6 +51,12 @@ public class SceneManager : MonoBehaviour
     TMPro.TMP_InputField logInID;
     [SerializeField]
     TMPro.TMP_InputField logInPW;
+
+    SpriteAtlas _sprite;
+    private void Start()
+    {
+        _sprite = Resources.Load<SpriteAtlas>("Characters");
+    }
 
     public void LoginStartPanel()
     {
@@ -106,6 +114,7 @@ public class SceneManager : MonoBehaviour
 
     public void RankingPanel()
     {
+
         loginStartPanel.SetActive(false);
 
         playStartPanel.SetActive(true);
@@ -117,8 +126,10 @@ public class SceneManager : MonoBehaviour
 
     public void GamePanle()
     {
+        SetCharacter();
         gameCanvas.SetActive(true);
         startCanvas.SetActive(false);
+        SoundManager.instance.BGM((int)Sound.BGM1);
     }
 
     public void OnClick_SignUp()
@@ -170,5 +181,24 @@ public class SceneManager : MonoBehaviour
         ranks[10].SetInfo(FirebaseManager.instance.targetRank);
         ranks[11].SetInfo(FirebaseManager.instance.myRank);
         RankingPanel();
+    }
+
+    string[] characters =
+    {
+        "Exy",
+        "Seolah"
+    };
+    public int characterNum = 1;
+    public void SetCharacter()
+    {
+        AnimatorController _controller = Resources.Load<AnimatorController>(characters[characterNum] + "Anim");
+        Sprite _lifeSprite = _sprite.GetSprite(characters[characterNum] + "Life");
+        for (int i = 0; i < player.lifeImg.Length; i++)
+        {
+
+            player.lifeImg[i].sprite = _lifeSprite;
+        }
+
+        player.anim.runtimeAnimatorController = _controller;
     }
 }
