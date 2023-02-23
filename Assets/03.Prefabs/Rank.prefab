@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 8280382332986223752}
   - component: {fileID: 2531414424668927990}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Rank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -551,7 +551,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8768beaf3fe10b44e96d40766e2379f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aa3b5ddf2e3579e4ba0006159052ff68, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -571,6 +571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2540375687676776502}
   - component: {fileID: 523768091486393101}
+  - component: {fileID: 7329767598973274078}
   m_Layer: 5
   m_Name: Rank
   m_TagString: Untagged
@@ -608,6 +609,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8053157227633277634}
   m_CullTransparentMesh: 1
+--- !u!114 &7329767598973274078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8053157227633277634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d8b040bb5b0144b97ea630f4b9ae74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rank: {fileID: 2531414424668927990}
+  nickName: {fileID: 2054610702883691634}
+  score: {fileID: 2699041262637337832}
 --- !u!1 &8481792391925634757
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +690,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db8f789c1dc142e4b8fca3378cead72d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 18c08fcd9d3893c46b47c51b55b9cff8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
