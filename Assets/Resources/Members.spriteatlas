@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Characters
+  m_Name: Members
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -44,5 +44,5 @@ SpriteAtlas:
   - ExyLife
   - SeolahLife
   m_RenderDataMap: {}
-  m_Tag: Characters
+  m_Tag: Members
   m_IsVariant: 0

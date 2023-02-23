@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.U2D;
 
@@ -26,6 +26,7 @@ public class SceneManager : MonoBehaviour
 
         ranks = content.GetComponentsInChildren<Rank>();
     }
+
 
     [SerializeField]
     GameObject startCanvas;
@@ -55,7 +56,7 @@ public class SceneManager : MonoBehaviour
     SpriteAtlas _sprite;
     private void Start()
     {
-        _sprite = Resources.Load<SpriteAtlas>("Characters");
+        _sprite = Resources.Load<SpriteAtlas>("Members");
     }
 
     public void LoginStartPanel()
@@ -191,7 +192,7 @@ public class SceneManager : MonoBehaviour
     public int characterNum = 1;
     public void SetCharacter()
     {
-        AnimatorController _controller = Resources.Load<AnimatorController>(characters[characterNum] + "Anim");
+        Animation _controller = Resources.Load<Animation>(characters[characterNum] + "Anim");
         Sprite _lifeSprite = _sprite.GetSprite(characters[characterNum] + "Life");
         for (int i = 0; i < player.lifeImg.Length; i++)
         {
@@ -199,6 +200,6 @@ public class SceneManager : MonoBehaviour
             player.lifeImg[i].sprite = _lifeSprite;
         }
 
-        player.anim.runtimeAnimatorController = _controller;
+
     }
 }
