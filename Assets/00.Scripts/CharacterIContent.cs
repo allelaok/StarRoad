@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CharacterIContent : MonoBehaviour
 {
     [SerializeField] Image playerImg;
+    [SerializeField] GameObject selectedImg;
     [SerializeField] GameObject selectBtn;
     [SerializeField] GameObject buyPanel;
 
@@ -22,13 +23,21 @@ public class CharacterIContent : MonoBehaviour
         {
             buyPanel.SetActive(false);
             if (GameManager.instance.selectedCharacter == num)
+            {
                 selectBtn.SetActive(false);
-            
+                selectedImg.SetActive(true);
+            }
             else
+            {
+                selectedImg.SetActive(false);
                 selectBtn.SetActive(true);
+
+            }
         }
         else
         {
+            selectedImg.SetActive(false);
+            selectBtn.SetActive(false);
             buyPanel.SetActive(true);
         }
     }

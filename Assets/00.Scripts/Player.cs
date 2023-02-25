@@ -195,7 +195,10 @@ public class Player : MonoBehaviour
             for (int i = 0; i < hearts.Count; i++)
             {
                 if (dis > GameManager.instance.Interval * (i + 1))
+                {
                     hearts[i].position = transform.position - transform.up * GameManager.instance.Interval * (i + 1);
+                    hearts[heartIdx].up = transform.up;
+                }
             }
         }
         else if (points.Count > pointIdx - 1 && hearts.Count > heartIdx)
@@ -318,6 +321,7 @@ public class Player : MonoBehaviour
         inverse = 1;
         transform.position = Vector3.zero;
         transform.rotation = Quaternion.identity;
+        state = STATE.Play;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -345,7 +349,9 @@ public class Player : MonoBehaviour
 
             if (dieCnt < GameManager.instance.LifeCnt)
             {
+
                 CreateHeart();
+                state = STATE.Defualt;
                 initPos();
             }
             else
@@ -360,7 +366,10 @@ public class Player : MonoBehaviour
             hearts.Add(collision.transform);
             // ???? ????
             score += point;
-            GameManager.instance.Speed = GameManager.instance.BaseSpeed + (hearts.Count + 1) * 0.2f;
+            if (hearts.Count < 10)
+            {
+                GameManager.instance.Speed = GameManager.instance.BaseSpeed + (hearts.Count + 1) * GameManager.instance.IntervalSpeed;
+            }
             //print("speed : " + GameManager.instance.Speed);
             if (score > GameManager.instance.BestScore)
             {
@@ -403,6 +412,13 @@ public class Player : MonoBehaviour
             points.Clear();
 
             state = STATE.CamMove;
+        }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Poison"))
+        {
+            inversedTime = 0;
+            inverse = -1;
+            //anim.SetInteger("Inverse", inverse);
+            GameManager.instance.SetSpring(collision.transform);
         }
     }
 
