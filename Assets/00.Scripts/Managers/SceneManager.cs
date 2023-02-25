@@ -316,6 +316,7 @@ public class SceneManager : MonoBehaviour
     Rank[] ranks;
     void AfterGetTopTen()
     {
+        print(1);
         for (int i = 0; i < 10; i++)
         {
             if (i < FirebaseManager.instance.rankInfos.Count)

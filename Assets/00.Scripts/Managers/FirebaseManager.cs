@@ -190,11 +190,9 @@ public class FirebaseManager : MonoBehaviour
 
         string kye = id.Replace(".", "dot");
         if (string.IsNullOrEmpty(kye)) return;
-        if (GameManager.instance.BestScore > score)
-        {
-            GameManager.instance.BestScore = score;
-            reference.Child("users").Child(kye).Child("score").SetValueAsync(score);
-        }
+
+        reference.Child("users").Child(kye).Child("score").SetValueAsync(GameManager.instance.BestScore);
+        
         GameManager.instance.coin += score;
         reference.Child("users").Child(kye).Child("coin").SetValueAsync(GameManager.instance.coin);
     }
