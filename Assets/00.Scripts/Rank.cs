@@ -15,6 +15,9 @@ public class Rank : MonoBehaviour
     [SerializeField]
     Image profile;
 
+    [SerializeField]
+    Sprite circle;
+
     public void SetInfo(RankInfo rankInfo = null)
     {
         if (rankInfo == null)
@@ -22,7 +25,7 @@ public class Rank : MonoBehaviour
             rank.text = string.Empty;
             nickName.text = string.Empty;
             score.text = string.Empty;
-            profile.sprite = null;
+            profile.sprite = circle;
         }
         else
         {

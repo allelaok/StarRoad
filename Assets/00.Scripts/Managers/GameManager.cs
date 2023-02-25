@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public int LifeCnt { get { return lifeCnt; } }
     public int TornadoCnt { get { return tornadoCnt; } }
     public int Price { get { return price; } }
+    public float IntervalSpeed { get { return intervalSpeed; } }
 
     [HideInInspector]
     public float Speed;
@@ -54,6 +55,8 @@ public class GameManager : MonoBehaviour
     float baseSpeed = 5;
     [SerializeField]
     int price = 1;
+    [SerializeField]
+    float intervalSpeed = 0.1f;
 
 
 

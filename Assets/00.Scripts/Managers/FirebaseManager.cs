@@ -264,11 +264,13 @@ public class FirebaseManager : MonoBehaviour
                 {
                     int score = int.Parse(childSnapshot.Child("score").Value.ToString());
                     string nickName = childSnapshot.Child("nickName").Value.ToString();
+                    string selectedCharacter = childSnapshot.Child("selectedCharacter").Value.ToString();
 
                     rank++;
                     RankInfo info = new RankInfo();
                     info.nickName = nickName;
                     info.score = score;
+                    info.selectedCharacter = int.Parse(selectedCharacter);
                     if (beforeScore == score)
                         info.rank = beforeRank;
                     else
@@ -321,15 +323,18 @@ public class FirebaseManager : MonoBehaviour
                         myRank.nickName = this.nickName;
                         myRank.score = GameManager.instance.BestScore;
                         myRank.rank = rank;
+                        myRank.selectedCharacter = GameManager.instance.selectedCharacter;
                         print("break");
                         break;
                     }
 
-                    string nickName = childSnapshot.Child("nickName").ToString();
+                    string nickName = childSnapshot.Child("nickName").Value.ToString();
+                    string selectedCharacter = childSnapshot.Child("selectedCharacter").Value.ToString();
 
                     targetRank.nickName = nickName;
                     targetRank.score = score;
                     targetRank.rank = rank;
+                    targetRank.selectedCharacter = int.Parse(selectedCharacter);
 
                 }
             }
