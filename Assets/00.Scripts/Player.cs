@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
    
     public Image[] lifeImg;
 
-    [HideInInspector]
     public Animator anim;
 
     Camera cam;
@@ -51,7 +50,6 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
         state = STATE.Defualt;
         animSprite = GetComponentInChildren<SpriteRenderer>();
         //PlayerAndHeart.Add(transform);
@@ -243,7 +241,7 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    pos = hearts[heartIdx - 1].position - hearts[heartIdx - 1].up * 2 * 0.5f;
+                    pos = hearts[heartIdx - 1].position - hearts[heartIdx - 1].up * GameManager.instance.Interval;
                     up = hearts[heartIdx - 1].up;
                 }
 
@@ -474,12 +472,8 @@ public class Player : MonoBehaviour
     {
         SoundManager.instance.BGM((int)Sound.BGM2);
         state = STATE.Defualt;
-        print("Bset : " + GameManager.instance.BestScore);
-        print("Score : " + score);
-        //if (GameManager.instance.BestScore < score)
-            FirebaseManager.instance.SaveScore(score);
-        print(3);
-        SceneManager.instance.OnClick_RankingBtn();
+        FirebaseManager.instance.SaveScore(score);
+        SceneManager.instance.EndPanel();
     }
 
 }

@@ -25,25 +25,33 @@ public class SceneManager : MonoBehaviour
         gameCanvas.SetActive(false);
 
         ranks = content.GetComponentsInChildren<Rank>();
+        playerItems = chractersContent.GetComponentsInChildren<CharacterIContent>();
     }
 
 
-    [SerializeField]
-    GameObject startCanvas;
-    [SerializeField]
-    GameObject gameCanvas;
+    [SerializeField] GameObject startCanvas;
+    [SerializeField] GameObject gameCanvas;
+
+    // startCanvas
+    [SerializeField] GameObject loginStartPanel;
+    [SerializeField] GameObject playStartPanel;
+    // loginStartPanel
+    [SerializeField] GameObject signUpPanel;
+    [SerializeField] GameObject loginPanel;
+    // playStartPanel
+    [SerializeField] GameObject rankingPanel;
+    [SerializeField] GameObject settingPanel;
+    // settingPanel
+    [SerializeField] GameObject CharacterPanel;
+    [SerializeField] GameObject logoutPanel;
+
+    // gameCanvas
+    [SerializeField] GameObject endPanel;
+
+
 
     [SerializeField]
-    GameObject loginStartPanel;
-    [SerializeField]
-    GameObject playStartPanel;
-    [SerializeField]
-    GameObject signUpPanel;
-    [SerializeField]
-    GameObject loginPanel;
-    [SerializeField]
-    GameObject rankingPanel;
-
+    TMPro.TMP_InputField signUpNickName;
     [SerializeField]
     TMPro.TMP_InputField signUpID;
     [SerializeField]
@@ -53,19 +61,141 @@ public class SceneManager : MonoBehaviour
     [SerializeField]
     TMPro.TMP_InputField logInPW;
 
-    SpriteAtlas _sprite;
+    [SerializeField]
+    Player player;
+
+    public SpriteAtlas sprite;
+
+    CharacterIContent[] playerItems;
     private void Start()
     {
-        _sprite = Resources.Load<SpriteAtlas>("Members");
+        sprite = Resources.Load<SpriteAtlas>("Members");
     }
+    enum STARTCANVAS
+    {
+        Default,
+        loginStartPanel,
+        playStartPanel
+    }
+
+
+
+    void StartCanvas(STARTCANVAS state)
+    {
+        loginStartPanel.SetActive(false);
+        playStartPanel.SetActive(false);
+
+        switch (state)
+        {
+            case STARTCANVAS.loginStartPanel:
+                loginStartPanel.SetActive(true);
+                break;
+            case STARTCANVAS.playStartPanel:
+                playStartPanel.SetActive(true);
+                break;
+        }
+    }
+
+    enum LOGINSTART
+    {
+        Default,
+        signUpPanel,
+        loginPanel
+    }
+    void LoginStartPanel(LOGINSTART state)
+    {
+        print(2);
+        signUpPanel.SetActive(false);
+        loginPanel.SetActive(false);
+        print(3);
+
+        switch (state)
+        {
+            case LOGINSTART.signUpPanel:
+
+                signUpID.text = "";
+                signUpPW.text = "";
+
+                signUpPanel.SetActive(true);
+                break;
+            case LOGINSTART.loginPanel:
+
+                logInID.text = "";
+                logInPW.text = "";
+
+                loginPanel.SetActive(true);
+                break;
+        }
+    }
+
+    enum PLAYSTART
+    {
+        Default,
+        rankingPanel,
+        settingPanel
+    }
+    void PlayStartPanel(PLAYSTART state)
+    {
+        rankingPanel.SetActive(false);
+        settingPanel.SetActive(false);
+
+        switch (state)
+        {
+            case PLAYSTART.rankingPanel:
+                rankingPanel.SetActive(true);
+                break;
+            case PLAYSTART.settingPanel:
+                settingPanel.SetActive(true);
+                break;
+        }
+    }
+
+    enum GAMECANVAS
+    {
+        Default,
+        endPanel
+    }
+    void GameCanvas(GAMECANVAS state)
+    {
+        endPanel.SetActive(false);
+
+        switch (state)
+        {
+            case GAMECANVAS.endPanel:
+                endPanel.SetActive(true);
+                break;
+        }
+    }
+
+    enum SETTING
+    {
+        Default,
+        CharacterPanel,
+        logoutPanel
+    }
+
+    void SettingPanel(SETTING state)
+    {
+        CharacterPanel.SetActive(false);
+        logoutPanel.SetActive(false);
+
+        switch (state)
+        {
+            case SETTING.CharacterPanel:
+                CharacterPanel.SetActive(true);
+                break;
+            case SETTING.logoutPanel:
+                logoutPanel.SetActive(true);
+                break;
+        }
+    }
+
 
     public void LoginStartPanel()
     {
-        loginStartPanel.SetActive(true);
-        playStartPanel.SetActive(false);
-        signUpPanel.SetActive(false);
-        loginPanel.SetActive(false);
-        rankingPanel.SetActive(false);
+        print(1);
+        LoginStartPanel(LOGINSTART.Default);
+        StartCanvas(STARTCANVAS.loginStartPanel);
 
         startCanvas.SetActive(true);
         gameCanvas.SetActive(false);
@@ -73,11 +203,8 @@ public class SceneManager : MonoBehaviour
 
     public void PlayStartPanel()
     {
-        loginStartPanel.SetActive(false);
-        playStartPanel.SetActive(true);
-        signUpPanel.SetActive(false);
-        loginPanel.SetActive(false);
-        rankingPanel.SetActive(false);
+        PlayStartPanel(PLAYSTART.Default);
+        StartCanvas(STARTCANVAS.playStartPanel);
 
         gameCanvas.SetActive(false);
         startCanvas.SetActive(true);
@@ -85,13 +212,8 @@ public class SceneManager : MonoBehaviour
 
     public void LoginPanel()
     {
-        loginStartPanel.SetActive(true);
-        signUpPanel.SetActive(false);
-        loginPanel.SetActive(true);
-
-        playStartPanel.SetActive(false);
-        logInID.text = "";
-        logInPW.text = "";
+        LoginStartPanel(LOGINSTART.loginPanel);
+        StartCanvas(STARTCANVAS.loginStartPanel);
 
         gameCanvas.SetActive(false);
         startCanvas.SetActive(true);
@@ -99,15 +221,9 @@ public class SceneManager : MonoBehaviour
 
     public void SignUpPanel()
     {
-        loginStartPanel.SetActive(true);
-        signUpPanel.SetActive(true);
-        loginPanel.SetActive(false);
+        LoginStartPanel(LOGINSTART.signUpPanel);
 
-        playStartPanel.SetActive(false);
-        rankingPanel.SetActive(false);
-
-        signUpID.text = "";
-        signUpPW.text = "";
+        StartCanvas(STARTCANVAS.loginStartPanel);
 
         gameCanvas.SetActive(false);
         startCanvas.SetActive(true);
@@ -115,44 +231,75 @@ public class SceneManager : MonoBehaviour
 
     public void RankingPanel()
     {
+        PlayStartPanel(PLAYSTART.rankingPanel);
 
-        loginStartPanel.SetActive(false);
-
-        playStartPanel.SetActive(true);
-        rankingPanel.SetActive(true);
+        StartCanvas(STARTCANVAS.playStartPanel);
 
         gameCanvas.SetActive(false);
         startCanvas.SetActive(true);
     }
 
+    public void GoSettingPanel()
+    {
+
+        SettingPanel(SETTING.Default);
+        PlayStartPanel(PLAYSTART.settingPanel);
+
+        StartCanvas(STARTCANVAS.playStartPanel);
+
+        gameCanvas.SetActive(false);
+        startCanvas.SetActive(true);
+    }
+
+    public void GoCharacterPanel()
+    {
+        SetChracters();
+
+        SettingPanel(SETTING.CharacterPanel);
+        PlayStartPanel(PLAYSTART.settingPanel);
+
+        StartCanvas(STARTCANVAS.playStartPanel);
+
+        gameCanvas.SetActive(false);
+        startCanvas.SetActive(true);
+    }
+    public void GoLogoutPanel()
+    {
+        SettingPanel(SETTING.logoutPanel);
+        PlayStartPanel(PLAYSTART.settingPanel);
+
+        StartCanvas(STARTCANVAS.playStartPanel);
+
+        gameCanvas.SetActive(false);
+        startCanvas.SetActive(true);
+    }
+   
     public void GamePanle()
     {
         SetCharacter();
+        this.GameCanvas(GAMECANVAS.Default);
         gameCanvas.SetActive(true);
         startCanvas.SetActive(false);
         SoundManager.instance.BGM((int)Sound.BGM1);
     }
 
+    public void EndPanel()
+    {
+        this.GameCanvas(GAMECANVAS.endPanel);
+
+        gameCanvas.SetActive(true);
+        startCanvas.SetActive(false);
+    }
+
     public void OnClick_SignUp()
     {
-        //FirebaseManager.instance.ID = signUpID.text;
-        // FirebaseManager.instance.PW = signUpPW.text;
-
-
-        PlayerPrefs.SetString("Email", signUpID.text);
-        PlayerPrefs.SetString("Password", signUpPW.text);
-
-        FirebaseManager.instance.SignUp(signUpID.text, signUpPW.text);
+        FirebaseManager.instance.SignUp(signUpNickName.text, signUpID.text, signUpPW.text);
     }
     public void OnClick_LogIn()
     {
-       // FirebaseManager.instance.ID = logInID.text;
-      //  FirebaseManager.instance.PW = logInPW.text;
         FirebaseManager.instance.SignIn(logInID.text, logInPW.text);
     }
 
-    [SerializeField]
-    Player player;
     public void OnClick_PlayBtn()
     {
         GamePanle();
@@ -190,21 +337,70 @@ public class SceneManager : MonoBehaviour
     }
 
     string[] characters =
-    {
+      {
         "Exy",
-        "Seolah"
+        "SA",
+        "BN",
+        "SB",
+        "RD",
+        "DW",
+        "ES",
+        "YR",
+        "DY",
+        "YJ",
     };
-    public int characterNum = 1;
+
     public void SetCharacter()
     {
-        Animation _controller = Resources.Load<Animation>(characters[characterNum] + "Anim");
-        Sprite _lifeSprite = _sprite.GetSprite(characters[characterNum] + "Life");
         for (int i = 0; i < player.lifeImg.Length; i++)
         {
+            player.lifeImg[i].sprite = GetProfileSprite(GameManager.instance.selectedCharacter);
+        }
 
-            player.lifeImg[i].sprite = _lifeSprite;
+        player.anim.SetInteger("SC", 0);
+        player.anim.SetInteger("SC", GameManager.instance.selectedCharacter);
+    }
+
+    public Sprite GetProfileSprite(int num, string path = null)
+    {
+        if (num < characters.Length)
+            return sprite.GetSprite(characters[num] + path);
+        else
+            return null;
+    }
+
+
+    [SerializeField]
+    GameObject chractersContent;
+    [SerializeField]
+    TMPro.TMP_Text coin;
+    void SetChracters()
+    {
+        coin.text = GameManager.instance.coin.ToString();
+        for (int i = 0; i < playerItems.Length; i++)
+        {
+            playerItems[i].SetContent();
         }
     }
 
+    public void SelectPlayer(int num)
+    {
+        GameManager.instance.selectedCharacter = num;
+        FirebaseManager.instance.SaveData("selectedCharacter", num);
+        SetChracters();
+        SetCharacter();
+    }
+
+    public void BuyPlayer(int num)
+    {
+        if (GameManager.instance.coin < GameManager.instance.Price) return;
+
+        GameManager.instance.coin -= GameManager.instance.Price;
+        GameManager.instance.characters += num.ToString();
+
+        FirebaseManager.instance.SaveData("coin", GameManager.instance.coin);
+        FirebaseManager.instance.SaveData("characters", GameManager.instance.characters);
+        SetChracters();
+    }
 
 }
