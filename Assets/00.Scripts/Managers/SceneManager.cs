@@ -199,10 +199,12 @@ public class SceneManager : MonoBehaviour
 
         startCanvas.SetActive(true);
         gameCanvas.SetActive(false);
-    }
 
+    }
     public void PlayStartPanel()
     {
+        player.anim.SetInteger("SC", GameManager.instance.selectedCharacter);
+
         PlayStartPanel(PLAYSTART.Default);
         StartCanvas(STARTCANVAS.playStartPanel);
 
@@ -253,6 +255,8 @@ public class SceneManager : MonoBehaviour
 
     public void GoCharacterPanel()
     {
+        player.anim.SetInteger("SC", 0);
+
         SetChracters();
 
         SettingPanel(SETTING.CharacterPanel);
@@ -358,7 +362,6 @@ public class SceneManager : MonoBehaviour
             player.lifeImg[i].sprite = GetProfileSprite(GameManager.instance.selectedCharacter);
         }
 
-        player.anim.SetInteger("SC", 0);
         player.anim.SetInteger("SC", GameManager.instance.selectedCharacter);
     }
 
@@ -403,5 +406,9 @@ public class SceneManager : MonoBehaviour
         FirebaseManager.instance.SaveData("characters", GameManager.instance.characters);
         SetChracters();
     }
-
+    public void OnClick_SignOut()
+    {
+        FirebaseManager.instance.LogOut();
+        LoginStartPanel();
+    }
 }

@@ -469,7 +469,8 @@ public class FirebaseManager : MonoBehaviour
 
     public void LogOut()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetString("Id", "");
+        PlayerPrefs.SetString("Password", "");
         id = null;
         pw = null;
         nickName = null;
