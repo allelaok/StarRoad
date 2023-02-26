@@ -64,8 +64,10 @@ public class FirebaseManager : MonoBehaviour
         }
 
 #if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.S))
+
+        if (Input.GetMouseButtonDown(1))
         {
+            print("데이터 강제 초기화");
             string kye = id.Replace(".", "dot");
             if (ExceptedString(kye)) return;
             reference.Child("users").Child(kye).Child("score").SetValueAsync(0);
@@ -240,7 +242,6 @@ public class FirebaseManager : MonoBehaviour
     public List<RankInfo> rankInfos = new List<RankInfo>();
     public void GetRankInfo(Action callback)
     {
-        print(4);
         FirebaseDatabase.DefaultInstance.GetReference("users").OrderByChild("score").GetValueAsync().ContinueWithOnMainThread(task =>
         {
             if (task.IsFaulted)
@@ -258,6 +259,9 @@ public class FirebaseManager : MonoBehaviour
                 {
                     topNum = snapshot.ChildrenCount;
                 }
+
+                print(topNum);
+
                 int beforeScore = 0;
                 int beforeRank = 0;
                 foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
@@ -281,7 +285,7 @@ public class FirebaseManager : MonoBehaviour
                     }
 
                     rankInfos.Add(info);
-
+                    print(rank);
                     if (rank >= topNum)
                     {
                         print("break");
