@@ -192,6 +192,12 @@ public class FirebaseManager : MonoBehaviour
             if (!isSignIn && user != null)
             {
                 SceneManager.instance.LoginStartPanel();
+
+                PlayerPrefs.DeleteAll();
+                PlayerPrefs.DeleteKey(uid);
+
+                GameManager.instance.InitData();
+
                 Debug.LogFormat("Signed out {0}", user.UserId);
             }
             user = auth.CurrentUser;
@@ -622,10 +628,6 @@ public class FirebaseManager : MonoBehaviour
 
     public void LogOut()
     {
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.DeleteKey(uid);
-
-        GameManager.instance.InitData();
         
 
         auth.SignOut();
