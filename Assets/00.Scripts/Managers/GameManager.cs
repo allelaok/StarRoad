@@ -84,7 +84,13 @@ public class GameManager : MonoBehaviour
         }
 
         SoundManager.instance.BGM((int)Sound.BGM2);
-        FirebaseManager.instance.AutoSignIn();
+
+
+        BestScore = PlayerPrefs.GetInt("score");
+        selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
+        characters = PlayerPrefs.GetString("characters");
+        coin = PlayerPrefs.GetInt("coin");
+
     }
 
     /* 해상도 설정하는 함수 */

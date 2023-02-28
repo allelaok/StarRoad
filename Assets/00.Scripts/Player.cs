@@ -197,7 +197,7 @@ public class Player : MonoBehaviour
                 if (dis > GameManager.instance.Interval * (i + 1))
                 {
                     hearts[i].position = transform.position - transform.up * GameManager.instance.Interval * (i + 1);
-                    hearts[heartIdx].up = transform.up;
+                    hearts[i].up = transform.up;
                 }
             }
         }
@@ -488,8 +488,8 @@ public class Player : MonoBehaviour
     {
         SoundManager.instance.BGM((int)Sound.BGM2);
         state = STATE.Defualt;
-        FirebaseManager.instance.SaveScore(score);
         SceneManager.instance.EndPanel();
+        FirebaseManager.instance.SaveScore(score);
     }
 
 }

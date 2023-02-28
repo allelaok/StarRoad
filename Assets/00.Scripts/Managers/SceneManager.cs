@@ -17,8 +17,8 @@ public class SceneManager : MonoBehaviour
 
         loginStartPanel.SetActive(false);
         playStartPanel.SetActive(false);
-        signUpPanel.SetActive(false);
-        loginPanel.SetActive(false);
+       // signUpPanel.SetActive(false);
+      //  loginPanel.SetActive(false);
         rankingPanel.SetActive(false);
 
         startCanvas.SetActive(true);
@@ -26,6 +26,8 @@ public class SceneManager : MonoBehaviour
 
         ranks = content.GetComponentsInChildren<Rank>();
         playerItems = chractersContent.GetComponentsInChildren<CharacterIContent>();
+
+        LoginStartPanel();
     }
 
 
@@ -36,8 +38,8 @@ public class SceneManager : MonoBehaviour
     [SerializeField] GameObject loginStartPanel;
     [SerializeField] GameObject playStartPanel;
     // loginStartPanel
-    [SerializeField] GameObject signUpPanel;
-    [SerializeField] GameObject loginPanel;
+    //[SerializeField] GameObject signUpPanel;
+    //[SerializeField] GameObject loginPanel;
     // playStartPanel
     [SerializeField] GameObject rankingPanel;
     [SerializeField] GameObject settingPanel;
@@ -102,31 +104,31 @@ public class SceneManager : MonoBehaviour
         signUpPanel,
         loginPanel
     }
-    void LoginStartPanel(LOGINSTART state)
-    {
-        print(2);
-        signUpPanel.SetActive(false);
-        loginPanel.SetActive(false);
-        print(3);
+    //void LoginStartPanel(LOGINSTART state)
+    //{
+    //    print(2);
+    //    signUpPanel.SetActive(false);
+    //    loginPanel.SetActive(false);
+    //    print(3);
 
-        switch (state)
-        {
-            case LOGINSTART.signUpPanel:
+    //    switch (state)
+    //    {
+    //        case LOGINSTART.signUpPanel:
 
-                signUpID.text = "";
-                signUpPW.text = "";
+    //            signUpID.text = "";
+    //            signUpPW.text = "";
 
-                signUpPanel.SetActive(true);
-                break;
-            case LOGINSTART.loginPanel:
+    //            signUpPanel.SetActive(true);
+    //            break;
+    //        case LOGINSTART.loginPanel:
 
-                logInID.text = "";
-                logInPW.text = "";
+    //            logInID.text = "";
+    //            logInPW.text = "";
 
-                loginPanel.SetActive(true);
-                break;
-        }
-    }
+    //            loginPanel.SetActive(true);
+    //            break;
+    //    }
+    //}
 
     enum PLAYSTART
     {
@@ -194,7 +196,7 @@ public class SceneManager : MonoBehaviour
     public void LoginStartPanel()
     {
         print(1);
-        LoginStartPanel(LOGINSTART.Default);
+        //LoginStartPanel(LOGINSTART.Default);
         StartCanvas(STARTCANVAS.loginStartPanel);
 
         startCanvas.SetActive(true);
@@ -214,7 +216,7 @@ public class SceneManager : MonoBehaviour
 
     public void LoginPanel()
     {
-        LoginStartPanel(LOGINSTART.loginPanel);
+       // LoginStartPanel(LOGINSTART.loginPanel);
         StartCanvas(STARTCANVAS.loginStartPanel);
 
         gameCanvas.SetActive(false);
@@ -223,7 +225,7 @@ public class SceneManager : MonoBehaviour
 
     public void SignUpPanel()
     {
-        LoginStartPanel(LOGINSTART.signUpPanel);
+     //   LoginStartPanel(LOGINSTART.signUpPanel);
 
         StartCanvas(STARTCANVAS.loginStartPanel);
 
@@ -299,9 +301,14 @@ public class SceneManager : MonoBehaviour
     {
         FirebaseManager.instance.SignUp(signUpNickName.text, signUpID.text, signUpPW.text);
     }
+
+    public void OnClick_CheckNickName()
+    {
+        FirebaseManager.instance.CheckNickName(logInID.text); 
+    }
     public void OnClick_LogIn()
     {
-        FirebaseManager.instance.SignIn(logInID.text, logInPW.text);
+        FirebaseManager.instance.GuestLogIn();
     }
 
     public void OnClick_PlayBtn()

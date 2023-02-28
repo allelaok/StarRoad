@@ -33,6 +33,9 @@ public class FirebaseManager : MonoBehaviour
 
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
+        auth.StateChanged += AuthStateChanged;
+
+        nickName = PlayerPrefs.GetString("nickName");
     }
 
     //public string PW { set { password = value; } }
@@ -41,21 +44,23 @@ public class FirebaseManager : MonoBehaviour
 
     string id;
     string pw;
+    bool guestLogIn;
 
+    string uid;
     // Update is called once per frame
     void Update()
     {
-        if (login)
-        {
-            PlayerPrefs.SetString("Id", id);
-            PlayerPrefs.SetString("Password", pw);
-            login = false;
-        }
-        if (goStartLoginPanel)
-        {
-            SceneManager.instance.LoginStartPanel();
-            goStartLoginPanel = false;
-        }
+        //if (guestLogIn)
+        //{
+        //    PlayerPrefs.SetString("NickName", nickName);
+        //    guestLogIn = false;
+        //}
+
+        //if (goStartLoginPanel)
+        //{
+        //    SceneManager.instance.LoginStartPanel();
+        //    goStartLoginPanel = false;
+        //}
 
         if (goStartPlay)
         {
@@ -68,89 +73,150 @@ public class FirebaseManager : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             print("데이터 강제 초기화");
-            string kye = id.Replace(".", "dot");
+            string kye = "6lbzsC6bAyeJYVBTECr9EofUeI22";
             if (ExceptedString(kye)) return;
-            reference.Child("users").Child(kye).Child("score").SetValueAsync(0);
+            reference.Child("users").Child(kye).Child("score").SetValueAsync(3);
             reference.Child("users").Child(kye).Child("selectedCharacter").SetValueAsync(0);
             reference.Child("users").Child(kye).Child("characters").SetValueAsync("0");
             reference.Child("users").Child(kye).Child("coin").SetValueAsync(0);
         }
+
+
 #endif
     }
-
-    //public void LogIn()
-    //{
-    //    if (ExceptedString(id)) return;
-
-    //    reference.Child("users").Child(id).Child("password").GetValueAsync().ContinueWithOnMainThread(task =>
-    //    {
-    //        if (task.IsFaulted)
-    //        {
-    //            print("login error");
-    //        }
-    //        else if (task.IsCompleted)
-    //        {
-    //            DataSnapshot snapshot = task.Result;
-    //            if ((string)snapshot.Value == password)
-    //            {
-
-    //                PlayerPrefs.SetString("userId", id);
-    //                PlayerPrefs.SetString("password", password);
-
-    //                GetBestScore(SceneManager.instance.PlayStartPanel);
-    //                print("login sucssece");
-    //            }
-    //            else
-    //            {
-    //                print("login fail.");
-    //            }
-    //        }
-    //    });
-    //}
-
-    //public void AutoLogin()
-    //{
-    //   string id = PlayerPrefs.GetString("id");
-    //    string password = PlayerPrefs.GetString("password");
-
-    //    if (ExceptedString(id))
-    //    {
-    //        SceneManager.instance.LoginStartPanel();
-    //        return;
-    //    } 
-
-    //    reference.Child("users").Child(id.Replace(".","dot")).Child("password").GetValueAsync().ContinueWithOnMainThread(task =>
-    //    {
-    //        if (task.IsFaulted)
-    //        {
-    //        }
-    //        else if (task.IsCompleted)
-    //        {
-    //            DataSnapshot snapshot = task.Result;
-    //            if ((string)snapshot.Value == password)
-    //            {
-    //                GetMyInfo(id, SceneManager.instance.PlayStartPanel);
-    //                print("auto login sucssece");
-    //            }
-    //            else
-    //            {
-    //                SceneManager.instance.LoginStartPanel();
-    //                print("auto login fail.");
-    //            }
-    //        }
-    //    });
-    //}
-
-    bool ExceptedString(string id)
+    Firebase.Auth.FirebaseUser user = null; //현재 사용자
+    public void CheckNickName(string nickName)
     {
-        if (string.IsNullOrEmpty(id))
+        FirebaseDatabase.DefaultInstance.GetReference("users").OrderByChild("nickName").GetValueAsync().ContinueWithOnMainThread(task =>
         {
-            print("id null");
+            if (task.IsFaulted)
+            {
+                // Handle the error...
+                print("get my rank error");
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                long cnt = snapshot.ChildrenCount;
+                long i = 0;
+                foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
+                {
+                    string snapNickName = childSnapshot.Child("nickName").Value.ToString();
+                    if (nickName.Equals(snapNickName))
+                    {
+                        print(nickName);
+                        print(snapNickName);
+                        print("사용불가");
+                        break;
+                    }
+
+                    i++;
+                    if (i >= cnt)
+                    {
+                        print("사용가능");
+                        // ok 버튼 활성화
+                        this.nickName = nickName;
+
+                        break;
+                    }
+
+                }
+            }
+        });
+
+
+
+    }
+
+    public void GuestLogIn()
+    {
+        if (string.IsNullOrEmpty(nickName)) return;
+
+        auth.SignInAnonymouslyAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCanceled)
+            {
+                Debug.LogError("SignInAnonymouslyAsync was canceled.");
+                return;
+            }
+            if (task.IsFaulted)
+            {
+                Debug.LogError("SignInAnonymouslyAsync encountered an error: " + task.Exception);
+                return;
+            }
+
+            user = task.Result;
+
+            uid = user.UserId;
+            print(uid);
+
+            SaveAllData();
+
+            Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.UserId);
+        });
+    }
+
+    void SetNickName(string nickName)
+    {
+        Firebase.Auth.FirebaseUser user = auth.CurrentUser;
+        if (user != null)
+        {
+            Firebase.Auth.UserProfile profile = new Firebase.Auth.UserProfile
+            {
+                DisplayName = nickName
+            };
+            user.UpdateUserProfileAsync(profile).ContinueWith(task => {
+                if (task.IsCanceled)
+                {
+                    Debug.LogError("UpdateUserProfileAsync was canceled.");
+                    return;
+                }
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("UpdateUserProfileAsync encountered an error: " + task.Exception);
+                    return;
+                }
+
+                Debug.LogFormat("User profile updated successfully: {0} ({1})", user.DisplayName, user.UserId);
+            });
+        }
+
+
+    }
+    private bool isSignIn = false; //로그인여부
+    void AuthStateChanged(object sender, System.EventArgs eventArgs)
+    {
+        if (auth.CurrentUser != user)
+        {
+            //연결된 계정과 기기의 계정이 같은 경우 true
+            isSignIn = user != auth.CurrentUser && auth.CurrentUser != null;
+            if (!isSignIn && user != null)
+            {
+                SceneManager.instance.LoginStartPanel();
+                Debug.LogFormat("Signed out {0}", user.UserId);
+            }
+            user = auth.CurrentUser;
+            if (isSignIn)
+            {
+                Debug.LogFormat("Signed in {0}", user.UserId);
+                uid = user.UserId;
+                PlayerPrefs.SetString("UID", uid);
+                SceneManager.instance.PlayStartPanel();
+            }
+        }
+    }
+
+    
+    bool ExceptedString(string kye)
+    {
+        if (string.IsNullOrEmpty(kye))
+        {
+            print("kye null");
             return true;
         }
-        else if (id.Contains(".") | id.Contains("$")| id.Contains("[") | id.Contains("]"))
+        else if (kye.Contains(".") | kye.Contains("$")| kye.Contains("[") | kye.Contains("]"))
         {
-            print("id error");
+            print("kye error");
             return true;
         }
 
@@ -158,63 +224,61 @@ public class FirebaseManager : MonoBehaviour
 
     }
 
-
-    //public void SingUp()
-    //{
-    //    if (ExceptedString(id)) return;
-
-    //    reference.Child("users").Child(id).Child("password").GetValueAsync().ContinueWithOnMainThread(task =>
-    //    {
-    //        if (task.IsFaulted)
-    //        {
-    //            print("sign up error");
-    //            // Handle the error...
-    //        }
-    //        else if (task.IsCompleted)
-    //        {
-    //            print("sign up 1");
-    //            DataSnapshot snapshot = task.Result;
-    //            if (string.IsNullOrEmpty((string)snapshot.Value))
-    //            {
-    //                reference.Child("users").Child(id).Child("score").SetValueAsync(0);
-    //                SceneManager.instance.LoginStartPanel();
-    //                print("sucssese");
-    //            }
-    //            else
-    //            {
-    //                print("already exist");
-    //            }
-    //        }
-    //    });
-    //}
     public void SaveScore(int score)
     {
 
-        string kye = id.Replace(".", "dot");
+        string kye = uid;
         if (string.IsNullOrEmpty(kye)) return;
 
-        reference.Child("users").Child(kye).Child("score").SetValueAsync(GameManager.instance.BestScore);
-        
+        SaveData("score", GameManager.instance.BestScore);
+
         GameManager.instance.coin += score;
-        reference.Child("users").Child(kye).Child("coin").SetValueAsync(GameManager.instance.coin);
+        SaveData("coin", GameManager.instance.coin);
     }
 
-    public void SaveData(string path, object data)
+
+    void SaveAllData()
     {
-        string kye = id.Replace(".", "dot");
+        print("저장");
+        SaveData("score", 0);
+        SaveData("nickName", nickName);
+        SaveData("selectedCharacter", 0);
+        SaveData("characters", "0");
+        SaveData("coin", 0);
+    }
+
+    public void SaveData(string path, int data)
+    {
+        PlayerPrefs.SetInt(path, data);
+        string kye = uid;
+        if (string.IsNullOrEmpty(kye)) return;
+
+        reference.Child("users").Child(kye).Child(path).SetValueAsync(data);
+    }
+    public void SaveData(string path, string data)
+    {
+        PlayerPrefs.SetString(path, data);
+        string kye = uid;
+        if (string.IsNullOrEmpty(kye)) return;
+        reference.Child("users").Child(kye).Child(path).SetValueAsync(data);
+    }
+    public void SaveData(string path, float data)
+    {
+        PlayerPrefs.SetFloat(path, data);
+        string kye = uid;
         if (string.IsNullOrEmpty(kye)) return;
         reference.Child("users").Child(kye).Child(path).SetValueAsync(data);
     }
 
-    public void GetMyInfo(string id, Action callback)
+    public void GetMyInfo( Action callback)
     {
-        if (ExceptedString(id))
+        if (ExceptedString(uid))
         {
             print("id null");
             return;
         }
 
-        reference.Child("users").Child(id).GetValueAsync().ContinueWithOnMainThread(task =>
+        reference.Child("users").Child(uid).GetValueAsync().ContinueWithOnMainThread(task =>
         {
             if (task.IsFaulted)
             {
@@ -314,12 +378,16 @@ public class FirebaseManager : MonoBehaviour
             {
                 targetRank = new RankInfo();
                 DataSnapshot snapshot = task.Result;
+                int beforeRank = 0;
+                int beforeScore = 0;
                 int rank = 0;
+                int i = 0;
+
                 foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
                 {
                     int score = int.Parse(childSnapshot.Child("score").Value.ToString());
                     rank++;
-
+                 
                     if (score <= GameManager.instance.BestScore)
                     {
                         //reference.Child("users").Child(GameManager.instance.userId).Child("rank").SetValueAsync(rank);
@@ -337,7 +405,18 @@ public class FirebaseManager : MonoBehaviour
 
                     targetRank.nickName = nickName;
                     targetRank.score = score;
-                    targetRank.rank = rank;
+                    if(targetRank.score == beforeScore)
+                    {
+                        targetRank.rank = beforeRank;
+                    }
+                    else
+                    {
+                        beforeRank = rank;
+                        beforeScore = score;
+                        targetRank.rank = beforeRank;
+                    }
+
+
                     targetRank.selectedCharacter = int.Parse(selectedCharacter);
 
                 }
@@ -421,7 +500,7 @@ public class FirebaseManager : MonoBehaviour
                         Firebase.Auth.FirebaseUser newUser = task.Result;
 
 
-                        GetMyInfo(id.Replace(".", "dot"), SceneManager.instance.PlayStartPanel);
+                        GetMyInfo(SceneManager.instance.PlayStartPanel);
 
                         this.id = id;
                         this.pw = pw;
@@ -439,16 +518,67 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
+
+    public void GuestAutoLogIn()
+    {
+        auth.SignInAnonymouslyAsync().ContinueWith(task =>
+        {
+            if (task.IsCanceled)
+            {
+                Debug.LogError("SignInAnonymouslyAsync was canceled.");
+                return;
+            }
+            if (task.IsFaulted)
+            {
+                Debug.LogError("SignInAnonymouslyAsync encountered an error: " + task.Exception);
+                return;
+            }
+
+            user = task.Result;
+            Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.UserId);
+        });
+
+    }
+
     public void AutoSignIn()
     {
 
         string id = PlayerPrefs.GetString("Id");
         string password = PlayerPrefs.GetString("Password");
+
+        id = "";
+        password = "";
+
         print(id);
         print(password);
+
         if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(password))
         {
-            SceneManager.instance.LoginStartPanel();
+            string nickName = PlayerPrefs.GetString("NickName");
+            if (string.IsNullOrEmpty(nickName))
+            {
+                SceneManager.instance.LoginStartPanel();
+                return;
+            }
+
+            auth.SignInAnonymouslyAsync().ContinueWith(task =>
+            {
+                if (task.IsCanceled)
+                {
+                    Debug.LogError("SignInAnonymouslyAsync was canceled.");
+                    return;
+                }
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("SignInAnonymouslyAsync encountered an error: " + task.Exception);
+                    return;
+                }
+
+                user = task.Result;
+                Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.UserId);
+                goStartPlay = true;
+            });
+
             return;
         }
 
@@ -458,13 +588,13 @@ public class FirebaseManager : MonoBehaviour
                 if (task.IsCompleted && !task.IsCanceled && !task.IsFaulted)
                 {
                     Firebase.Auth.FirebaseUser newUser = task.Result;
-                    GetMyInfo(id.Replace(".", "dot"), SceneManager.instance.PlayStartPanel);
+                    GetMyInfo(SceneManager.instance.PlayStartPanel);
                     this.id = id;
                     print("auto login sucssece");
                 }
                 else
                 {
-                        goStartLoginPanel = true;
+                    goStartLoginPanel = true;
                     print("fail");
 
                 }
@@ -479,6 +609,28 @@ public class FirebaseManager : MonoBehaviour
         pw = null;
         nickName = null;
         auth.SignOut();
+    }
+
+    public void SendEmailVerification()
+    {
+        Firebase.Auth.FirebaseUser user = auth.CurrentUser;
+        if (user != null)
+        {
+            user.SendEmailVerificationAsync().ContinueWith(task => {
+                if (task.IsCanceled)
+                {
+                    Debug.LogError("SendEmailVerificationAsync was canceled.");
+                    return;
+                }
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("SendEmailVerificationAsync encountered an error: " + task.Exception);
+                    return;
+                }
+
+                Debug.Log("Email sent successfully.");
+            });
+        }
     }
 
 }
