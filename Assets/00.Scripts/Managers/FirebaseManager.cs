@@ -73,12 +73,13 @@ public class FirebaseManager : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             print("데이터 강제 초기화");
-            string kye = "6lbzsC6bAyeJYVBTECr9EofUeI22";
+            string kye = uid;
             if (ExceptedString(kye)) return;
-            reference.Child("users").Child(kye).Child("score").SetValueAsync(3);
-            reference.Child("users").Child(kye).Child("selectedCharacter").SetValueAsync(0);
-            reference.Child("users").Child(kye).Child("characters").SetValueAsync("0");
-            reference.Child("users").Child(kye).Child("coin").SetValueAsync(0);
+            int num = 0;
+            reference.Child("users").Child(kye).Child("score").SetValueAsync(num);
+            reference.Child("users").Child(kye).Child("selectedCharacter").SetValueAsync(num);
+            reference.Child("users").Child(kye).Child("characters").SetValueAsync("3");
+            reference.Child("users").Child(kye).Child("coin").SetValueAsync(num);
         }
 
 
@@ -150,8 +151,6 @@ public class FirebaseManager : MonoBehaviour
             uid = user.UserId;
             print(uid);
 
-            SaveAllData();
-
             Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.UserId);
         });
     }
@@ -200,7 +199,14 @@ public class FirebaseManager : MonoBehaviour
             {
                 Debug.LogFormat("Signed in {0}", user.UserId);
                 uid = user.UserId;
-                PlayerPrefs.SetString("UID", uid);
+
+                if (PlayerPrefs.HasKey(uid) ==false)
+                {
+                    print("키 없음");
+                    PlayerPrefs.SetString("UID", uid);
+                    SaveAllData();
+                }
+
                 SceneManager.instance.PlayStartPanel();
             }
         }
@@ -239,28 +245,46 @@ public class FirebaseManager : MonoBehaviour
 
     void SaveAllData()
     {
-        print("저장");
-        SaveData("score", 0);
-        SaveData("nickName", nickName);
-        SaveData("selectedCharacter", 0);
-        SaveData("characters", "0");
-        SaveData("coin", 0);
+        Save("score", 0);
+        Save("nickName", nickName);
+        Save("selectedCharacter", 0);
+        Save("characters", "0");
+        Save("coin", 0);
     }
 
+
+    void Save(string path, int data)
+    {
+        string kye = uid;
+            print(kye);
+        if (string.IsNullOrEmpty(kye))
+        {
+            print(kye);
+            return;
+        }
+
+        print("저장");
+
+        reference.Child("users").Child(kye).Child(path).SetValueAsync(data);
+        print("저장");
+    }
     public void SaveData(string path, int data)
     {
         PlayerPrefs.SetInt(path, data);
+        Save(path, data);
+    }
+
+    void Save(string path, string data)
+    {
         string kye = uid;
         if (string.IsNullOrEmpty(kye)) return;
-
         reference.Child("users").Child(kye).Child(path).SetValueAsync(data);
+       
     }
     public void SaveData(string path, string data)
     {
         PlayerPrefs.SetString(path, data);
-        string kye = uid;
-        if (string.IsNullOrEmpty(kye)) return;
-        reference.Child("users").Child(kye).Child(path).SetValueAsync(data);
+        Save(path, data);
     }
     public void SaveData(string path, float data)
     {
@@ -349,7 +373,6 @@ public class FirebaseManager : MonoBehaviour
                     }
 
                     rankInfos.Add(info);
-                    print(rank);
                     if (rank >= topNum)
                     {
                         print("break");
@@ -381,7 +404,6 @@ public class FirebaseManager : MonoBehaviour
                 int beforeRank = 0;
                 int beforeScore = 0;
                 int rank = 0;
-                int i = 0;
 
                 foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
                 {
@@ -427,7 +449,6 @@ public class FirebaseManager : MonoBehaviour
 
     // 인증을 관리할 객체
     Firebase.Auth.FirebaseAuth auth;
-    bool goStartLogin;
 
     // 회원가입 버튼을 눌렀을 때 작동할 함수
     public void SignUp(string nickName, string id, string password)
@@ -484,7 +505,6 @@ public class FirebaseManager : MonoBehaviour
     }
     bool login;
     bool goStartPlay;
-    private bool goStartLoginPanel;
 
     // 로그인 버튼을 눌렀을 때 작동할 함수
     public void SignIn(string id, string pw)
@@ -594,7 +614,6 @@ public class FirebaseManager : MonoBehaviour
                 }
                 else
                 {
-                    goStartLoginPanel = true;
                     print("fail");
 
                 }
@@ -603,11 +622,12 @@ public class FirebaseManager : MonoBehaviour
 
     public void LogOut()
     {
-        PlayerPrefs.SetString("Id", "");
-        PlayerPrefs.SetString("Password", "");
-        id = null;
-        pw = null;
-        nickName = null;
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey(uid);
+
+        GameManager.instance.InitData();
+        
+
         auth.SignOut();
     }
 

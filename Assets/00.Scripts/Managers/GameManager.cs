@@ -93,6 +93,14 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void InitData()
+    {
+        BestScore = 0;
+        selectedCharacter = 0;
+        characters = "0";
+        coin = 0;
+    }
+
     /* 해상도 설정하는 함수 */
     public void SetResolution()
     {
