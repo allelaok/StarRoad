@@ -233,8 +233,12 @@ public class SceneManager : MonoBehaviour
         startCanvas.SetActive(true);
     }
 
+    [SerializeField]
+    GameObject NickNameBtn;
     public void RankingPanel()
     {
+        NickNameBtn.SetActive(!FirebaseManager.instance.IsSignIn);
+
         PlayStartPanel(PLAYSTART.rankingPanel);
 
         StartCanvas(STARTCANVAS.playStartPanel);
@@ -259,7 +263,7 @@ public class SceneManager : MonoBehaviour
     {
         player.anim.SetInteger("SC", 0);
 
-        SetChracters();
+        SetChractersPanel();
 
         SettingPanel(SETTING.CharacterPanel);
         PlayStartPanel(PLAYSTART.settingPanel);
@@ -327,7 +331,6 @@ public class SceneManager : MonoBehaviour
     Rank[] ranks;
     void AfterGetTopTen()
     {
-        print(1);
         for (int i = 0; i < 10; i++)
         {
             if (i < FirebaseManager.instance.rankInfos.Count)
@@ -335,7 +338,15 @@ public class SceneManager : MonoBehaviour
             else
                 ranks[i].SetInfo();
         }
-        FirebaseManager.instance.GetMyRank(AfterGetMyRank);
+        print("login state : " + FirebaseManager.instance.IsSignIn);
+        if (FirebaseManager.instance.IsSignIn)
+            FirebaseManager.instance.GetMyRank(AfterGetMyRank);
+        else
+        {
+            ranks[10].SetInfo();
+            ranks[11].SetInfo();
+            RankingPanel();
+        }
     }
 
     void AfterGetMyRank()
@@ -385,7 +396,7 @@ public class SceneManager : MonoBehaviour
     GameObject chractersContent;
     [SerializeField]
     TMPro.TMP_Text coin;
-    void SetChracters()
+    void SetChractersPanel()
     {
         coin.text = GameManager.instance.coin.ToString();
         for (int i = 0; i < playerItems.Length; i++)
@@ -397,8 +408,9 @@ public class SceneManager : MonoBehaviour
     public void SelectPlayer(int num)
     {
         GameManager.instance.selectedCharacter = num;
-        FirebaseManager.instance.SaveData("selectedCharacter", num);
-        SetChracters();
+        PlayerPrefs.SetInt("selectedCharacter", num);
+        FirebaseManager.instance.SendData("selectedCharacter", num);
+        SetChractersPanel();
         SetCharacter();
     }
 
@@ -409,13 +421,14 @@ public class SceneManager : MonoBehaviour
         GameManager.instance.coin -= GameManager.instance.Price;
         GameManager.instance.characters += num.ToString();
 
-        FirebaseManager.instance.SaveData("coin", GameManager.instance.coin);
-        FirebaseManager.instance.SaveData("characters", GameManager.instance.characters);
-        SetChracters();
+        PlayerPrefs.SetInt("coin", GameManager.instance.coin);
+        FirebaseManager.instance.SendData("coin", GameManager.instance.coin);
+        PlayerPrefs.SetString("characters", GameManager.instance.characters);
+        FirebaseManager.instance.SendData("characters", GameManager.instance.characters);
+        SetChractersPanel();
     }
     public void OnClick_SignOut()
     {
         FirebaseManager.instance.LogOut();
-        LoginStartPanel();
     }
 }

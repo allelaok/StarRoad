@@ -84,13 +84,7 @@ public class GameManager : MonoBehaviour
         }
 
         SoundManager.instance.BGM((int)Sound.BGM2);
-
-
-        BestScore = PlayerPrefs.GetInt("score");
-        selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
-        characters = PlayerPrefs.GetString("characters");
-        coin = PlayerPrefs.GetInt("coin");
-
+        SceneManager.instance.PlayStartPanel();
     }
 
     public void InitData()

@@ -36,6 +36,11 @@ public class FirebaseManager : MonoBehaviour
         auth.StateChanged += AuthStateChanged;
 
         nickName = PlayerPrefs.GetString("nickName");
+
+        if (PlayerPrefs.HasKey(uid))
+        {
+            GetDataAll();
+        }
     }
 
     //public string PW { set { password = value; } }
@@ -45,6 +50,7 @@ public class FirebaseManager : MonoBehaviour
     string id;
     string pw;
     bool guestLogIn;
+    public bool IsSignIn { get { return isSignIn; } }
 
     string uid;
     // Update is called once per frame
@@ -85,6 +91,9 @@ public class FirebaseManager : MonoBehaviour
 
 #endif
     }
+
+    [SerializeField]
+    TMPro.TMP_Text nickNameStat;
     Firebase.Auth.FirebaseUser user = null; //현재 사용자
     public void CheckNickName(string nickName)
     {
@@ -108,6 +117,7 @@ public class FirebaseManager : MonoBehaviour
                         print(nickName);
                         print(snapNickName);
                         print("사용불가");
+                        nickNameStat.text = "사용불가";
                         break;
                     }
 
@@ -115,6 +125,7 @@ public class FirebaseManager : MonoBehaviour
                     if (i >= cnt)
                     {
                         print("사용가능");
+                        nickNameStat.text = "사용가능";
                         // ok 버튼 활성화
                         this.nickName = nickName;
 
@@ -150,6 +161,7 @@ public class FirebaseManager : MonoBehaviour
 
             uid = user.UserId;
             print(uid);
+            SceneManager.instance.PlayStartPanel();
 
             Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.UserId);
         });
@@ -182,6 +194,8 @@ public class FirebaseManager : MonoBehaviour
 
 
     }
+
+
     private bool isSignIn = false; //로그인여부
     void AuthStateChanged(object sender, System.EventArgs eventArgs)
     {
@@ -191,13 +205,6 @@ public class FirebaseManager : MonoBehaviour
             isSignIn = user != auth.CurrentUser && auth.CurrentUser != null;
             if (!isSignIn && user != null)
             {
-                SceneManager.instance.LoginStartPanel();
-
-                PlayerPrefs.DeleteAll();
-                PlayerPrefs.DeleteKey(uid);
-
-                GameManager.instance.InitData();
-
                 Debug.LogFormat("Signed out {0}", user.UserId);
             }
             user = auth.CurrentUser;
@@ -206,14 +213,18 @@ public class FirebaseManager : MonoBehaviour
                 Debug.LogFormat("Signed in {0}", user.UserId);
                 uid = user.UserId;
 
-                if (PlayerPrefs.HasKey(uid) ==false)
+                if (PlayerPrefs.HasKey(uid) == false)
                 {
-                    print("키 없음");
                     PlayerPrefs.SetString("UID", uid);
-                    SaveAllData();
-                }
 
-                SceneManager.instance.PlayStartPanel();
+                    PlayerPrefs.SetInt("score", GameManager.instance.BestScore);
+                    PlayerPrefs.SetInt("selectedCharacter", GameManager.instance.selectedCharacter);
+                    PlayerPrefs.SetString("scocharactersre", GameManager.instance.characters);
+                    PlayerPrefs.SetInt("coin", GameManager.instance.coin);
+                    PlayerPrefs.SetString("nickName", nickName);
+
+                    SendDataAll();
+                }
             }
         }
     }
@@ -238,63 +249,56 @@ public class FirebaseManager : MonoBehaviour
 
     public void SaveScore(int score)
     {
-
         string kye = uid;
         if (string.IsNullOrEmpty(kye)) return;
-
-        SaveData("score", GameManager.instance.BestScore);
-
         GameManager.instance.coin += score;
-        SaveData("coin", GameManager.instance.coin);
+
+        PlayerPrefs.SetInt("coin", GameManager.instance.coin);
+        PlayerPrefs.SetInt("score", GameManager.instance.BestScore);
+
+        SendData("score", GameManager.instance.BestScore);
+        SendData("coin", GameManager.instance.coin);
     }
 
 
-    void SaveAllData()
+  
+
+    void SendDataAll()
     {
-        Save("score", 0);
-        Save("nickName", nickName);
-        Save("selectedCharacter", 0);
-        Save("characters", "0");
-        Save("coin", 0);
+        SendData("score", GameManager.instance.BestScore);
+        SendData("nickName", nickName);
+        SendData("selectedCharacter", GameManager.instance.selectedCharacter);
+        SendData("characters", GameManager.instance.characters);
+        SendData("coin", GameManager.instance.coin);
+    }
+
+    void GetDataAll()
+    {
+        GameManager.instance.BestScore = PlayerPrefs.GetInt("score");
+        GameManager.instance.selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
+        GameManager.instance.characters = PlayerPrefs.GetString("characters");
+        GameManager.instance.coin = PlayerPrefs.GetInt("coin");
+        nickName = PlayerPrefs.GetString("nickName");
+
     }
 
 
-    void Save(string path, int data)
+    public void SendData(string path, int data)
     {
         string kye = uid;
-            print(kye);
-        if (string.IsNullOrEmpty(kye))
-        {
-            print(kye);
-            return;
-        }
-
-        print("저장");
-
+        if (string.IsNullOrEmpty(kye))  return;
         reference.Child("users").Child(kye).Child(path).SetValueAsync(data);
-        print("저장");
-    }
-    public void SaveData(string path, int data)
-    {
-        PlayerPrefs.SetInt(path, data);
-        Save(path, data);
     }
 
-    void Save(string path, string data)
+    public void SendData(string path, string data)
     {
         string kye = uid;
         if (string.IsNullOrEmpty(kye)) return;
         reference.Child("users").Child(kye).Child(path).SetValueAsync(data);
        
     }
-    public void SaveData(string path, string data)
+    public void SendData(string path, float data)
     {
-        PlayerPrefs.SetString(path, data);
-        Save(path, data);
-    }
-    public void SaveData(string path, float data)
-    {
-        PlayerPrefs.SetFloat(path, data);
         string kye = uid;
         if (string.IsNullOrEmpty(kye)) return;
         reference.Child("users").Child(kye).Child(path).SetValueAsync(data);
@@ -628,7 +632,12 @@ public class FirebaseManager : MonoBehaviour
 
     public void LogOut()
     {
-        
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey(uid);
+
+        GameManager.instance.InitData();
+
+        SceneManager.instance.PlayStartPanel();
 
         auth.SignOut();
     }
