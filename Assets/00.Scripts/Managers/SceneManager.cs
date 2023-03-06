@@ -27,7 +27,7 @@ public class SceneManager : MonoBehaviour
         ranks = content.GetComponentsInChildren<Rank>();
         playerItems = chractersContent.GetComponentsInChildren<CharacterIContent>();
 
-        LoginStartPanel();
+        noInternetPopup.SetActive(false);
     }
 
 
@@ -46,6 +46,8 @@ public class SceneManager : MonoBehaviour
     // settingPanel
     [SerializeField] GameObject CharacterPanel;
     [SerializeField] GameObject logoutPanel;
+    [SerializeField] SoundPanel soundPanel;
+    [SerializeField] GameObject changeNickNamePanel;
 
     // gameCanvas
     [SerializeField] GameObject endPanel;
@@ -60,6 +62,8 @@ public class SceneManager : MonoBehaviour
     TMPro.TMP_InputField signUpPW;
     [SerializeField]
     TMPro.TMP_InputField logInID;
+    [SerializeField]
+    TMPro.TMP_InputField nickName;
     [SerializeField]
     TMPro.TMP_InputField logInPW;
 
@@ -173,13 +177,17 @@ public class SceneManager : MonoBehaviour
     {
         Default,
         CharacterPanel,
-        logoutPanel
+        logoutPanel,
+        soundPanel,
+        changeNickNamePanel
     }
 
     void SettingPanel(SETTING state)
     {
         CharacterPanel.SetActive(false);
         logoutPanel.SetActive(false);
+        soundPanel.gameObject.SetActive(false);
+        changeNickNamePanel.SetActive(false);
 
         switch (state)
         {
@@ -189,19 +197,21 @@ public class SceneManager : MonoBehaviour
             case SETTING.logoutPanel:
                 logoutPanel.SetActive(true);
                 break;
+            case SETTING.soundPanel:
+                soundPanel.gameObject.SetActive(true);
+                break;
+            case SETTING.changeNickNamePanel:
+                changeNickNamePanel.gameObject.SetActive(true);
+                break;
         }
     }
 
 
+
     public void LoginStartPanel()
     {
-        print(1);
-        //LoginStartPanel(LOGINSTART.Default);
-        StartCanvas(STARTCANVAS.loginStartPanel);
-
-        startCanvas.SetActive(true);
-        gameCanvas.SetActive(false);
-
+        logInID.text = "";
+        loginStartPanel.SetActive(true);
     }
     public void PlayStartPanel()
     {
@@ -216,11 +226,14 @@ public class SceneManager : MonoBehaviour
 
     public void LoginPanel()
     {
-       // LoginStartPanel(LOGINSTART.loginPanel);
-        StartCanvas(STARTCANVAS.loginStartPanel);
+        if(FirebaseManager.instance.CheckInternet() == false)
+        {
+            noInternetPopup.SetActive(true);
+            return;
+        }
+        logInID.text = "";
+        loginStartPanel.SetActive(true);
 
-        gameCanvas.SetActive(false);
-        startCanvas.SetActive(true);
     }
 
     public void SignUpPanel()
@@ -235,9 +248,17 @@ public class SceneManager : MonoBehaviour
 
     [SerializeField]
     GameObject NickNameBtn;
+    [SerializeField]
+    GameObject noInternetPopup;
     public void RankingPanel()
     {
-        NickNameBtn.SetActive(!FirebaseManager.instance.IsSignIn);
+        if (FirebaseManager.instance.CheckInternet() == false)
+        {
+            noInternetPopup.SetActive(true);
+            return;
+        }
+
+        NickNameBtn.SetActive(!FirebaseManager.instance.IsSignIn );
 
         PlayStartPanel(PLAYSTART.rankingPanel);
 
@@ -273,6 +294,25 @@ public class SceneManager : MonoBehaviour
         gameCanvas.SetActive(false);
         startCanvas.SetActive(true);
     }
+
+    public void GoSoundPanel()
+    {
+        SettingPanel(SETTING.soundPanel);
+        PlayStartPanel(PLAYSTART.settingPanel);
+
+        StartCanvas(STARTCANVAS.playStartPanel);
+
+        gameCanvas.SetActive(false);
+        startCanvas.SetActive(true);
+    }
+
+
+    public void CloseNoInternetPopup()
+    {
+        noInternetPopup.SetActive(false);
+    }
+  
+
     public void GoLogoutPanel()
     {
         SettingPanel(SETTING.logoutPanel);
@@ -308,8 +348,9 @@ public class SceneManager : MonoBehaviour
 
     public void OnClick_CheckNickName()
     {
-        FirebaseManager.instance.CheckNickName(logInID.text); 
+        FirebaseManager.instance.CheckNickName(logInID.text);
     }
+    
     public void OnClick_LogIn()
     {
         FirebaseManager.instance.GuestLogIn();
@@ -323,6 +364,12 @@ public class SceneManager : MonoBehaviour
 
     public void OnClick_RankingBtn()
     {
+        if (FirebaseManager.instance.CheckInternet() == false)
+        {
+            noInternetPopup.SetActive(true);
+            return;
+        }
+
         FirebaseManager.instance.GetRankInfo(AfterGetTopTen);
     }
 

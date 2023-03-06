@@ -34,7 +34,7 @@ public class FirebaseManager : MonoBehaviour
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
         auth.StateChanged += AuthStateChanged;
-
+    
         nickName = PlayerPrefs.GetString("nickName");
 
         if (PlayerPrefs.HasKey(uid))
@@ -43,9 +43,19 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
+    public bool CheckInternet()
+    {
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            return false;
+        }
+
+        return true;
+    }
     //public string PW { set { password = value; } }
 
     string nickName;
+    string tmpNickName;
 
     string id;
     string pw;
@@ -68,28 +78,36 @@ public class FirebaseManager : MonoBehaviour
         //    goStartLoginPanel = false;
         //}
 
-        if (goStartPlay)
-        {
-            SceneManager.instance.PlayStartPanel();
-            goStartPlay = false;
-        }
+        //if (goStartPlay)
+        //{
+        //    SceneManager.instance.PlayStartPanel();
+        //    goStartPlay = false;
+        //}
 
 #if UNITY_EDITOR
 
         if (Input.GetMouseButtonDown(1))
         {
-            print("데이터 강제 초기화");
-            string kye = uid;
-            if (ExceptedString(kye)) return;
-            int num = 0;
-            reference.Child("users").Child(kye).Child("score").SetValueAsync(num);
-            reference.Child("users").Child(kye).Child("selectedCharacter").SetValueAsync(num);
-            reference.Child("users").Child(kye).Child("characters").SetValueAsync("3");
-            reference.Child("users").Child(kye).Child("coin").SetValueAsync(num);
+            //InitData();
+            print("로그아웃");
+            auth.SignOut();
         }
 
 
+
 #endif
+    }
+
+    void InitData()
+    {
+        print("데이터 강제 초기화");
+        string kye = uid;
+        if (ExceptedString(kye)) return;
+        int num = 0;
+        reference.Child("users").Child(kye).Child("score").SetValueAsync(num);
+        reference.Child("users").Child(kye).Child("selectedCharacter").SetValueAsync(num);
+        reference.Child("users").Child(kye).Child("characters").SetValueAsync("3");
+        reference.Child("users").Child(kye).Child("coin").SetValueAsync(num);
     }
 
     [SerializeField]
@@ -127,7 +145,7 @@ public class FirebaseManager : MonoBehaviour
                         print("사용가능");
                         nickNameStat.text = "사용가능";
                         // ok 버튼 활성화
-                        this.nickName = nickName;
+                        tmpNickName = nickName;
 
                         break;
                     }
@@ -142,7 +160,20 @@ public class FirebaseManager : MonoBehaviour
 
     public void GuestLogIn()
     {
-        if (string.IsNullOrEmpty(nickName)) return;
+        if (string.IsNullOrEmpty(tmpNickName)) return;
+
+        if (isSignIn)
+        {
+            if (ExceptedString(tmpNickName)) return;
+
+            SendData("nickName", tmpNickName);
+            PlayerPrefs.SetString("nickName", tmpNickName);
+            nickName = tmpNickName;
+            SceneManager.instance.GoSettingPanel();
+
+            return;
+        }
+
 
         auth.SignInAnonymouslyAsync().ContinueWithOnMainThread(task =>
         {
@@ -492,7 +523,7 @@ public class FirebaseManager : MonoBehaviour
                                     reference.Child("users").Child(key).Child("selectedCharacter").SetValueAsync(0);
                                     reference.Child("users").Child(key).Child("characters").SetValueAsync("0");
                                     reference.Child("users").Child(key).Child("coin").SetValueAsync(0);
-                                    goStartPlay = true;
+
                                     print("success");
                                 }
                                 else
@@ -513,8 +544,6 @@ public class FirebaseManager : MonoBehaviour
 
        
     }
-    bool login;
-    bool goStartPlay;
 
     // 로그인 버튼을 눌렀을 때 작동할 함수
     public void SignIn(string id, string pw)
@@ -534,8 +563,6 @@ public class FirebaseManager : MonoBehaviour
 
                         this.id = id;
                         this.pw = pw;
-                        login = true;
-                        goStartPlay = true;
                         
                         print("login success");
 
@@ -606,7 +633,6 @@ public class FirebaseManager : MonoBehaviour
 
                 user = task.Result;
                 Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.UserId);
-                goStartPlay = true;
             });
 
             return;

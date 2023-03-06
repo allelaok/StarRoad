@@ -26,11 +26,26 @@ public class SoundManager : MonoBehaviour
         }
 
         source = GetComponent<AudioSource>();
+        bgm.volume = PlayerPrefs.GetFloat("bgmV");
+        source.volume = PlayerPrefs.GetFloat("effectV");
     }
 
     AudioSource source;
     public AudioSource bgm;
     public AudioClip[] clips;
+
+    public void SetBGMVolume(float bgmV)
+    {
+        bgm.volume = bgmV;
+    }
+
+    public void SetEffectVolume(float effectV)
+    {
+        source.volume = effectV;
+    }
+
+
+
     public void ClickBtnSound()
     {
         source.PlayOneShot(clips[(int)Sound.BtnClick]);
@@ -42,7 +57,7 @@ public class SoundManager : MonoBehaviour
         bgm.Play();
     }
 
-   public void Coll()
+   public void CollSound()
     {
         source.PlayOneShot(clips[(int)Sound.Coll]);
     }

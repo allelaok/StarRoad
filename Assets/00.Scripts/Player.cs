@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     Transform heartPositions;
    
     public Image[] lifeImg;
+    int lifeCnt;
 
     public Animator anim;
 
@@ -59,6 +60,7 @@ public class Player : MonoBehaviour
         cam = GetComponentInChildren<Camera>();
         //anim = GetComponentInChildren<Animator>();
         initSize = transform.localScale;
+        lifeCnt = lifeImg.Length;
     }
 
     private void Update()
@@ -109,7 +111,7 @@ public class Player : MonoBehaviour
     public void Ready()
     {
         tornado.gameObject.SetActive(false);
-        for (int i = 0; i < GameManager.instance.LifeCnt; i++)
+        for (int i = 0; i < lifeCnt; i++)
         {
             lifeImg[i].enabled = true;
         }
@@ -179,7 +181,7 @@ public class Player : MonoBehaviour
 
        
     }
-
+    float interval = 0.95f;
     void SetHeartsPosition(int pointIdx, int heartIdx, bool pointDis = true, float tmpDis = 0)
     {
         if(points.Count == 0)
@@ -191,12 +193,14 @@ public class Player : MonoBehaviour
         else if (points.Count == 1)
         {
             float dis = Vector3.Distance(transform.position, points[0]);
+            float gap = 0;
             // ???????? ???????? ???? ???? ????
             for (int i = 0; i < hearts.Count; i++)
             {
-                if (dis > GameManager.instance.Interval * (i + 1))
+                gap += GameManager.instance.Interval * Mathf.Pow(interval, i);
+                if (dis > gap)
                 {
-                    hearts[i].position = transform.position - transform.up * GameManager.instance.Interval * (i + 1);
+                    hearts[i].position = transform.position - transform.up * gap;
                     hearts[i].up = transform.up;
                 }
             }
@@ -218,7 +222,7 @@ public class Player : MonoBehaviour
             }
 
             // ?????? ?????? ????
-            if (dis < GameManager.instance.Interval - tmpDis)
+            if (dis < GameManager.instance.Interval * Mathf.Pow(interval, (heartIdx)) - tmpDis)
             {
                 pointIdx++;
                 SetHeartsPosition(pointIdx, heartIdx, true, dis + tmpDis);
@@ -232,19 +236,19 @@ public class Player : MonoBehaviour
                 {
                     if (pointIdx == 1)
                     {
-                        pos = Vector3.Lerp(transform.position, points[points.Count - pointIdx], (GameManager.instance.Interval - tmpDis) / dis);
+                        pos = Vector3.Lerp(transform.position, points[points.Count - pointIdx], (GameManager.instance.Interval * Mathf.Pow(interval, (heartIdx)) - tmpDis) / dis);
                         up = transform.position - points[points.Count - pointIdx];
                     }
                     else
                     {
-                        pos = Vector3.Lerp(points[points.Count - pointIdx + 1], points[points.Count - pointIdx], (GameManager.instance.Interval - tmpDis) / dis);
+                        pos = Vector3.Lerp(points[points.Count - pointIdx + 1], points[points.Count - pointIdx], (GameManager.instance.Interval * Mathf.Pow(interval, (heartIdx)) - tmpDis) / dis);
                         up = points[points.Count - pointIdx + 1] - points[points.Count - pointIdx];
 
                     }
                 }
                 else
                 {
-                    pos = hearts[heartIdx - 1].position - hearts[heartIdx - 1].up * GameManager.instance.Interval;
+                    pos = hearts[heartIdx - 1].position - hearts[heartIdx - 1].up * GameManager.instance.Interval * Mathf.Pow(interval, (heartIdx));
                     up = hearts[heartIdx - 1].up;
                 }
 
@@ -343,11 +347,11 @@ public class Player : MonoBehaviour
         {
             DestroyAllHearts();
             dieCnt++;
-            lifeImg[GameManager.instance.LifeCnt - dieCnt].enabled = false;
+            lifeImg[lifeCnt - dieCnt].enabled = false;
             GameManager.instance.Speed = GameManager.instance.BaseSpeed;
-            SoundManager.instance.Coll();
+            SoundManager.instance.CollSound();
 
-            if (dieCnt < GameManager.instance.LifeCnt)
+            if (dieCnt < lifeCnt)
             {
 
                 CreateHeart();
@@ -362,7 +366,7 @@ public class Player : MonoBehaviour
         // ????
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Heart"))
         {
-            collision.gameObject.layer = LayerMask.NameToLayer("Wall");
+            //collision.gameObject.layer = LayerMask.NameToLayer("Wall");
             hearts.Add(collision.transform);
             // ???? ????
             score += point;

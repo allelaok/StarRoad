@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour
 
     public float BaseSpeed { get { return baseSpeed; } }
     public float Interval { get { return interval; } }
-    public int LifeCnt { get { return lifeCnt; } }
     public int TornadoCnt { get { return tornadoCnt; } }
     public int Price { get { return price; } }
     public float IntervalSpeed { get { return intervalSpeed; } }
@@ -46,11 +45,9 @@ public class GameManager : MonoBehaviour
     public int coin;
 
     [SerializeField]
-    int lifeCnt = 3;
-    [SerializeField]
     int tornadoCnt = 3;
     [SerializeField]
-    float interval = 1.5f;
+    float interval = 2f;
     [SerializeField]
     float baseSpeed = 5;
     [SerializeField]
