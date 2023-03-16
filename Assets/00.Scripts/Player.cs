@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     List<Vector3> points = new List<Vector3>();
     STATE state;
     Transform nowTarget;
-    Transform target;
+   public Transform target;
     Transform[] heartPos;
     int beforePosIndx = 0;
     int idx;
@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
             case (STATE.Start):
                 break;
             case (STATE.Play):
-                Move();
+                Move2();
                 InverseTime();
                 SetHeartsPosition(1, 0);
                 if (nowTarget)
@@ -138,7 +138,7 @@ public class Player : MonoBehaviour
     }
 
 
-    public void Move()
+     void Move()
     {
         transform.position += transform.up * GameManager.instance.Speed * Time.deltaTime;
 
@@ -178,8 +178,31 @@ public class Player : MonoBehaviour
             }
 
         }
+    }
 
-       
+    [SerializeField] Transform controller;
+    void Move2()
+    {
+        transform.position += transform.up * GameManager.instance.Speed * Time.deltaTime;
+
+        if (target)
+        {
+            if (Vector3.Distance(transform.position, target.position) > 0.5f)
+            {
+                target = null;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) || GameManager.instance.tornado)
+        {
+            if (tornadoCnt > 0)
+            {
+                tornadoImg[tornadoCnt - 1].enabled = false;
+                points.Clear();
+                state = STATE.Tornado;
+                tornadoCnt--;
+            }
+            GameManager.instance.tornado = false;
+        }
     }
     float interval = 0.95f;
     void SetHeartsPosition(int pointIdx, int heartIdx, bool pointDis = true, float tmpDis = 0)
