@@ -38,9 +38,9 @@ public class Player : MonoBehaviour
     Transform[] subways;
     GameObject heartPool;
     Vector3 initSize;
-    int inverse = 1;
-    List<Vector3> points = new List<Vector3>();
-    STATE state;
+  public  int inverse = 1;
+  public List<Vector3> points = new List<Vector3>();
+  public static  STATE state;
     Transform nowTarget;
    public Transform target;
     Transform[] heartPos;
@@ -220,7 +220,7 @@ public class Player : MonoBehaviour
             // ???????? ???????? ???? ???? ????
             for (int i = 0; i < hearts.Count; i++)
             {
-                gap += GameManager.instance.Interval * Mathf.Pow(interval, i);
+                gap += GameManager.instance.Interval * Mathf.Pow(interval, i + 1);
                 if (dis > gap)
                 {
                     hearts[i].position = transform.position - transform.up * gap;
@@ -389,23 +389,25 @@ public class Player : MonoBehaviour
         // ????
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Heart"))
         {
-            //collision.gameObject.layer = LayerMask.NameToLayer("Wall");
+
+            state = STATE.Pop;
+
             hearts.Add(collision.transform);
             // ???? ????
             score += point;
+            scoreText.text = score.ToString();
             if (hearts.Count < 10)
             {
                 GameManager.instance.Speed = GameManager.instance.BaseSpeed + (hearts.Count + 1) * GameManager.instance.IntervalSpeed;
             }
-            //print("speed : " + GameManager.instance.Speed);
             if (score > GameManager.instance.BestScore)
             {
                 GameManager.instance.BestScore = score;
                 bestScoreText.text = score.ToString();
             }
-            scoreText.text = score.ToString();
 
             CreateHeart();
+            CreatePop(collision.transform);
         }
         // ????
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Tornado"))
@@ -448,6 +450,17 @@ public class Player : MonoBehaviour
             GameManager.instance.SetSpring(collision.transform);
         }
     }
+    void CreatePop(Transform pet)
+    {
+        GameObject popAnimPbj = Instantiate(Resources.Load<GameObject>("PopAnim"));
+        popAnimPbj.transform.position = pet.position;
+        popAnimPbj.transform.rotation = transform.rotation;
+        PopAnim popAnim = popAnimPbj.AddComponent<PopAnim>();
+        popAnim.pet = pet.gameObject;
+
+        popAnim.first = !(hearts.Count > 1);
+    }
+
 
     void InverseTime()
     {

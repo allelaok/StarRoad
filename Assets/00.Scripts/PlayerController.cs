@@ -25,7 +25,9 @@ public class PlayerController : MonoBehaviour, IPointerDownHandler, IDragHandler
             Vector3 cross = Vector3.Cross(new Vector3(now.x, now.y, 0), new Vector3(start.x, start.y, 0));
             cross = cross.normalized;
             transform.rotation = startRot * Quaternion.Euler(new Vector3(0, 0, -cross.z * ang));
-            player.transform.rotation = playerStartRot * Quaternion.Euler(new Vector3(0, 0, -cross.z * ang));
+            player.transform.rotation = playerStartRot * Quaternion.Euler(new Vector3(0, 0, player.inverse * -cross.z * ang));
+
+            player.points.Add(player.transform.position);
         }
     }
     public void OnPointerDown(PointerEventData eventData)

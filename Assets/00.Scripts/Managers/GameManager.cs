@@ -13,7 +13,8 @@ public enum STATE
     Tornado,
     Subway,
     Die,
-    GameOver
+    GameOver,
+    Pop
 }
 public class GameManager : MonoBehaviour
 {

@@ -10,6 +10,7 @@ using Firebase.Extensions;
 using System.Linq;
 using TMPro;
 using System.Threading.Tasks;
+using Firebase.Auth;
 
 public class RankInfo
 {
@@ -43,7 +44,7 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
-    public bool CheckInternet()
+    public bool InternetOn()
     {
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
@@ -109,10 +110,101 @@ public class FirebaseManager : MonoBehaviour
         reference.Child("users").Child(kye).Child("characters").SetValueAsync("3");
         reference.Child("users").Child(kye).Child("coin").SetValueAsync(num);
     }
+    public void GameCenterLogin()
+    {
+        if (Social.localUser.authenticated == true)
+        {
+            Debug.Log("Success to true");
+            if (user == null)
+            {
+                SignInWithGameCenterAsync();
+            }
+        }
+        else
+        {
+            Social.localUser.Authenticate((bool success) =>
+            {
+                if (success)
+                {
+                    Debug.Log("Success to authenticate");
+                    // 파이어베이스 로그인 연동
+                    SignInWithGameCenterAsync();
+                }
+                else
+                {
+                    Debug.Log("Faile to login");
+                    GuestLogIn();
+                }
+            });
+        }
+    }
 
+    public Task SignInWithGameCenterAsync()
+    {
+        FirebaseAuth auth = FirebaseAuth.DefaultInstance;
+        var credentialTask = Firebase.Auth.GameCenterAuthProvider.GetCredentialAsync();
+        var continueTask = credentialTask.ContinueWithOnMainThread(task =>
+        {
+            if (!task.IsCompleted)
+                return null;
+
+            if (task.Exception != null)
+                Debug.Log("GC Credential Task - Exception: " + task.Exception.Message);
+
+            var credential = task.Result;
+
+            var loginTask = auth.SignInWithCredentialAsync(credential);
+            return loginTask.ContinueWithOnMainThread(HandleSignInWithUser);
+        });
+
+        return continueTask;
+    }
+
+    // Called when a sign-in without fetching profile data completes.
+    void HandleSignInWithUser(Task<Firebase.Auth.FirebaseUser> task)
+    {
+        //EnableUI();
+        if (LogTaskCompletion(task, "Sign-in"))
+        {
+            user = task.Result;
+            Debug.Log(String.Format("{0} signed in", task.Result.DisplayName));
+        }
+    }
+
+    // Log the result of the specified task, returning true if the task
+    // completed successfully, false otherwise.
+    protected bool LogTaskCompletion(Task task, string operation)
+    {
+        bool complete = false;
+        if (task.IsCanceled)
+        {
+            Debug.Log(operation + " canceled.");
+        }
+        else if (task.IsFaulted)
+        {
+            Debug.Log(operation + " encounted an error.");
+            foreach (Exception exception in task.Exception.Flatten().InnerExceptions)
+            {
+                string authErrorCode = "";
+                Firebase.FirebaseException firebaseEx = exception as Firebase.FirebaseException;
+                if (firebaseEx != null)
+                {
+                    authErrorCode = String.Format("AuthError.{0}: ",
+                      ((Firebase.Auth.AuthError)firebaseEx.ErrorCode).ToString());
+                }
+                Debug.Log(authErrorCode + exception.ToString());
+            }
+        }
+        else if (task.IsCompleted)
+        {
+            Debug.Log(operation + " completed");
+            complete = true;
+        }
+        return complete;
+    }
     [SerializeField]
     TMPro.TMP_Text nickNameStat;
-    Firebase.Auth.FirebaseUser user = null; //현재 사용자
+   public Firebase.Auth.FirebaseUser user = null; //현재 사용자
     public void CheckNickName(string nickName)
     {
         FirebaseDatabase.DefaultInstance.GetReference("users").OrderByChild("nickName").GetValueAsync().ContinueWithOnMainThread(task =>
@@ -190,8 +282,6 @@ public class FirebaseManager : MonoBehaviour
 
             user = task.Result;
 
-            uid = user.UserId;
-            print(uid);
             SceneManager.instance.PlayStartPanel();
 
             Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.UserId);
@@ -244,18 +334,7 @@ public class FirebaseManager : MonoBehaviour
                 Debug.LogFormat("Signed in {0}", user.UserId);
                 uid = user.UserId;
 
-                if (PlayerPrefs.HasKey(uid) == false)
-                {
-                    PlayerPrefs.SetString("UID", uid);
-
-                    PlayerPrefs.SetInt("score", GameManager.instance.BestScore);
-                    PlayerPrefs.SetInt("selectedCharacter", GameManager.instance.selectedCharacter);
-                    PlayerPrefs.SetString("scocharactersre", GameManager.instance.characters);
-                    PlayerPrefs.SetInt("coin", GameManager.instance.coin);
-                    PlayerPrefs.SetString("nickName", nickName);
-
-                    SendDataAll();
-                }
+                GetMyInfo(SceneManager.instance.PlayStartPanel);
             }
         }
     }

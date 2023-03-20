@@ -226,7 +226,7 @@ public class SceneManager : MonoBehaviour
 
     public void LoginPanel()
     {
-        if(FirebaseManager.instance.CheckInternet() == false)
+        if(FirebaseManager.instance.InternetOn() == false)
         {
             noInternetPopup.SetActive(true);
             return;
@@ -252,7 +252,7 @@ public class SceneManager : MonoBehaviour
     GameObject noInternetPopup;
     public void RankingPanel()
     {
-        if (FirebaseManager.instance.CheckInternet() == false)
+        if (FirebaseManager.instance.InternetOn() == false)
         {
             noInternetPopup.SetActive(true);
             return;
@@ -364,7 +364,7 @@ public class SceneManager : MonoBehaviour
 
     public void OnClick_RankingBtn()
     {
-        if (FirebaseManager.instance.CheckInternet() == false)
+        if (FirebaseManager.instance.InternetOn() == false)
         {
             noInternetPopup.SetActive(true);
             return;
