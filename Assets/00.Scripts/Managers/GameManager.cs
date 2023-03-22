@@ -37,7 +37,11 @@ public class GameManager : MonoBehaviour
     public float Speed;
     [HideInInspector]
     public int BestScore;
+    [HideInInspector]
+    public int Score;
 
+    [HideInInspector]
+    public string nickName;
     [HideInInspector]
     public int selectedCharacter;
     [HideInInspector]
@@ -67,7 +71,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Transform[] springs;
 
-
+    FirebaseManager FMng;
+    SceneManager SceneMng;
     // Start is called before the first frame update
     void Start()
     {
@@ -81,9 +86,51 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        FMng = FirebaseManager.instance;
+       SceneMng = SceneManager.instance;
+
         SoundManager.instance.BGM((int)Sound.BGM2);
-        SceneManager.instance.PlayStartPanel();
+
+        SceneMng.LoadingPanelOn();
+
+        if (FMng.InternetOn())
+        {
+            FMng.GuestLogIn();
+        }
+        else
+        {
+            // 네트워크 오류 팝업
+
+        }
+#if   UNITY_IOS
+        if (FMng.InternetOn())
+        {
+            FMng.GameCenterLogin();
+        }
+        else
+        {
+            // 네트워크 오류 팝업
+
+        }
+#endif
+
     }
+
+#if UNITY_EDITOR
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            PlayerPrefs.DeleteAll();
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            FMng.InitData();
+        }
+    }
+#endif
 
     public void InitData()
     {
@@ -130,21 +177,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-#if UNITY_EDITOR
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            PlayerPrefs.DeleteAll();
-        }
 
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            SetResolution();
-        }
-    }
-#endif
 
     [HideInInspector]
     public bool turnLeft;

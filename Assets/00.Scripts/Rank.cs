@@ -12,8 +12,8 @@ public class Rank : MonoBehaviour
 
     [SerializeField]
     TMPro.TMP_Text score;
-    [SerializeField]
-    Image profile;
+    //[SerializeField]
+    //Image profile;
 
     [SerializeField]
     Sprite circle;
@@ -25,7 +25,7 @@ public class Rank : MonoBehaviour
             rank.text = string.Empty;
             nickName.text = string.Empty;
             score.text = string.Empty;
-            profile.sprite = circle;
+            //profile.sprite = circle;
         }
         else
         {
@@ -33,7 +33,7 @@ public class Rank : MonoBehaviour
             nickName.text = rankInfo.nickName;
             score.text = rankInfo.score.ToString();
 
-            profile.sprite = SceneManager.instance.GetProfileSprite(rankInfo.selectedCharacter);
+            //profile.sprite = SceneManager.instance.GetProfileSprite(rankInfo.selectedCharacter);
         }
     }
 

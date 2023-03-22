@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class BaseButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    [SerializeField]
-    Image image;
+    public Image image;
+    [HideInInspector]
     public UnityEvent invokeMethod;
     private void Awake()
     {

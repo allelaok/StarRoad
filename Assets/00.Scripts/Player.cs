@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     Camera cam;
     int dieCnt;
     int tornadoCnt;
-    int score;
+    //int score;
     int point = 1;
     List<Transform> hearts = new List<Transform>();
     List<int> targetIndx = new List<int>();
@@ -126,19 +126,19 @@ public class Player : MonoBehaviour
         CreateHeart();
         tornadoCnt = GameManager.instance.TornadoCnt;
         dieCnt = 0;
-        state = STATE.Play;
         bestScoreText.text = GameManager.instance.BestScore.ToString();
         targetIndx.Clear();
         points.Clear();
         points.Add(transform.position);
-        score = 0;
+        GameManager.instance.Score = 0;
         inverse = 1;
-            camMoveBG.SetActive(false);
+        camMoveBG.SetActive(false);
         GameManager.instance.Speed = GameManager.instance.BaseSpeed;
+        state = STATE.Play;
     }
 
 
-     void Move()
+    void Move()
     {
         transform.position += transform.up * GameManager.instance.Speed * Time.deltaTime;
 
@@ -345,6 +345,8 @@ public class Player : MonoBehaviour
 
     void initPos()
     {
+
+        controller.rotation = Quaternion.identity;
         inverse = 1;
         transform.position = Vector3.zero;
         transform.rotation = Quaternion.identity;
@@ -394,16 +396,16 @@ public class Player : MonoBehaviour
 
             hearts.Add(collision.transform);
             // ???? ????
-            score += point;
-            scoreText.text = score.ToString();
+            GameManager.instance.Score += point;
+            scoreText.text = GameManager.instance.Score.ToString();
             if (hearts.Count < 10)
             {
                 GameManager.instance.Speed = GameManager.instance.BaseSpeed + (hearts.Count + 1) * GameManager.instance.IntervalSpeed;
             }
-            if (score > GameManager.instance.BestScore)
+            if (GameManager.instance.Score > GameManager.instance.BestScore)
             {
-                GameManager.instance.BestScore = score;
-                bestScoreText.text = score.ToString();
+                GameManager.instance.BestScore = GameManager.instance.Score;
+                bestScoreText.text = GameManager.instance.Score.ToString();
             }
 
             CreateHeart();
@@ -528,8 +530,8 @@ public class Player : MonoBehaviour
     {
         SoundManager.instance.BGM((int)Sound.BGM2);
         state = STATE.Defualt;
-        SceneManager.instance.EndPanel();
-        FirebaseManager.instance.SaveScore(score);
+        SceneManager.instance.LoadingPanelOn();
+        FirebaseManager.instance.SaveScore();
     }
 
 }

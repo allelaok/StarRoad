@@ -14,7 +14,7 @@ public class CharacterIContent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerImg.sprite = SceneManager.instance.GetProfileSprite(num, "Player");
+        //playerImg.sprite = SceneManager.instance.GetProfileSprite(num, "Player");
     }
 
    public void SetContent()
@@ -42,13 +42,13 @@ public class CharacterIContent : MonoBehaviour
         }
     }
 
-    public void OnClick_Select()
-    {
-        SceneManager.instance.SelectPlayer(num);
-    }
+    //public void OnClick_Select()
+    //{
+    //    SceneManager.instance.SelectPlayer(num);
+    //}
 
-    public void OnClick_BuyBtn()
-    {
-        SceneManager.instance.BuyPlayer(num);
-    }
+    //public void OnClick_BuyBtn()
+    //{
+    //    SceneManager.instance.BuyPlayer(num);
+    //}
 }
