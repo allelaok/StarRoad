@@ -91,11 +91,12 @@ public class GameManager : MonoBehaviour
 
         SoundManager.instance.BGM((int)Sound.BGM2);
 
-        SceneMng.LoadingPanelOn();
+        //SceneMng.LoadingPanelOn();
+        SceneMng.PanelOn(SceneManager.HOME.home);
 
         if (FMng.InternetOn())
         {
-            FMng.GuestLogIn();
+           // FMng.GuestLogIn();
         }
         else
         {
