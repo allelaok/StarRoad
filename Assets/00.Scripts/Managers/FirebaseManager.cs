@@ -450,6 +450,8 @@ public class FirebaseManager : MonoBehaviour
             if (task.IsFaulted)
             {
                 // Handle the error...
+                SceneManager.instance.PanelOn(SceneManager.HOME.home);
+                SceneManager.instance.Popup(true);
                 print("get rank error");
             }
             else if (task.IsCompleted)

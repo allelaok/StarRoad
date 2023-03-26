@@ -12,7 +12,7 @@ public enum STATE
     CamMove,
     Tornado,
     Subway,
-    Die,
+    Coll,
     GameOver,
     Pop
 }
@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     public float BaseSpeed { get { return baseSpeed; } }
     public float Interval { get { return interval; } }
+    public float Pow { get { return pow; } }
     public int TornadoCnt { get { return tornadoCnt; } }
     public int Price { get { return price; } }
     public float IntervalSpeed { get { return intervalSpeed; } }
@@ -37,8 +38,20 @@ public class GameManager : MonoBehaviour
     public float Speed;
     [HideInInspector]
     public int BestScore;
+
+
+    [SerializeField]
+    TMPro.TMP_Text scoreText;
+    int score;
     [HideInInspector]
-    public int Score;
+    public int Score
+    {
+        get { return score; }
+        set
+        {
+            scoreText.text = GameManager.instance.Score.ToString();
+        }
+    }
 
     [HideInInspector]
     public string nickName;
@@ -59,6 +72,8 @@ public class GameManager : MonoBehaviour
     int price = 1;
     [SerializeField]
     float intervalSpeed = 0.1f;
+    [SerializeField]
+    float pow = 0.95f;
 
 
 
@@ -91,12 +106,12 @@ public class GameManager : MonoBehaviour
 
         SoundManager.instance.BGM((int)Sound.BGM2);
 
-        //SceneMng.LoadingPanelOn();
-        SceneMng.PanelOn(SceneManager.HOME.home);
+        SceneMng.LoadingPanelOn();
+        //SceneMng.PanelOn(SceneManager.HOME.home);
 
         if (FMng.InternetOn())
         {
-           // FMng.GuestLogIn();
+            FMng.GuestLogIn();
         }
         else
         {

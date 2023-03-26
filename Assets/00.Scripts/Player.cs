@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    TMPro.TMP_Text scoreText;
-    [SerializeField]
     TMPro.TMP_Text bestScoreText;
     [SerializeField]
     Image[] tornadoImg;
@@ -32,8 +30,9 @@ public class Player : MonoBehaviour
     int tornadoCnt;
     //int score;
     int point = 1;
-    List<Transform> hearts = new List<Transform>();
+  public static  List<Transform> hearts = new List<Transform>();
     List<int> targetIndx = new List<int>();
+    [SerializeField]
     SpriteRenderer animSprite;
     Transform[] subways;
     GameObject heartPool;
@@ -42,7 +41,8 @@ public class Player : MonoBehaviour
   public List<Vector3> points = new List<Vector3>();
   public static  STATE state;
     Transform nowTarget;
-   public Transform target;
+    [HideInInspector]
+    public Transform target;
     Transform[] heartPos;
     int beforePosIndx = 0;
     int idx;
@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         state = STATE.Defualt;
-        animSprite = GetComponentInChildren<SpriteRenderer>();
+        //animSprite = GetComponentInChildren<SpriteRenderer>();
         //PlayerAndHeart.Add(transform);
         inversedTime = inverseTime;
         heartPos = heartPositions.GetComponentsInChildren<Transform>();
@@ -62,7 +62,8 @@ public class Player : MonoBehaviour
         initSize = transform.localScale;
         lifeCnt = lifeImg.Length;
     }
-
+    float invincibilityTime = 3f;
+    float invincibilityCurrentTime;
     private void Update()
     {
         switch (state)
@@ -86,6 +87,22 @@ public class Player : MonoBehaviour
                     float ang = Vector3.Angle(dir, Vector3.up);
                     arrow.transform.rotation = Quaternion.Euler(new Vector3(0, 0, ang * i));
                 }
+                if (invincibility)
+                {
+                    invincibilityCurrentTime += Time.deltaTime;
+
+                    int t = 1;
+                    if(Mathf.RoundToInt( 5 * invincibilityCurrentTime) % 2 == 0)
+                        t = 0;
+                    
+                    animSprite.color = new Color(1, 1, 1, t); 
+
+                    if (invincibilityCurrentTime > invincibilityTime)
+                    {
+                        invincibility = false;
+                        invincibilityCurrentTime = 0;
+                    }
+                }
                 break;
             case (STATE.CamMove):
                 CamMove();
@@ -96,7 +113,7 @@ public class Player : MonoBehaviour
             case (STATE.Ready):
                 Ready();
                 break;
-            case (STATE.Die):
+            case (STATE.Coll):
                 break;
             case (STATE.GameOver):
                 break;
@@ -120,7 +137,6 @@ public class Player : MonoBehaviour
         {
             tornadoImg[i].enabled = true;
         }
-        scoreText.text = "0";
         initPos();
         DestroyAllHearts();
         CreateHeart();
@@ -134,9 +150,12 @@ public class Player : MonoBehaviour
         inverse = 1;
         camMoveBG.SetActive(false);
         GameManager.instance.Speed = GameManager.instance.BaseSpeed;
+
+        enemy.RandomPosition();
+
         state = STATE.Play;
     }
-
+    [SerializeField] BlackHeart enemy;
 
     void Move()
     {
@@ -204,7 +223,6 @@ public class Player : MonoBehaviour
             GameManager.instance.tornado = false;
         }
     }
-    float interval = 0.95f;
     void SetHeartsPosition(int pointIdx, int heartIdx, bool pointDis = true, float tmpDis = 0)
     {
         if(points.Count == 0)
@@ -220,7 +238,7 @@ public class Player : MonoBehaviour
             // ???????? ???????? ???? ???? ????
             for (int i = 0; i < hearts.Count; i++)
             {
-                gap += GameManager.instance.Interval * Mathf.Pow(interval, i + 1);
+                gap += GameManager.instance.Interval * Mathf.Pow(GameManager.instance.Pow, i + 1);
                 if (dis > gap)
                 {
                     hearts[i].position = transform.position - transform.up * gap;
@@ -245,7 +263,7 @@ public class Player : MonoBehaviour
             }
 
             // ?????? ?????? ????
-            if (dis < GameManager.instance.Interval * Mathf.Pow(interval, (heartIdx)) - tmpDis)
+            if (dis < GameManager.instance.Interval * Mathf.Pow(GameManager.instance.Pow, (heartIdx)) - tmpDis)
             {
                 pointIdx++;
                 SetHeartsPosition(pointIdx, heartIdx, true, dis + tmpDis);
@@ -259,19 +277,19 @@ public class Player : MonoBehaviour
                 {
                     if (pointIdx == 1)
                     {
-                        pos = Vector3.Lerp(transform.position, points[points.Count - pointIdx], (GameManager.instance.Interval * Mathf.Pow(interval, (heartIdx)) - tmpDis) / dis);
+                        pos = Vector3.Lerp(transform.position, points[points.Count - pointIdx], (GameManager.instance.Interval * Mathf.Pow(GameManager.instance.Pow, (heartIdx)) - tmpDis) / dis);
                         up = transform.position - points[points.Count - pointIdx];
                     }
                     else
                     {
-                        pos = Vector3.Lerp(points[points.Count - pointIdx + 1], points[points.Count - pointIdx], (GameManager.instance.Interval * Mathf.Pow(interval, (heartIdx)) - tmpDis) / dis);
+                        pos = Vector3.Lerp(points[points.Count - pointIdx + 1], points[points.Count - pointIdx], (GameManager.instance.Interval * Mathf.Pow(GameManager.instance.Pow, (heartIdx)) - tmpDis) / dis);
                         up = points[points.Count - pointIdx + 1] - points[points.Count - pointIdx];
 
                     }
                 }
                 else
                 {
-                    pos = hearts[heartIdx - 1].position - hearts[heartIdx - 1].up * GameManager.instance.Interval * Mathf.Pow(interval, (heartIdx));
+                    pos = hearts[heartIdx - 1].position - hearts[heartIdx - 1].up * GameManager.instance.Interval * Mathf.Pow(GameManager.instance.Pow, (heartIdx));
                     up = hearts[heartIdx - 1].up;
                 }
 
@@ -345,7 +363,6 @@ public class Player : MonoBehaviour
 
     void initPos()
     {
-
         controller.rotation = Quaternion.identity;
         inverse = 1;
         transform.position = Vector3.zero;
@@ -363,10 +380,10 @@ public class Player : MonoBehaviour
             }
         }
     }
-
+   public static bool invincibility;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (state != STATE.Play) return;
+        if (state != STATE.Play || invincibility) return;
         // ???? ??
         if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
@@ -380,8 +397,8 @@ public class Player : MonoBehaviour
             {
 
                 CreateHeart();
-                state = STATE.Defualt;
-                initPos();
+                invincibility = true;
+                //initPos();
             }
             else
             {
@@ -391,35 +408,42 @@ public class Player : MonoBehaviour
         // ????
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Heart"))
         {
-
             state = STATE.Pop;
 
             hearts.Add(collision.transform);
             // ???? ????
             GameManager.instance.Score += point;
-            scoreText.text = GameManager.instance.Score.ToString();
+            //scoreText.text = GameManager.instance.Score.ToString();
             if (hearts.Count < 10)
             {
                 GameManager.instance.Speed = GameManager.instance.BaseSpeed + (hearts.Count + 1) * GameManager.instance.IntervalSpeed;
             }
-            if (GameManager.instance.Score > GameManager.instance.BestScore)
-            {
-                GameManager.instance.BestScore = GameManager.instance.Score;
-                bestScoreText.text = GameManager.instance.Score.ToString();
-            }
+
 
             CreateHeart();
             CreatePop(collision.transform);
         }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            //DestroyAllHearts();
+            //dieCnt++;
+            for (int i = 0; i < lifeImg.Length; i++)
+            {
+                lifeImg[i].enabled = false;
+            }
+            //GameManager.instance.Speed = GameManager.instance.BaseSpeed;
+            SoundManager.instance.CollSound();
+            GameOver();
+        }
         // ????
-        else if (collision.gameObject.layer == LayerMask.NameToLayer("Tornado"))
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("TornadoItem"))
         {
             inversedTime = 0;
             inverse = -1;
             GameManager.instance.SetSpring(collision.transform);
         }
         // ??????
-        else if (collision.gameObject.layer == LayerMask.NameToLayer("Subway"))
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Tornado"))
         {
             if (target == collision.transform)
             {
@@ -528,6 +552,12 @@ public class Player : MonoBehaviour
   
     void GameOver()
     {
+        if (GameManager.instance.Score > GameManager.instance.BestScore)
+        {
+            GameManager.instance.BestScore = GameManager.instance.Score;
+            bestScoreText.text = GameManager.instance.Score.ToString();
+        }
+
         SoundManager.instance.BGM((int)Sound.BGM2);
         state = STATE.Defualt;
         SceneManager.instance.LoadingPanelOn();
