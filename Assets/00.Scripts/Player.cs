@@ -423,6 +423,7 @@ public class Player : MonoBehaviour
                 GameManager.instance.BestScore = GameManager.instance.Score;
                 bestScoreText.text = GameManager.instance.Score.ToString();
             }
+            collision.transform.GetChild(0).gameObject.SetActive(false);
 
             CreateHeart();
             CreatePop(collision.transform);
