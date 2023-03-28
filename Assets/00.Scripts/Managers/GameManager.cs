@@ -49,7 +49,8 @@ public class GameManager : MonoBehaviour
         get { return score; }
         set
         {
-            scoreText.text = GameManager.instance.Score.ToString();
+            score = value;
+            scoreText.text = score.ToString();
         }
     }
 
@@ -111,24 +112,20 @@ public class GameManager : MonoBehaviour
 
         if (FMng.InternetOn())
         {
-            FMng.GuestLogIn();
-        }
-        else
-        {
-            // 네트워크 오류 팝업
-
-        }
-#if   UNITY_IOS
-        if (FMng.InternetOn())
-        {
+#if UNITY_IOS
             FMng.GameCenterLogin();
+#elif UNITY_ANDROID
+            FMng.GoogleLogin();
+#else
+            FMng.GuestLogIn();
+#endif
         }
         else
         {
             // 네트워크 오류 팝업
-
+            SceneManager.instance.PanelOn(SceneManager.HOME.home);
+            SceneManager.instance.Popup("인터넷 연결 안됨");
         }
-#endif
 
     }
 

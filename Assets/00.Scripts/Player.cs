@@ -5,41 +5,35 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    TMPro.TMP_Text bestScoreText;
-    [SerializeField]
-    Image[] tornadoImg;
-    [SerializeField]
-    Transform subwayPool;
-    [SerializeField]
-    Transform tornado;
-    [SerializeField]
-    Image arrow;
-    [SerializeField]
-    GameObject camMoveBG;
-    [SerializeField]
-    Transform heartPositions;
+    [SerializeField]    TMPro.TMP_Text bestScoreText;
+    [SerializeField]    Image[] tornadoImg;
+    [SerializeField]    Transform subwayPool;
+    [SerializeField]    Transform tornado;
+    [SerializeField]    Image arrow;
+    [SerializeField]    GameObject camMoveBG;
+    [SerializeField]    Transform heartPositions;
+    [SerializeField]    SpriteRenderer animSprite;
+    [SerializeField] Transform[] tornadosPos;
    
     public Image[] lifeImg;
     int lifeCnt;
 
     public Animator anim;
+  public  int inverse = 1;
+  public List<Vector3> points = new List<Vector3>();
+
+  public static  List<Transform> hearts = new List<Transform>();
+  public static  STATE state;
 
     Camera cam;
     int dieCnt;
     int tornadoCnt;
     //int score;
     int point = 1;
-  public static  List<Transform> hearts = new List<Transform>();
     List<int> targetIndx = new List<int>();
-    [SerializeField]
-    SpriteRenderer animSprite;
     Transform[] subways;
     GameObject heartPool;
     Vector3 initSize;
-  public  int inverse = 1;
-  public List<Vector3> points = new List<Vector3>();
-  public static  STATE state;
     Transform nowTarget;
     [HideInInspector]
     public Transform target;
@@ -199,7 +193,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    [SerializeField] Transform controller;
+    //[SerializeField] Transform controller;
     void Move2()
     {
         transform.position += transform.up * GameManager.instance.Speed * Time.deltaTime;
@@ -325,7 +319,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void SelectSubway(Transform beforeSubway = null)
+    void SelectSubway()
     {
         transform.GetComponentInChildren<SpriteRenderer>().enabled = false;
 
@@ -337,6 +331,7 @@ public class Player : MonoBehaviour
                 subwayIdx = Random.Range(1, subways.Length);
             }
         }
+        beforeSubway = null;
         target = subways[subwayIdx];
         state = STATE.CamMove;
     }
@@ -363,11 +358,14 @@ public class Player : MonoBehaviour
 
     void initPos()
     {
-        controller.rotation = Quaternion.identity;
+        int i = Random.Range(0, tornadosPos.Length - 1);
+        
         inverse = 1;
-        transform.position = Vector3.zero;
-        transform.rotation = Quaternion.identity;
+        target = tornadosPos[i];
+
         state = STATE.Play;
+        transform.position = tornadosPos[i].position;
+        transform.rotation = tornadosPos[i].rotation;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -381,6 +379,8 @@ public class Player : MonoBehaviour
         }
     }
    public static bool invincibility;
+    private Transform beforeSubway;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (state != STATE.Play || invincibility) return;
@@ -418,7 +418,11 @@ public class Player : MonoBehaviour
             {
                 GameManager.instance.Speed = GameManager.instance.BaseSpeed + (hearts.Count + 1) * GameManager.instance.IntervalSpeed;
             }
-
+            if (GameManager.instance.Score > GameManager.instance.BestScore)
+            {
+                GameManager.instance.BestScore = GameManager.instance.Score;
+                bestScoreText.text = GameManager.instance.Score.ToString();
+            }
 
             CreateHeart();
             CreatePop(collision.transform);
@@ -451,7 +455,113 @@ public class Player : MonoBehaviour
                 return;
             }
             points.Clear();
-            SelectSubway(collision.transform);
+            transform.position = collision.transform.position;
+            beforeSubway = collision.transform;
+            state = STATE.Tornado;
+            //SelectSubway(collision.transform);
+        }
+        // ????
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Stair"))
+        {
+            if (target == collision.transform)
+            {
+                target = null;
+                return;
+            }
+            Stair stair = collision.transform.GetComponent<Stair>();
+            transform.GetComponentInChildren<SpriteRenderer>().enabled = false;
+            target = stair.otherStair.transform;
+            points.Clear();
+
+            state = STATE.CamMove;
+        }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Poison"))
+        {
+            inversedTime = 0;
+            inverse = -1;
+            //anim.SetInteger("Inverse", inverse);
+            GameManager.instance.SetSpring(collision.transform);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (state != STATE.Play || invincibility) return;
+        // ???? ??
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        {
+            DestroyAllHearts();
+            dieCnt++;
+            lifeImg[lifeCnt - dieCnt].enabled = false;
+            GameManager.instance.Speed = GameManager.instance.BaseSpeed;
+            SoundManager.instance.CollSound();
+
+            if (dieCnt < lifeCnt)
+            {
+
+                CreateHeart();
+                invincibility = true;
+                //initPos();
+            }
+            else
+            {
+                GameOver();
+            }
+        }
+        // ????
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Heart"))
+        {
+            state = STATE.Pop;
+
+            hearts.Add(collision.transform);
+            // ???? ????
+            GameManager.instance.Score += point;
+            //scoreText.text = GameManager.instance.Score.ToString();
+            if (hearts.Count < 10)
+            {
+                GameManager.instance.Speed = GameManager.instance.BaseSpeed + (hearts.Count + 1) * GameManager.instance.IntervalSpeed;
+            }
+            if (GameManager.instance.Score > GameManager.instance.BestScore)
+            {
+                GameManager.instance.BestScore = GameManager.instance.Score;
+                bestScoreText.text = GameManager.instance.Score.ToString();
+            }
+
+            CreateHeart();
+            CreatePop(collision.transform);
+        }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            //DestroyAllHearts();
+            //dieCnt++;
+            for (int i = 0; i < lifeImg.Length; i++)
+            {
+                lifeImg[i].enabled = false;
+            }
+            //GameManager.instance.Speed = GameManager.instance.BaseSpeed;
+            SoundManager.instance.CollSound();
+            GameOver();
+        }
+        // ????
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("TornadoItem"))
+        {
+            inversedTime = 0;
+            inverse = -1;
+            GameManager.instance.SetSpring(collision.transform);
+        }
+        // ??????
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Tornado"))
+        {
+            if (target == collision.transform)
+            {
+                target = null;
+                return;
+            }
+            points.Clear();
+            transform.position = collision.transform.position;
+            beforeSubway = collision.transform;
+            state = STATE.Tornado;
+            //SelectSubway(collision.transform);
         }
         // ????
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Stair"))
@@ -552,11 +662,7 @@ public class Player : MonoBehaviour
   
     void GameOver()
     {
-        if (GameManager.instance.Score > GameManager.instance.BestScore)
-        {
-            GameManager.instance.BestScore = GameManager.instance.Score;
-            bestScoreText.text = GameManager.instance.Score.ToString();
-        }
+   
 
         SoundManager.instance.BGM((int)Sound.BGM2);
         state = STATE.Defualt;

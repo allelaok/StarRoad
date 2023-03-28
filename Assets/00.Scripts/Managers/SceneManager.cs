@@ -15,7 +15,6 @@ public class SceneManager : MonoBehaviour
         else
             Destroy(gameObject);
 
-        popup.SetActive(false);
     }
 
   public  enum HOME
@@ -37,7 +36,7 @@ public class SceneManager : MonoBehaviour
     [SerializeField] StartCanvas start;
     [SerializeField] GameCanvas game;
     [SerializeField] GameObject loading;
-    [SerializeField] GameObject popup;
+    [SerializeField] Popup popup;
 
     public void PanelOn(HOME panel)
     {
@@ -90,9 +89,9 @@ public class SceneManager : MonoBehaviour
         loading.gameObject.SetActive(true);
     }
 
-    public void Popup(bool on)
+    public void Popup(string content)
     {
-        popup.SetActive(on);
+        popup.SetActive(content);
     }
     //enum STARTCANVAS
     //{

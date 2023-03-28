@@ -7,14 +7,20 @@ public class EnemyToward : MonoBehaviour
     [SerializeField]
     EnemyToward[] nexts;
 
-    public EnemyToward Next(Transform before)
+    public EnemyToward Next(EnemyToward before)
     {
-        int i = Random.Range(0, nexts.Length - 1);
-        if(before == nexts[i].transform)
+        int i = Random.Range(0, nexts.Length);
+
+        if (before == nexts[i])
         {
             return Next(before);
         }
         else
-         return nexts[i];
+        {
+            print(before.gameObject.name);
+            print(nexts[i].gameObject.name);
+            print("=======================");
+            return nexts[i];
+        }
     }
 }

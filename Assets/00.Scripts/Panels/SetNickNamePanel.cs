@@ -32,7 +32,10 @@ public class SetNickNamePanel : BasePanel
 
     void ChangeText(string text)
     {
-        checkBtn.image.gameObject.SetActive(true);
+        if (text.Length > 10)
+            nickname.text = text.Remove(10);
+        else
+            checkBtn.image.gameObject.SetActive(true);
     }
 
     void OnClickCheckBtn() 
@@ -54,7 +57,7 @@ public class SetNickNamePanel : BasePanel
     {
         SceneManager.instance.PanelOn(SceneManager.HOME.loading);
         FirebaseManager.instance.afterSend = SceneManager.HOME.home;
-        FirebaseManager.instance.SendData("nickName", nickname.text);
+        FirebaseManager.instance.SendData("nickName", nickname.text, 1);
     }
 
     void OnClickExitBtn()

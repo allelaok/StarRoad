@@ -5,7 +5,7 @@ using UnityEngine;
 public class BlackHeart : MonoBehaviour
 {
     [SerializeField]
-    Transform enemys;
+    Transform towards;
     EnemyToward[] targets;
 
     EnemyToward target;
@@ -13,7 +13,7 @@ public class BlackHeart : MonoBehaviour
 
     private void Start()
     {
-        targets = enemys.GetComponentsInChildren<EnemyToward>();
+        targets = towards.GetComponentsInChildren<EnemyToward>();
         RandomPosition();
     }
 
@@ -23,7 +23,7 @@ public class BlackHeart : MonoBehaviour
         before = targets[i];
         transform.position = before.transform.position;
 
-        target = before.Next(before.transform);
+        target = before.Next(before);
         transform.up = target.transform.position - transform.position;
     }
 
@@ -48,10 +48,10 @@ public class BlackHeart : MonoBehaviour
 
         if (transform.position == target.transform.position)
         {
-            before = target;
-            target = target.Next(before.transform);
-
+            EnemyToward tmp = target;
+            target = target.Next(before);
             transform.up = target.transform.position - transform.position;
+            before = tmp;
         }
     }
 

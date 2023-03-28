@@ -24,7 +24,7 @@ public class RankingPanel : BasePanel
         {
             if (FirebaseManager.instance.InternetOn() == false)
             {
-                SceneManager.instance.Popup(true);
+                SceneManager.instance.Popup("인터넷 연결 안됨");
                 return;
             }
 

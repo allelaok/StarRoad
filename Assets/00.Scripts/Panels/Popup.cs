@@ -6,16 +6,24 @@ using UnityEngine;
 public class Popup : MonoBehaviour
 {
     public BaseButton exitBtn;
+    [SerializeField] TMPro.TMP_Text content;
 
-    void Start()
+    void Awake()
     {
         exitBtn.invokeMethod.AddListener(OnClick_ExitBtn);
-
+        gameObject.SetActive(false);
     }
 
     private void OnClick_ExitBtn()
     {
-        SceneManager.instance.Popup(false);
+        gameObject.SetActive(false);
+
+    }
+
+    public void SetActive(string content)
+    {
+        this.content.text = content;
+        gameObject.SetActive(true);
     }
 
 }
