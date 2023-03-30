@@ -7741,14 +7741,6 @@ MonoBehaviour:
   camMoveBG: {fileID: 1683013907}
   heartPositions: {fileID: 646377834}
   animSprite: {fileID: 485463485}
-  tornadosPos:
-  - {fileID: 1469898737}
-  - {fileID: 1868180477}
-  - {fileID: 1103142703}
-  - {fileID: 859284446}
-  - {fileID: 1062056465}
-  - {fileID: 376899699}
-  - {fileID: 293371707}
   lifeImg:
   - {fileID: 1074586681}
   - {fileID: 908296790}
@@ -17408,7 +17400,7 @@ MonoBehaviour:
   start: {fileID: 1660214364}
   game: {fileID: 759002746}
   loading: {fileID: 1492688036}
-  popup: {fileID: 1125715543}
+  popup: {fileID: 0}
 --- !u!1 &1117644782
 GameObject:
   m_ObjectHideFlags: 0
@@ -17761,7 +17753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitBtn: {fileID: 1462422126}
-  content: {fileID: 1187027079}
+  content: {fileID: 0}
 --- !u!1 &1128827167
 GameObject:
   m_ObjectHideFlags: 0
@@ -21570,7 +21562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8771934399b4bf0458c5109a526308a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMsg: {fileID: 114105574}
+  debugMsg: {fileID: 0}
   afterSend: 0
 --- !u!114 &1457520849
 MonoBehaviour:

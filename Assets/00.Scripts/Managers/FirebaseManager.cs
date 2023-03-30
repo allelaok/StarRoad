@@ -52,17 +52,6 @@ public class FirebaseManager : MonoBehaviour
         auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
         auth.StateChanged += AuthStateChanged;
 
-#if UNITY_ANDROID
-        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
-         // enables saving game progress.
-         .EnableSavedGames()
-         .RequestIdToken()
-         .Build();
-
-        PlayGamesPlatform.InitializeInstance(config);
-        PlayGamesPlatform.Activate();
-
-#endif
     }
 
 
@@ -87,85 +76,8 @@ public class FirebaseManager : MonoBehaviour
         reference.Child("users").Child(uid).Child("coin").SetValueAsync(num);
     }
 
-    public void GoogleLogin()
-    {
-        if (!Social.localUser.authenticated) // 로그인 되어 있지 않다면
-        {
-            Social.localUser.Authenticate(success => // 로그인 시도
-            {
-                if (success) // 성공하면
-                {
-        debugMsg.text = "google login success";
-                    //SystemMessageManager.Instance.AddMessage("google game service Success");
-                    authCode = PlayGamesPlatform.Instance.GetServerAuthCode();
-                    StartCoroutine(TryFirebaseLogin());
-                    //FirebaseWithGooglePlay(); // Firebase Login 시도
-                }
-                else // 실패하면
-                {
-        debugMsg.text = "guest login try";
-                    SceneManager.instance.Popup("guest login try");
-                    GuestLogIn();
-                }
-            });
-        }
-    }
 
-
-    void FirebaseWithGooglePlay()
-    {
-        Firebase.Auth.FirebaseAuth auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
-        Firebase.Auth.Credential credential =
-            Firebase.Auth.PlayGamesAuthProvider.GetCredential(authCode);
-
-        auth.SignInWithCredentialAsync(credential).ContinueWith(task => {
-            if (task.IsCanceled)
-            {
-                debugMsg.text = "SignInWithCredentialAsync was canceled.";
-                Debug.LogError("SignInWithCredentialAsync was canceled.");
-                return;
-            }
-            if (task.IsFaulted)
-            {
-                debugMsg.text = "SignInWithCredentialAsync encountered an error: " + task.Exception;
-                Debug.LogError("SignInWithCredentialAsync encountered an error: " + task.Exception);
-                return;
-            }
-
-            Firebase.Auth.FirebaseUser newUser = task.Result;
-                debugMsg.text = "User signed in successfully";
-            Debug.LogFormat("User signed in successfully: {0} ({1})",
-                newUser.DisplayName, newUser.UserId);
-        });
-    }
-    IEnumerator TryFirebaseLogin()
-    {
-        while (string.IsNullOrEmpty(((PlayGamesLocalUser)Social.localUser).GetIdToken()))
-            yield return null;
-
-        string idToken = ((PlayGamesLocalUser)Social.localUser).GetIdToken();
-
-        Credential credential = GoogleAuthProvider.GetCredential(idToken, null);
-        auth.SignInWithCredentialAsync(credential).ContinueWithOnMainThread(task => {
-            if (task.IsCanceled)
-            {
-        debugMsg.text = "firebase canceled" + task.Exception;
-                Debug.Log("firebase canceled" + task.Exception);
-                return;
-            }
-            if (task.IsFaulted)
-            {
-        debugMsg.text = "firebase  id faulted" + task.Exception;
-                Debug.Log("firebase id faulted" + task.Exception);
-                return;
-            }
-
-            user = task.Result;
-
-        debugMsg.text = "google firebase success!";
-            Debug.Log("Success!");
-        });
-    }
+  
 
     public void GameCenterLogin()
     {
