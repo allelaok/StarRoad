@@ -57,6 +57,7 @@ public class SetNickNamePanel : BasePanel
     {
         SceneManager.instance.PanelOn(SceneManager.HOME.loading);
         FirebaseManager.instance.afterSend = SceneManager.HOME.home;
+        GameManager.instance.nickName = nickname.text;
         FirebaseManager.instance.SendData("nickName", nickname.text, 1);
     }
 

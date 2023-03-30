@@ -523,7 +523,6 @@ public class FirebaseManager : MonoBehaviour
                 if (snapshot.ChildrenCount > 0)
                 {
                 print(1);
-                    //string nickName = "ㄴㄴㄴ";
                     string nickName = snapshot.Child("nickName").Value.ToString();
                     print(nickName);
                 print(1);
@@ -591,13 +590,11 @@ public class FirebaseManager : MonoBehaviour
                 {
                     int score = int.Parse(childSnapshot.Child("score").Value.ToString());
                     string nickName = childSnapshot.Child("nickName").Value.ToString();
-                    string selectedCharacter = childSnapshot.Child("selectedCharacter").Value.ToString();
 
                     rank++;
                     RankInfo info = new RankInfo();
                     info.nickName = nickName;
                     info.score = score;
-                    info.selectedCharacter = int.Parse(selectedCharacter);
                     if (beforeScore == score)
                         info.rank = beforeRank;
                     else
@@ -661,7 +658,6 @@ public class FirebaseManager : MonoBehaviour
                     }
 
                     string nickName = childSnapshot.Child("nickName").Value.ToString();
-                    string selectedCharacter = childSnapshot.Child("selectedCharacter").Value.ToString();
 
                     targetRank.nickName = nickName;
                     targetRank.score = score;
@@ -675,9 +671,6 @@ public class FirebaseManager : MonoBehaviour
                         beforeScore = score;
                         targetRank.rank = beforeRank;
                     }
-
-
-                    targetRank.selectedCharacter = int.Parse(selectedCharacter);
 
                 }
             }

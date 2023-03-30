@@ -387,18 +387,19 @@ public class Player : MonoBehaviour
         // ???? ??
         if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
-            DestroyAllHearts();
+            //DestroyAllHearts();
+            if (nowTarget)
+                Destroy(nowTarget.gameObject);
+
             dieCnt++;
             lifeImg[lifeCnt - dieCnt].enabled = false;
-            GameManager.instance.Speed = GameManager.instance.BaseSpeed;
+            //GameManager.instance.Speed = GameManager.instance.BaseSpeed;
             SoundManager.instance.CollSound();
 
             if (dieCnt < lifeCnt)
             {
-
                 CreateHeart();
                 invincibility = true;
-                //initPos();
             }
             else
             {
