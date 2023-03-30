@@ -22,15 +22,26 @@ public class PlayerController : MonoBehaviour, IPointerDownHandler, IDragHandler
         {
             Vector2 now = eventData.position - m_vecNormal;
             float ang = Vector2.Angle(now, start);
-            Vector3 cross = Vector3.Cross(new Vector3(now.x, now.y, 0), new Vector3(start.x, start.y, 0));
-            cross = cross.normalized;
-            transform.rotation = startRot * Quaternion.Euler(new Vector3(0, 0, -cross.z * ang));
-            player.transform.rotation = playerStartRot * Quaternion.Euler(new Vector3(0, 0, player.inverse * -cross.z * ang));
 
-            player.points.Add(player.transform.position);
+            if (ang >= 45)
+            {
+                Vector3 cross = Vector3.Cross(new Vector3(now.x, now.y, 0), new Vector3(start.x, start.y, 0));
+                cross = cross.normalized;
+                transform.rotation = startRot * Quaternion.Euler(new Vector3(0, 0, -cross.z * ang));
+                player.transform.rotation = playerStartRot * Quaternion.Euler(new Vector3(0, 0, player.inverse * -cross.z * ang));
+                InitRot(eventData);
+                player.points.Add(player.transform.position);
+                Handheld.Vibrate();
+                SoundManager.instance.ClickBtnSound();
+            }
         }
     }
     public void OnPointerDown(PointerEventData eventData)
+    {
+        InitRot(eventData);
+    }
+
+    void InitRot(PointerEventData eventData)
     {
         startRot = transform.rotation;
         playerStartRot = player.transform.rotation;
