@@ -9,35 +9,64 @@ public class BaseButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     public Image image;
     [HideInInspector]
-    public UnityEvent invokeMethod;
+    public UnityEvent OnClickMethod;
+    [HideInInspector]
+    public UnityEvent OnEnterMethod;
+    [HideInInspector]
+    public UnityEvent OnExitMethod;
+
+    public bool soundContents;
+
     private void Awake()
     {
-        if(image == null)
+        if (soundContents) return;
+
+        if (image == null)
         {
-            if(transform.parent != null)
+            if (transform.parent != null)
             {
                 image = GetComponentInParent<Image>();
             }
         }
 
-        image.enabled = false;
+        if (image)
+            image.enabled = false;
+    }
+
+    private void Start()
+    {
+        if (soundContents)
+        {
+            if (image)
+                image.enabled = true;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        image.enabled = true;
+        if(OnEnterMethod != null)
+        OnEnterMethod.Invoke();
+
+        if (image && soundContents == false)
+            image.enabled = true;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        image.enabled = false;
+        if (image && soundContents == false)
+            image.enabled = false;
 
+        if (OnExitMethod != null)
+            OnExitMethod.Invoke();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        image.enabled = false;
         SoundManager.instance.ClickBtnSound();
-        invokeMethod.Invoke();
+        if(OnClickMethod != null)
+        OnClickMethod.Invoke();
+
+        if (image && soundContents == false)
+            image.enabled = false;
     }
 }

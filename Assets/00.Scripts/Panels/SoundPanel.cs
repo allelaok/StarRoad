@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class SoundPanel : BasePanel
@@ -20,26 +21,52 @@ public class SoundPanel : BasePanel
     // Start is called before the first frame update
     void Start()
     {
-        okBtn.invokeMethod.AddListener(OnCLickSoundOKBtn);
-        exitBtn.invokeMethod.AddListener(OnCLickSoundXBtn);
+        okBtn.OnClickMethod.AddListener(OnCLickSoundOKBtn);
+        exitBtn.OnClickMethod.AddListener(OnCLickSoundXBtn);
 
-        bgmUp.invokeMethod.AddListener(delegate{ OnClick_BGMBtn(true); });
-        bgmDown.invokeMethod.AddListener(delegate { OnClick_BGMBtn(false); });
-        effectUp.invokeMethod.AddListener(delegate { OnClick_EffectBtn(true); });
-        effectDown.invokeMethod.AddListener(delegate { OnClick_EffectBtn(false); });
+        //bgmUp.OnClickMethod.AddListener(delegate{ OnClick_BGMBtn(true); });
+        bgmUp.OnClickMethod.AddListener(delegate{ OnClick_BGMBtn(true); });
+        bgmDown.OnClickMethod.AddListener(delegate { OnClick_BGMBtn(false); });
+        effectUp.OnClickMethod.AddListener(delegate { OnClick_EffectBtn(true); });
+        effectDown.OnClickMethod.AddListener(delegate { OnClick_EffectBtn(false); });
 
         bgms = bgmContent.GetComponentsInChildren<Image>();
         effects = effectContent.GetComponentsInChildren<Image>();
 
         for (int i = 0; i < bgms.Length; i++)
         {
-            float bgmv = i / 5f;
-            bgms[i].gameObject.AddComponent<Button>().onClick.AddListener(delegate { SetBGMContents(bgmv); });
+            float bgmv = (i + 1) / 5f;
+            BaseButton btn = bgms[i].gameObject.AddComponent<BaseButton>();
+            btn.soundContents = true;
+            btn.OnEnterMethod = new UnityEvent();
+            btn.OnEnterMethod.AddListener(delegate { SetBGMContents(bgmv); });
+
+            btn.OnClickMethod = new UnityEvent();
+            btn.OnClickMethod.AddListener(delegate { SetBGMContents(bgmv); });
+
+            if (i == 0)
+            {
+                btn.OnExitMethod = new UnityEvent();
+                btn.OnExitMethod.AddListener(delegate { SetBGMContents(0); });
+            }
         }
+
         for (int i = 0; i < effects.Length; i++)
         {
-            float effectV = i  / 5f;
-            effects[i].gameObject.AddComponent<Button>().onClick.AddListener(delegate { SetEffectContents(effectV); });
+            float effectV = (i + 1) / 5f;
+            BaseButton btn = effects[i].gameObject.AddComponent<BaseButton>();
+            btn.soundContents = true;
+            btn.OnEnterMethod = new UnityEvent();
+            btn.OnEnterMethod.AddListener(delegate { SetEffectContents(effectV); });
+
+            btn.OnClickMethod = new UnityEvent();
+            btn.OnClickMethod.AddListener(delegate { SetEffectContents(effectV); });
+
+            if (i == 0)
+            {
+                btn.OnExitMethod = new UnityEvent();
+                btn.OnExitMethod.AddListener(delegate { SetEffectContents(0); });
+            }
         }
 
         if (PlayerPrefs.HasKey("bgmV"))
@@ -94,18 +121,45 @@ public class SoundPanel : BasePanel
 
     void SetBGMContents(float bgmV)
     {
+        this.bgmV = bgmV;
         for (int i = 0; i < bgms.Length; i++)
         {
-            bgms[i].gameObject.SetActive(i < Mathf.Round(bgmV * bgms.Length));
+            if (i < Mathf.Round(bgmV * bgms.Length))
+            {
+                Color color = bgms[i].color;
+                color.a = 1f;
+                bgms[i].color = color;
+            }
+            else
+            {
+                Color color = bgms[i].color;
+                color.a = 0.3f;
+                bgms[i].color = color;
+            }
+            //bgms[i].gameObject.SetActive(i < Mathf.Round(bgmV * bgms.Length));
         }
         SoundManager.instance.SetBGMVolume(bgmV);
     }
 
     void SetEffectContents(float effectV)
     {
+        this.effectV = effectV;
         for (int i = 0; i < effects.Length; i++)
         {
-            effects[i].gameObject.SetActive(i < Mathf.Round(effectV * effects.Length));
+            if(i < Mathf.Round(effectV * effects.Length))
+            {
+                Color color = effects[i].color;
+                color.a = 1f;
+                effects[i].color = color;
+            }
+            else
+            {
+                Color color = effects[i].color;
+                color.a = 0.3f;
+                effects[i].color = color;
+            }
+
+            //effects[i].gameObject.SetActive(i < Mathf.Round(effectV * effects.Length));
         }
         SoundManager.instance.SetEffectVolume(effectV);
     }

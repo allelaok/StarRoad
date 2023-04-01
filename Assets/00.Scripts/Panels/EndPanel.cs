@@ -14,8 +14,8 @@ public class EndPanel : BasePanel
     // Start is called before the first frame update
     void Start()
     {
-        retryBtn.invokeMethod.AddListener(OnClick_RetryBtn);
-        homeBtn.invokeMethod.AddListener(delegate { SceneManager.instance.PanelOn(SceneManager.HOME.home); });
+        retryBtn.OnClickMethod.AddListener(OnClick_RetryBtn);
+        homeBtn.OnClickMethod.AddListener(delegate { SceneManager.instance.PanelOn(SceneManager.HOME.home); });
 
     }
 

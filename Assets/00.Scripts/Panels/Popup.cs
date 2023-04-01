@@ -10,7 +10,7 @@ public class Popup : MonoBehaviour
 
     void Awake()
     {
-        exitBtn.invokeMethod.AddListener(OnClick_ExitBtn);
+        exitBtn.OnClickMethod.AddListener(OnClick_ExitBtn);
         gameObject.SetActive(false);
     }
 

@@ -10,7 +10,7 @@ public class LoadingPanel : MonoBehaviour
 
     private void Start()
     {
-        homeBtn.invokeMethod.AddListener(OnClick_HomeBtn);
+        homeBtn.OnClickMethod.AddListener(OnClick_HomeBtn);
     }
 
     void OnClick_HomeBtn()

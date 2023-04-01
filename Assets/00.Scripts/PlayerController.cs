@@ -27,11 +27,14 @@ public class PlayerController : MonoBehaviour, IPointerDownHandler, IDragHandler
             {
                 Vector3 cross = Vector3.Cross(new Vector3(now.x, now.y, 0), new Vector3(start.x, start.y, 0));
                 cross = cross.normalized;
-                transform.rotation = startRot * Quaternion.Euler(new Vector3(0, 0, -cross.z * ang));
-                player.transform.rotation = playerStartRot * Quaternion.Euler(new Vector3(0, 0, player.inverse * -cross.z * ang));
+                transform.Rotate(0,0,-(int)cross.z * 45);
+                //transform.rotation *= Quaternion.Euler(new Vector3(0, 0, -(int)cross.z * 45));
+                print(-(int)cross.z * 45);
+                //player.transform.rotation *= Quaternion.Euler(new Vector3(0, 0, player.inverse * -cross.z * ang));
+                player.transform.Rotate(0,0,-(int)cross.z * 45);
                 InitRot(eventData);
                 player.points.Add(player.transform.position);
-                Handheld.Vibrate();
+           //     Handheld.Vibrate();
                 SoundManager.instance.ClickBtnSound();
             }
         }
@@ -43,8 +46,8 @@ public class PlayerController : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     void InitRot(PointerEventData eventData)
     {
-        startRot = transform.rotation;
-        playerStartRot = player.transform.rotation;
+        //startRot = transform.rotation;
+        //playerStartRot = player.transform.rotation;
         start = eventData.position - m_vecNormal;
     }
 }

@@ -10,15 +10,15 @@ public class HomePanel : BasePanel
 
     private void Start()
     {
-        rankingBtn.invokeMethod.AddListener(OnCliCk_RankingBtn);
-        settingBtn.invokeMethod.AddListener(OnClick_SettingBtn);
-        playBtn.invokeMethod.AddListener(OnClick_playBtn);
+        rankingBtn.OnClickMethod.AddListener(OnCliCk_RankingBtn);
+        settingBtn.OnClickMethod.AddListener(OnClick_SettingBtn);
+        playBtn.OnClickMethod.AddListener(OnClick_playBtn);
     }
 
     void OnCliCk_RankingBtn()
     {
         SceneManager.instance.LoadingPanelOn();
-        FirebaseManager.instance.GetRankInfo();
+        FirebaseManager.instance.GetRankInfo2();
     }
 
     void OnClick_SettingBtn()

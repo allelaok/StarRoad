@@ -15,11 +15,12 @@ public class RankingPanel : BasePanel
 
     private void Start()
     {
-        exitBtn.invokeMethod.AddListener(OnClick_ExitBtn);
+        exitBtn.OnClickMethod.AddListener(OnClick_ExitBtn);
     }
 
     public override void SetActice(bool on)
     {
+                print(3);
         if (on)
         {
             if (FirebaseManager.instance.InternetOn() == false)
@@ -38,23 +39,29 @@ public class RankingPanel : BasePanel
 
     void AfterGetRank()
     {
+                print(4);
         for (int i = 0; i < 10; i++)
         {
+                print(4);
             if (i < FirebaseManager.instance.rankInfos.Count)
                 ranks[i].SetInfo(FirebaseManager.instance.rankInfos[i]);
             else
                 ranks[i].SetInfo();
         }
 
+                print(4);
             ranks[10].SetInfo();
-            ranks[11].SetInfo();
+        ranks[11].SetInfo();
             gameObject.SetActive(true);
 
+                print(4);
         if (FirebaseManager.instance.targetRank.rank == 0)
             FirebaseManager.instance.targetRank = null;
+        print(4);
 
         ranks[10].SetInfo(FirebaseManager.instance.targetRank);
         ranks[11].SetInfo(FirebaseManager.instance.myRank);
+                print(4);
         gameObject.SetActive(true);
     }
 

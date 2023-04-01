@@ -407,11 +407,48 @@ public class FirebaseManager : MonoBehaviour
         GameManager.instance.coin += GameManager.instance.Score;
 
         afterSend = SceneManager.HOME.end;
+
+        CheckRank();
+
         SendData("score", GameManager.instance.BestScore, 2);
         SendData("coin", GameManager.instance.coin, 2);
     }
 
+    void CheckRank()
+    {
+        FirebaseDatabase.DefaultInstance.GetReference("rank").GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted)
+            {
+                // Handle the error...
+                SceneManager.instance.PanelOn(SceneManager.HOME.home);
+                SceneManager.instance.Popup("get rank error");
+                print("get rank error");
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                for (int i = (int)snapshot.ChildrenCount; i > 0; i--)
+                {
+                    int score = int.Parse(snapshot.Child(i.ToString()).Child("score").Value.ToString());
+                    if (score < GameManager.instance.BestScore)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        if(i < 10)
+                        {
+                            reference.Child("rank").Child((i - 1).ToString()).Child("score").SetValueAsync(GameManager.instance.BestScore);
+                            reference.Child("rank").Child((i - 1).ToString()).Child("name").SetValueAsync(GameManager.instance.nickName);
+                        }
+                        break;
+                    }
+                }
+            }
+        });
 
+    }
 
     public SceneManager.HOME afterSend;
     public void SendDataAll()
@@ -618,6 +655,40 @@ public class FirebaseManager : MonoBehaviour
 
     }
 
+    public void GetRankInfo2()
+    {
+        FirebaseDatabase.DefaultInstance.GetReference("rank").GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted)
+            {
+                // Handle the error...
+                SceneManager.instance.PanelOn(SceneManager.HOME.home);
+                SceneManager.instance.Popup("get rank error");
+                print("get rank error");
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                rankInfos.Clear();
+                print(1);
+                for (int i = 1; i < snapshot.ChildrenCount + 1; i++)
+                {
+                    string score = snapshot.Child(i.ToString()).Child("score").Value.ToString();
+                    print(score);
+                    string nickName = snapshot.Child(i.ToString()).Child("name").Value.ToString();
+                    print(nickName);
+                    RankInfo info = new RankInfo();
+                    info.nickName = nickName;
+                    info.score = int.Parse(score);
+                    print(i);
+                    rankInfos.Add(info);
+                }
+
+                GetMyRank();
+            }
+        });
+    }
+
     public RankInfo targetRank;
     public RankInfo myRank;
     private string authCode;
@@ -626,6 +697,7 @@ public class FirebaseManager : MonoBehaviour
     {
         FirebaseDatabase.DefaultInstance.GetReference("users").OrderByChild("score").GetValueAsync().ContinueWithOnMainThread(task =>
         {
+                print(2);
             if (task.IsFaulted)
             {
                 // Handle the error...
@@ -634,6 +706,7 @@ public class FirebaseManager : MonoBehaviour
             }
             else if (task.IsCompleted)
             {
+                print(2);
                 targetRank = new RankInfo();
                 DataSnapshot snapshot = task.Result;
                 int beforeRank = 0;

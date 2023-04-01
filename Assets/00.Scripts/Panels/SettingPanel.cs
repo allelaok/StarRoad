@@ -12,8 +12,8 @@ public class SettingPanel : BasePanel
     // Start is called before the first frame update
     void Start()
     {
-        soundBtn.invokeMethod.AddListener(delegate { SceneManager.instance.PanelOn(SceneManager.HOME.sound); });
-        changeNickNameBtn.invokeMethod.AddListener(delegate { SceneManager.instance.PanelOn(SceneManager.HOME.setNickName); });
-        homeBtn.invokeMethod.AddListener(delegate { SceneManager.instance.PanelOn(SceneManager.HOME.home); });
+        soundBtn.OnClickMethod.AddListener(delegate { SceneManager.instance.PanelOn(SceneManager.HOME.sound); });
+        changeNickNameBtn.OnClickMethod.AddListener(delegate { SceneManager.instance.PanelOn(SceneManager.HOME.setNickName); });
+        homeBtn.OnClickMethod.AddListener(delegate { SceneManager.instance.PanelOn(SceneManager.HOME.home); });
     }
 }

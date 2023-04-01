@@ -16,9 +16,9 @@ public class SetNickNamePanel : BasePanel
     // Start is called before the first frame update
     void Start()
     {
-        checkBtn.invokeMethod.AddListener(OnClickCheckBtn);
-        okBtn.invokeMethod.AddListener(OnClickOkBtn);
-        exitBtn.invokeMethod.AddListener(OnClickExitBtn);
+        checkBtn.OnClickMethod.AddListener(OnClickCheckBtn);
+        okBtn.OnClickMethod.AddListener(OnClickOkBtn);
+        exitBtn.OnClickMethod.AddListener(OnClickExitBtn);
         nickname.onValueChanged.AddListener(ChangeText);
     }
 
