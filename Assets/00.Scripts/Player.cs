@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     [SerializeField]    GameObject camMoveBG;
     [SerializeField]    Transform heartPositions;
     [SerializeField]    SpriteRenderer animSprite;
-    [SerializeField] Transform[] tornadosPos;
    
     public Image[] lifeImg;
     int lifeCnt;
@@ -358,14 +357,14 @@ public class Player : MonoBehaviour
 
     void initPos()
     {
-        int i = Random.Range(0, tornadosPos.Length - 1);
+        int i = Random.Range(1, subways.Length);
         
         inverse = 1;
-        target = tornadosPos[i];
+        target = subways[i];
 
         state = STATE.Play;
-        transform.position = tornadosPos[i].position;
-        transform.rotation = tornadosPos[i].rotation;
+        transform.position = subways[i].position;
+        transform.rotation = subways[i].rotation;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
