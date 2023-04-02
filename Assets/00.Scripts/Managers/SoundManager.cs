@@ -4,13 +4,20 @@ using UnityEngine;
 
 public enum Sound
 {
-    BGM1,
-    BGM2,
-    BtnClick,
-    Coll
+   Lobby_BGM,
+   Game_BGM,
+   Gover_BGM,
+   BtnClick,
+   Pet_pop,
+   Eat_Reverse,
+   T_in,
+   T_Out,
+   Wall,
+   Walk1,
+   Walk2,
+   Devil_wing
 }
 
-[RequireComponent(typeof (AudioSource))]
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
@@ -25,13 +32,14 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        source = GetComponent<AudioSource>();
         bgm.volume = PlayerPrefs.GetFloat("bgmV");
         source.volume = PlayerPrefs.GetFloat("effectV");
+        wing.volume = PlayerPrefs.GetFloat("effectV");
     }
 
-    AudioSource source;
+   public AudioSource source;
     public AudioSource bgm;
+    public AudioSource wing;
     public AudioClip[] clips;
 
     public void SetBGMVolume(float bgmV)
@@ -42,6 +50,7 @@ public class SoundManager : MonoBehaviour
     public void SetEffectVolume(float effectV)
     {
         source.volume = effectV;
+        wing.volume = effectV;
     }
 
 
@@ -57,8 +66,26 @@ public class SoundManager : MonoBehaviour
         bgm.Play();
     }
 
-   public void CollSound()
+   public void SoundOneShot(Sound sound)
     {
-        source.PlayOneShot(clips[(int)Sound.Coll]);
+        source.PlayOneShot(clips[(int)sound]);
+    }
+
+    public void WalkSound1()
+    {
+        source.PlayOneShot(clips[(int)Sound.Walk2]);
+
+    }
+
+    public void WalkSound2()
+    {
+
+        source.PlayOneShot(clips[(int)Sound.Walk2]);
+    }
+
+    public void WingSound(float volume)
+    {
+        wing.volume = volume;
+        wing.PlayOneShot(clips[(int)Sound.Devil_wing]);
     }
 }

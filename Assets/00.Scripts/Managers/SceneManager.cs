@@ -21,12 +21,12 @@ public class SceneManager : MonoBehaviour
     {
         home,
         ranking,
-        setting,
         sound,
-        //account,
-        //logout,
         setNickName,
+        howTo,
+
         Count,
+
         game,
         end,
         loading

@@ -31,54 +31,13 @@ SpriteAtlas:
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
-    packables:
-    - {fileID: 102900000, guid: d8fea6b93619a3b42b5a39ff6be9d133, type: 3}
+    packables: []
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites:
-  - {fileID: 21300000, guid: 3246a7a0ca9cd3f4aad26da6df4aa22e, type: 3}
-  - {fileID: 21300000, guid: 2c5dfcd146927db4dafad7e233fb7018, type: 3}
-  - {fileID: 21300000, guid: 0b34f0f108ebe2648a61e7f303922a5a, type: 3}
-  - {fileID: 21300000, guid: 41923cb2c610fbb4fa6632382cc3f5ee, type: 3}
-  - {fileID: 21300000, guid: 73a70b740efbbd04482b6e015cb4527e, type: 3}
-  - {fileID: 21300000, guid: 1e8b40b4221fcce488023e2c78eb64a9, type: 3}
-  - {fileID: 21300000, guid: 7d6684c4599f6794ea25cb47c071561b, type: 3}
-  - {fileID: 21300000, guid: 9344a5263199b804584791ebf6864c1b, type: 3}
-  - {fileID: 21300000, guid: 329c30e67a59f464f96ec4d7366ce1be, type: 3}
-  - {fileID: 21300000, guid: 49e074a7b0ee8514ebb5adfa13ad4208, type: 3}
-  - {fileID: 21300000, guid: dec4f3084b72d1b4ba2383efcf8e7fb6, type: 3}
-  - {fileID: 21300000, guid: 48430af872451c247ad5c298011d0e54, type: 3}
-  - {fileID: 21300000, guid: aaffb67906d2dd949865c1d1deb3e057, type: 3}
-  - {fileID: 21300000, guid: b1566d9ad0551ca4d80e589a9c8e6bda, type: 3}
-  - {fileID: 21300000, guid: 7ad3dfda8cb4d7248ad4d9e30b9852ef, type: 3}
-  - {fileID: 21300000, guid: 853380fcdf10c0b4ba9e0ae4cfdbaace, type: 3}
-  - {fileID: 21300000, guid: c065626d2f975a549b318e10994f1412, type: 3}
-  - {fileID: 21300000, guid: fd2d0ecd51ac3614b8b5daf92331fe1c, type: 3}
-  - {fileID: 21300000, guid: 18c08fcd9d3893c46b47c51b55b9cff8, type: 3}
-  - {fileID: 21300000, guid: 4a521cef26c211f4591fbfb70977e12f, type: 3}
-  m_PackedSpriteNamesToIndex:
-  - SA
-  - YJPlayer
-  - DY
-  - ExyPlayer
-  - DYPlayer
-  - RDPlayer
-  - DW
-  - SB
-  - ES
-  - YR
-  - ESPlayer
-  - SBPlayer
-  - BNPlayer
-  - SAPlayer
-  - DWPlayer
-  - YRPlayer
-  - Exy
-  - RD
-  - BN
-  - YJ
+  m_PackedSprites: []
+  m_PackedSpriteNamesToIndex: []
   m_RenderDataMap: {}
   m_Tag: Members
   m_IsVariant: 0

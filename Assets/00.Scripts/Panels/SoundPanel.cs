@@ -37,7 +37,7 @@ public class SoundPanel : BasePanel
         {
             float bgmv = (i + 1) / 5f;
             BaseButton btn = bgms[i].gameObject.AddComponent<BaseButton>();
-            btn.soundContents = true;
+            btn.scaleEffect = true;
             btn.OnEnterMethod = new UnityEvent();
             btn.OnEnterMethod.AddListener(delegate { SetBGMContents(bgmv); });
 
@@ -55,7 +55,7 @@ public class SoundPanel : BasePanel
         {
             float effectV = (i + 1) / 5f;
             BaseButton btn = effects[i].gameObject.AddComponent<BaseButton>();
-            btn.soundContents = true;
+            btn.scaleEffect = true;
             btn.OnEnterMethod = new UnityEvent();
             btn.OnEnterMethod.AddListener(delegate { SetEffectContents(effectV); });
 
@@ -169,11 +169,11 @@ public class SoundPanel : BasePanel
         bgmV = PlayerPrefs.GetFloat("bgmV");
         effectV = PlayerPrefs.GetFloat("effectV");
         SetPanel();
-        SceneManager.instance.PanelOn(SceneManager.HOME.setting);
+        SceneManager.instance.PanelOn(SceneManager.HOME.home);
     }
     public void OnCLickSoundOKBtn()
     {
         SaveVolume();
-        SceneManager.instance.PanelOn(SceneManager.HOME.setting);
+        SceneManager.instance.PanelOn(SceneManager.HOME.home);
     }
 }

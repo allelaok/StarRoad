@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,26 +6,33 @@ using UnityEngine;
 public class HomePanel : BasePanel
 {
     public BaseButton rankingBtn;
-    public BaseButton settingBtn;
+    public BaseButton soundBtn;
     public BaseButton playBtn;
+    public BaseButton howToBtn;
 
     private void Start()
     {
         rankingBtn.OnClickMethod.AddListener(OnCliCk_RankingBtn);
-        settingBtn.OnClickMethod.AddListener(OnClick_SettingBtn);
+        soundBtn.OnClickMethod.AddListener(OnClick_SoundBtn);
         playBtn.OnClickMethod.AddListener(OnClick_playBtn);
+        howToBtn.OnClickMethod.AddListener(OnClick_howToBtn);
+    }
+
+    private void OnClick_howToBtn()
+    {
+        SceneManager.instance.PanelOn(SceneManager.HOME.howTo);
     }
 
     void OnCliCk_RankingBtn()
     {
         SceneManager.instance.LoadingPanelOn();
-        FirebaseManager.instance.GetRankInfo2();
+        FirebaseManager.instance.GetRankInfo();
     }
 
-    void OnClick_SettingBtn()
+    void OnClick_SoundBtn()
     {
 
-        SceneManager.instance.PanelOn(SceneManager.HOME.setting);
+        SceneManager.instance.PanelOn(SceneManager.HOME.sound);
     }
 
     void OnClick_playBtn()

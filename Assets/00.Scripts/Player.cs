@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     int lifeCnt;
 
     public Animator anim;
-  public  int inverse = 1;
+  public static int inverse = 1;
   public List<Vector3> points = new List<Vector3>();
 
   public static  List<Transform> hearts = new List<Transform>();
@@ -41,6 +41,8 @@ public class Player : MonoBehaviour
     int idx;
     float inverseTime = 5f;
     float inversedTime;
+
+    [SerializeField] Transform controller;
 
     private void Start()
     {
@@ -120,6 +122,7 @@ public class Player : MonoBehaviour
 
     public void Ready()
     {
+        SoundManager.instance.BGM((int)Sound.Game_BGM);
         tornado.gameObject.SetActive(false);
         for (int i = 0; i < lifeCnt; i++)
         {
@@ -145,7 +148,6 @@ public class Player : MonoBehaviour
         GameManager.instance.Speed = GameManager.instance.BaseSpeed;
 
         enemy.RandomPosition();
-
         state = STATE.Play;
     }
     [SerializeField] BlackHeart enemy;
@@ -344,8 +346,13 @@ public class Player : MonoBehaviour
             transform.position = target.position;
             Vector3 ang = target.eulerAngles;
             transform.eulerAngles = ang;
+            controller.eulerAngles = ang;
+
             points.Add(target.position);
             transform.GetComponentInChildren<SpriteRenderer>().enabled = true;
+
+            SoundManager.instance.SoundOneShot(Sound.T_Out);
+
             state = STATE.Play;
             camMoveBG.SetActive(false);
         }
@@ -365,6 +372,8 @@ public class Player : MonoBehaviour
         state = STATE.Play;
         transform.position = subways[i].position;
         transform.rotation = subways[i].rotation;
+
+        controller.rotation = subways[i].rotation;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -393,7 +402,7 @@ public class Player : MonoBehaviour
             dieCnt++;
             lifeImg[lifeCnt - dieCnt].enabled = false;
             //GameManager.instance.Speed = GameManager.instance.BaseSpeed;
-            SoundManager.instance.CollSound();
+            SoundManager.instance.SoundOneShot(Sound.Wall);
 
             if (dieCnt < lifeCnt)
             {
@@ -408,6 +417,8 @@ public class Player : MonoBehaviour
         // ????
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Heart"))
         {
+
+
             state = STATE.Pop;
 
             hearts.Add(collision.transform);
@@ -427,6 +438,8 @@ public class Player : MonoBehaviour
 
             CreateHeart();
             CreatePop(collision.transform);
+            SoundManager.instance.SoundOneShot(Sound.Pet_pop);
+
         }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
@@ -437,7 +450,8 @@ public class Player : MonoBehaviour
                 lifeImg[i].enabled = false;
             }
             //GameManager.instance.Speed = GameManager.instance.BaseSpeed;
-            SoundManager.instance.CollSound();
+            //tmp
+            SoundManager.instance.SoundOneShot(Sound.Wall);
             GameOver();
         }
         // ????
@@ -446,6 +460,7 @@ public class Player : MonoBehaviour
             inversedTime = 0;
             inverse = -1;
             GameManager.instance.SetSpring(collision.transform);
+            //SoundManager.instance.CollSound(Sound.Wall);
         }
         // ??????
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Tornado"))
@@ -459,6 +474,7 @@ public class Player : MonoBehaviour
             transform.position = collision.transform.position;
             beforeSubway = collision.transform;
             state = STATE.Tornado;
+            SoundManager.instance.SoundOneShot(Sound.T_in);
             //SelectSubway(collision.transform);
         }
         // ????
@@ -473,6 +489,7 @@ public class Player : MonoBehaviour
             transform.GetComponentInChildren<SpriteRenderer>().enabled = false;
             target = stair.otherStair.transform;
             points.Clear();
+            //SoundManager.instance.CollSound(Sound.T_in);
 
             state = STATE.CamMove;
         }
@@ -482,6 +499,7 @@ public class Player : MonoBehaviour
             inverse = -1;
             //anim.SetInteger("Inverse", inverse);
             GameManager.instance.SetSpring(collision.transform);
+            SoundManager.instance.SoundOneShot(Sound.Eat_Reverse);
         }
     }
 
@@ -491,18 +509,19 @@ public class Player : MonoBehaviour
         // ???? ??
         if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
-            DestroyAllHearts();
+            //DestroyAllHearts();
+            if (nowTarget)
+                Destroy(nowTarget.gameObject);
+
             dieCnt++;
             lifeImg[lifeCnt - dieCnt].enabled = false;
-            GameManager.instance.Speed = GameManager.instance.BaseSpeed;
-            SoundManager.instance.CollSound();
+            //GameManager.instance.Speed = GameManager.instance.BaseSpeed;
+            SoundManager.instance.SoundOneShot(Sound.Wall);
 
             if (dieCnt < lifeCnt)
             {
-
                 CreateHeart();
                 invincibility = true;
-                //initPos();
             }
             else
             {
@@ -512,6 +531,8 @@ public class Player : MonoBehaviour
         // ????
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Heart"))
         {
+
+
             state = STATE.Pop;
 
             hearts.Add(collision.transform);
@@ -527,9 +548,12 @@ public class Player : MonoBehaviour
                 GameManager.instance.BestScore = GameManager.instance.Score;
                 bestScoreText.text = GameManager.instance.Score.ToString();
             }
+            collision.transform.GetChild(0).gameObject.SetActive(false);
 
             CreateHeart();
             CreatePop(collision.transform);
+            SoundManager.instance.SoundOneShot(Sound.Pet_pop);
+
         }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
@@ -540,7 +564,8 @@ public class Player : MonoBehaviour
                 lifeImg[i].enabled = false;
             }
             //GameManager.instance.Speed = GameManager.instance.BaseSpeed;
-            SoundManager.instance.CollSound();
+            //tmp
+            SoundManager.instance.SoundOneShot(Sound.Wall);
             GameOver();
         }
         // ????
@@ -549,6 +574,7 @@ public class Player : MonoBehaviour
             inversedTime = 0;
             inverse = -1;
             GameManager.instance.SetSpring(collision.transform);
+            //SoundManager.instance.CollSound(Sound.Wall);
         }
         // ??????
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Tornado"))
@@ -562,6 +588,7 @@ public class Player : MonoBehaviour
             transform.position = collision.transform.position;
             beforeSubway = collision.transform;
             state = STATE.Tornado;
+            SoundManager.instance.SoundOneShot(Sound.T_in);
             //SelectSubway(collision.transform);
         }
         // ????
@@ -576,6 +603,7 @@ public class Player : MonoBehaviour
             transform.GetComponentInChildren<SpriteRenderer>().enabled = false;
             target = stair.otherStair.transform;
             points.Clear();
+            //SoundManager.instance.CollSound(Sound.T_in);
 
             state = STATE.CamMove;
         }
@@ -585,8 +613,10 @@ public class Player : MonoBehaviour
             inverse = -1;
             //anim.SetInteger("Inverse", inverse);
             GameManager.instance.SetSpring(collision.transform);
+            SoundManager.instance.SoundOneShot(Sound.Eat_Reverse);
         }
     }
+
     void CreatePop(Transform pet)
     {
         GameObject popAnimPbj = Instantiate(Resources.Load<GameObject>("PopAnim"));
@@ -663,12 +693,21 @@ public class Player : MonoBehaviour
   
     void GameOver()
     {
-   
-
-        SoundManager.instance.BGM((int)Sound.BGM2);
+        SoundManager.instance.BGM((int)Sound.Gover_BGM);
         state = STATE.Defualt;
         SceneManager.instance.LoadingPanelOn();
         FirebaseManager.instance.SaveScore();
     }
+    public void WalkSound1()
+    {
+        SoundManager.instance.WalkSound1();
 
+
+    }
+
+    public void WalkSound2()
+    {
+        SoundManager.instance.WalkSound2();
+
+    }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -62,6 +63,8 @@ public class GameManager : MonoBehaviour
     public string characters;
     [HideInInspector]
     public int coin;
+    [HideInInspector]
+    public List<Task> tasks;
 
     [SerializeField]
     int tornadoCnt = 3;
@@ -89,6 +92,8 @@ public class GameManager : MonoBehaviour
 
     FirebaseManager FMng;
     SceneManager SceneMng;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -105,7 +110,7 @@ public class GameManager : MonoBehaviour
         FMng = FirebaseManager.instance;
        SceneMng = SceneManager.instance;
 
-        SoundManager.instance.BGM((int)Sound.BGM2);
+        SoundManager.instance.BGM((int)Sound.Lobby_BGM);
 
         SceneMng.LoadingPanelOn();
         //SceneMng.PanelOn(SceneManager.HOME.home);
@@ -126,7 +131,8 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
+    [SerializeField]
+    int tmpBestScore;
 #if UNITY_EDITOR
     // Update is called once per frame
     void Update()
@@ -136,10 +142,12 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.DeleteAll();
         }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            FMng.InitData();
-        }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                BestScore = tmpBestScore;
+                FirebaseManager.instance.CheckRank();
+
+            }
     }
 #endif
 

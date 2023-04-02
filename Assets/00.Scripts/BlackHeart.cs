@@ -30,7 +30,7 @@ public class BlackHeart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Player.state == STATE.Ready)
+        if (Player.state == STATE.Ready)
         {
             int i = Random.Range(0, targets.Length - 1);
             target = targets[i];
@@ -55,4 +55,18 @@ public class BlackHeart : MonoBehaviour
         }
     }
 
+    [SerializeField] Transform player;
+    [SerializeField] float dis = 5;
+    [SerializeField] float v = 0.8f;
+    public void WingSound()
+    {
+        if (Player.state != STATE.Play) return;
+
+        float d = Vector3.Distance(player.position, transform.position);
+        if (d < dis)
+        {
+            SoundManager.instance.WingSound((1 - d / dis) * v);
+        }
+
+    }
 }

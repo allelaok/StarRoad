@@ -14,12 +14,12 @@ public class BaseButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public UnityEvent OnEnterMethod;
     [HideInInspector]
     public UnityEvent OnExitMethod;
-
-    public bool soundContents;
+[HideInInspector]
+    public bool scaleEffect;
 
     private void Awake()
     {
-        if (soundContents) return;
+        if (scaleEffect) return;
 
         if (image == null)
         {
@@ -28,36 +28,31 @@ public class BaseButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 image = GetComponentInParent<Image>();
             }
         }
-
-        if (image)
-            image.enabled = false;
     }
 
-    private void Start()
-    {
-        if (soundContents)
-        {
-            if (image)
-                image.enabled = true;
-        }
-    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         if(OnEnterMethod != null)
         OnEnterMethod.Invoke();
 
-        if (image && soundContents == false)
-            image.enabled = true;
+        if(scaleEffect == false)
+        {
+            image.transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+        }
+
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (image && soundContents == false)
-            image.enabled = false;
-
         if (OnExitMethod != null)
             OnExitMethod.Invoke();
+
+
+        if (scaleEffect == false)
+        {
+            image.transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -66,7 +61,9 @@ public class BaseButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if(OnClickMethod != null)
         OnClickMethod.Invoke();
 
-        if (image && soundContents == false)
-            image.enabled = false;
+        if (scaleEffect == false)
+        {
+            image.transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 }
