@@ -131,8 +131,8 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    [SerializeField]
-    int tmpBestScore;
+    [SerializeField] int tmpBestScore;
+    [SerializeField] string tmpNickName;
 #if UNITY_EDITOR
     // Update is called once per frame
     void Update()
@@ -142,12 +142,13 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.DeleteAll();
         }
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                BestScore = tmpBestScore;
-                FirebaseManager.instance.CheckRank();
-
-            }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (string.IsNullOrEmpty(tmpNickName))
+                nickName = tmpNickName;
+            BestScore = tmpBestScore;
+            FirebaseManager.instance.CheckRank();
+        }
     }
 #endif
 

@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField]    GameObject camMoveBG;
     [SerializeField]    Transform heartPositions;
     [SerializeField]    SpriteRenderer animSprite;
+    [SerializeField]    GameObject dieSprite;
    
     public Image[] lifeImg;
     int lifeCnt;
@@ -122,6 +123,7 @@ public class Player : MonoBehaviour
 
     public void Ready()
     {
+        dieSprite.SetActive(false);
         SoundManager.instance.BGM((int)Sound.Game_BGM);
         tornado.gameObject.SetActive(false);
         for (int i = 0; i < lifeCnt; i++)
@@ -417,11 +419,9 @@ public class Player : MonoBehaviour
         // ????
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Heart"))
         {
-
-
             state = STATE.Pop;
 
-            hearts.Add(collision.transform);
+            hearts.Add(collision.transform.parent);
             // ???? ????
             GameManager.instance.Score += point;
             //scoreText.text = GameManager.instance.Score.ToString();
@@ -434,7 +434,7 @@ public class Player : MonoBehaviour
                 GameManager.instance.BestScore = GameManager.instance.Score;
                 bestScoreText.text = GameManager.instance.Score.ToString();
             }
-            collision.transform.GetChild(0).gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
 
             CreateHeart();
             CreatePop(collision.transform);
@@ -531,11 +531,9 @@ public class Player : MonoBehaviour
         // ????
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Heart"))
         {
-
-
             state = STATE.Pop;
 
-            hearts.Add(collision.transform);
+            hearts.Add(collision.transform.parent);
             // ???? ????
             GameManager.instance.Score += point;
             //scoreText.text = GameManager.instance.Score.ToString();
@@ -548,7 +546,7 @@ public class Player : MonoBehaviour
                 GameManager.instance.BestScore = GameManager.instance.Score;
                 bestScoreText.text = GameManager.instance.Score.ToString();
             }
-            collision.transform.GetChild(0).gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
 
             CreateHeart();
             CreatePop(collision.transform);
@@ -623,7 +621,7 @@ public class Player : MonoBehaviour
         popAnimPbj.transform.position = pet.position;
         popAnimPbj.transform.rotation = transform.rotation;
         PopAnim popAnim = popAnimPbj.AddComponent<PopAnim>();
-        popAnim.pet = pet.gameObject;
+        popAnim.pet = pet.parent.gameObject;
 
         popAnim.first = !(hearts.Count > 1);
     }
@@ -693,6 +691,11 @@ public class Player : MonoBehaviour
   
     void GameOver()
     {
+        dieSprite.SetActive(true);
+        for(int i = 0; i < hearts.Count; i++)
+        {
+            hearts[i].GetChild(1).gameObject.SetActive(true);
+        }
         SoundManager.instance.BGM((int)Sound.Gover_BGM);
         state = STATE.Defualt;
         SceneManager.instance.LoadingPanelOn();

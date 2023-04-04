@@ -26,7 +26,7 @@ public class HomePanel : BasePanel
     void OnCliCk_RankingBtn()
     {
         SceneManager.instance.LoadingPanelOn();
-        FirebaseManager.instance.GetRankInfo();
+        FirebaseManager.instance.GetRankInfo2();
     }
 
     void OnClick_SoundBtn()

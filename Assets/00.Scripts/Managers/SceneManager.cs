@@ -40,8 +40,6 @@ public class SceneManager : MonoBehaviour
 
     public void PanelOn(HOME panel)
     {
-        print((int)panel);
-
         if ((int)panel < panels.Length)
         {
             for (int i = 0; i < panels.Length; i++)
@@ -62,7 +60,6 @@ public class SceneManager : MonoBehaviour
             }
             else if (panel == HOME.end)
             {
-                print("end");
                 game.endPnl.gameObject.SetActive(true);
                 loading.gameObject.SetActive(false);
 

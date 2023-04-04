@@ -333,7 +333,7 @@ public class FirebaseManager : MonoBehaviour
             if (task.IsFaulted)
             {
                 // Handle the error...
-                SceneManager.instance.PanelOn(SceneManager.HOME.home);
+                SceneManager.instance.PanelOn(SceneManager.HOME.loading);
                 SceneManager.instance.Popup("get rank error");
                 print("get rank error");
             }
@@ -352,33 +352,43 @@ public class FirebaseManager : MonoBehaviour
                 int idx = 0;
                 bool inRank = false;
                 string path="";
+                int beforeOrderNum = 0;
                 foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
                 {
                     int orderNum = int.Parse(childSnapshot.Child("orderNum").Value.ToString());
                     string name = childSnapshot.Child("name").Value.ToString();
-
+                    print(orderNum);
+                    // 내 점수보다 높은경우
                     if (tmpOrder < orderNum)
                     {
+                        // 내 점수대인경우
                         if (orderNum < tmpOrder + 10)
                         {
+                            // 해당 점수대 인원수 카운트
                             num++;
                             print(num);
                         }
-
+                        // 이미 내 이름이 높이 기록돼있는경우
                         if (name == GameManager.instance.nickName)
-                        {
                             break;
-                        }
-                       
                     }
+                    // 해당 랭킹 점수보다 높은 경우
                     else
                     {
+                        inRank = true;
+                        // 내 이름이 지금 점수보다 낮은 점수로 기록돼있는경우
                         if (name == GameManager.instance.nickName)
                         {
                             path = childSnapshot.Key;
+                            beforeOrderNum = orderNum;
                         }
+                        // 해당 낮은 기록 점수대 인 경우
+                        if (beforeOrderNum - beforeOrderNum % 10 < orderNum && orderNum < beforeOrderNum)
+                        {
 
-                        inRank = true;
+                            reference.Child("rank").Child(childSnapshot.Key).Child("orderNum").SetValueAsync(beforeOrderNum);
+                            beforeOrderNum--;
+                        }
                     }
 
                     idx++;
@@ -485,18 +495,15 @@ public class FirebaseManager : MonoBehaviour
 
     public void GetMyInfo(Action callback)
     {
-        print(1);
         if (ExceptedString(uid))
         {
             print("id null");
             SceneManager.instance.Popup("id null");
             return;
         }
-        print(1);
 
         reference.Child("users").Child(uid).GetValueAsync().ContinueWithOnMainThread(task =>
     {
-        print(1);
         if (task.IsFaulted)
         {
                 // Handle the error...
@@ -506,15 +513,10 @@ public class FirebaseManager : MonoBehaviour
             }
         else if (task.IsCompleted)
         {
-            print(1);
             DataSnapshot snapshot = task.Result;
-            print(1);
             if (snapshot.ChildrenCount > 0)
             {
-                print(1);
                 string nickName = snapshot.Child("nickName").Value.ToString();
-                print(nickName);
-                print(1);
 
                 if (string.IsNullOrEmpty(nickName))
                 {
@@ -523,7 +525,6 @@ public class FirebaseManager : MonoBehaviour
                 }
                 else
                 {
-                    print(1);
                     callback.Invoke();
                     GameManager.instance.BestScore = int.Parse(snapshot.Child("score").Value.ToString());
                         //GameManager.instance.selectedCharacter = int.Parse(snapshot.Child("selectedCharacter").Value.ToString());
@@ -536,13 +537,11 @@ public class FirebaseManager : MonoBehaviour
             }
             else
             {
-                print(1);
                     // 닉네임 설정 패널
                     print("nickName");
                 afterSend = SceneManager.HOME.setNickName;
                 SendDataAll();
             }
-            print(1);
         }
     });
     }
@@ -612,7 +611,7 @@ public class FirebaseManager : MonoBehaviour
             if (task.IsFaulted)
             {
                 // Handle the error...
-                SceneManager.instance.PanelOn(SceneManager.HOME.home);
+                SceneManager.instance.PanelOn(SceneManager.HOME.loading);
                 SceneManager.instance.Popup("get rank error");
                 print("get rank error");
             }
