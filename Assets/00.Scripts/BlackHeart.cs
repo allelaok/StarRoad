@@ -69,4 +69,24 @@ public class BlackHeart : MonoBehaviour
         }
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (Player.state != STATE.Play || Player.invincibility) return;
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Pet"))
+        {
+            print("coll");
+            Player.state = STATE.GameOver;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (Player.state != STATE.Play || Player.invincibility) return;
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Pet"))
+        {
+            print("coll");
+            Player.state = STATE.GameOver;
+        }
+    }
 }

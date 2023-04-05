@@ -15,7 +15,12 @@ public class LoadingPanel : MonoBehaviour
 
     void OnClick_HomeBtn()
     {
-
+        for(int i = 0; i < GameManager.instance.tasks.Count; i++)
+        {
+            if(GameManager.instance.tasks[i] != null)
+            GameManager.instance.tasks[i].Dispose();
+        }
+        GameManager.instance.tasks.Clear();
         SceneManager.instance.PanelOn(SceneManager.HOME.home);
     }
 }

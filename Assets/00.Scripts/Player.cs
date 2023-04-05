@@ -112,10 +112,31 @@ public class Player : MonoBehaviour
             case (STATE.Coll):
                 break;
             case (STATE.GameOver):
+                GameOver();
                 break;
         }
     }
+    void GameOver()
+    {
+        for (int i = 0; i < lifeImg.Length; i++)
+        {
+            lifeImg[i].enabled = false;
+        }
 
+        SoundManager.instance.SoundOneShot(Sound.Wall);
+        SoundManager.instance.BGM((int)Sound.Gover_BGM);
+
+
+        dieSprite.SetActive(true);
+        for (int i = 0; i < hearts.Count; i++)
+        {
+            hearts[i].GetChild(1).gameObject.SetActive(true);
+        }
+
+        state = STATE.Defualt;
+        SceneManager.instance.LoadingPanelOn();
+        FirebaseManager.instance.SaveScore();
+    }
     private void LateUpdate()
     {
         cam.transform.localEulerAngles = -transform.eulerAngles;
@@ -507,7 +528,7 @@ public class Player : MonoBehaviour
     {
         if (state != STATE.Play || invincibility) return;
         // ???? ??
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Wall") || collision.gameObject.layer == LayerMask.NameToLayer("Pet"))
         {
             //DestroyAllHearts();
             if (nowTarget)
@@ -555,16 +576,7 @@ public class Player : MonoBehaviour
         }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            //DestroyAllHearts();
-            //dieCnt++;
-            for (int i = 0; i < lifeImg.Length; i++)
-            {
-                lifeImg[i].enabled = false;
-            }
-            //GameManager.instance.Speed = GameManager.instance.BaseSpeed;
-            //tmp
-            SoundManager.instance.SoundOneShot(Sound.Wall);
-            GameOver();
+            state = STATE.GameOver;
         }
         // ????
         else if (collision.gameObject.layer == LayerMask.NameToLayer("TornadoItem"))
@@ -688,29 +700,14 @@ public class Player : MonoBehaviour
         nowTarget = heartPrefab;
     }
 
-  
-    void GameOver()
-    {
-        dieSprite.SetActive(true);
-        for(int i = 0; i < hearts.Count; i++)
-        {
-            hearts[i].GetChild(1).gameObject.SetActive(true);
-        }
-        SoundManager.instance.BGM((int)Sound.Gover_BGM);
-        state = STATE.Defualt;
-        SceneManager.instance.LoadingPanelOn();
-        FirebaseManager.instance.SaveScore();
-    }
+
     public void WalkSound1()
     {
         SoundManager.instance.WalkSound1();
-
-
     }
 
     public void WalkSound2()
     {
         SoundManager.instance.WalkSound2();
-
     }
 }

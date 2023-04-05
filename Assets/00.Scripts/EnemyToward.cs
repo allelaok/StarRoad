@@ -17,9 +17,6 @@ public class EnemyToward : MonoBehaviour
         }
         else
         {
-            print(before.gameObject.name);
-            print(nexts[i].gameObject.name);
-            print("=======================");
             return nexts[i];
         }
     }

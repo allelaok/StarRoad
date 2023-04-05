@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public int coin;
     [HideInInspector]
-    public List<Task> tasks;
+    public List<Task> tasks = new List<Task>();
 
     [SerializeField]
     int tornadoCnt = 3;

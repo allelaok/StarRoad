@@ -15,7 +15,7 @@ public class PopAnim : MonoBehaviour
         if (first)
             pet.layer = LayerMask.NameToLayer("Default");
         else
-            pet.layer = LayerMask.NameToLayer("Wall");
+            pet.layer = LayerMask.NameToLayer("Pet");
 
         Destroy(this.gameObject);
     }

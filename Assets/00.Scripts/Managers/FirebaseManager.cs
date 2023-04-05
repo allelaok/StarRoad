@@ -86,7 +86,7 @@ public class FirebaseManager : MonoBehaviour
             Debug.Log("Success to true");
             if (user == null)
             {
-                SignInWithGameCenterAsync();
+                GameManager.instance.tasks.Add(SignInWithGameCenterAsync());
             }
         }
         else
@@ -97,7 +97,7 @@ public class FirebaseManager : MonoBehaviour
                 {
                     Debug.Log("Success to authenticate");
                     // 파이어베이스 로그인 연동
-                    SignInWithGameCenterAsync();
+                    GameManager.instance.tasks.Add(SignInWithGameCenterAsync());
                 }
                 else
                 {
@@ -176,22 +176,24 @@ public class FirebaseManager : MonoBehaviour
 
     public void GuestLogIn()
     {
-        auth.SignInAnonymouslyAsync().ContinueWithOnMainThread(task =>
-        {
-            if (task.IsCanceled)
-            {
-                Debug.LogError("SignInAnonymouslyAsync was canceled.");
-                return;
-            }
-            if (task.IsFaulted)
-            {
-                Debug.LogError("SignInAnonymouslyAsync encountered an error: " + task.Exception);
-                return;
-            }
-            debugMsg.text = "guest login success";
+        Task t = auth.SignInAnonymouslyAsync().ContinueWithOnMainThread(task =>
+         {
+             if (task.IsCanceled)
+             {
+                 Debug.LogError("SignInAnonymouslyAsync was canceled.");
+                 return;
+             }
+             if (task.IsFaulted)
+             {
+                 Debug.LogError("SignInAnonymouslyAsync encountered an error: " + task.Exception);
+                 return;
+             }
+             debugMsg.text = "guest login success";
 
-            Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.UserId);
-        });
+             Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.UserId);
+         });
+
+        GameManager.instance.tasks.Add(t);
     }
 
 
@@ -221,48 +223,49 @@ public class FirebaseManager : MonoBehaviour
     public void CheckNickName(string nickName, Action<bool> callback)
     {
         //   print("check");
-        FirebaseDatabase.DefaultInstance.GetReference("users").OrderByChild("nickName").GetValueAsync().ContinueWithOnMainThread(task =>
-        {
-            if (task.IsFaulted)
-            {
+        Task t = FirebaseDatabase.DefaultInstance.GetReference("users").OrderByChild("nickName").GetValueAsync().ContinueWithOnMainThread(task =>
+          {
+              if (task.IsFaulted)
+              {
                 // Handle the error...
                 SceneManager.instance.Popup("get nickname info error");
-                print("get nickname info error" + task.Exception);
-            }
-            else if (task.IsCompleted)
-            {
-                DataSnapshot snapshot = task.Result;
-                long cnt = snapshot.ChildrenCount;
-                print("ChildCount" + cnt);
-                long i = 0;
+                  print("get nickname info error" + task.Exception);
+              }
+              else if (task.IsCompleted)
+              {
+                  DataSnapshot snapshot = task.Result;
+                  long cnt = snapshot.ChildrenCount;
+                  print("ChildCount" + cnt);
+                  long i = 0;
                 //  print("check");
                 foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
-                {
-                    print("check" + i);
-                    string snapNickName = childSnapshot.Child("nickName").Value.ToString();
-                    print("check" + snapNickName);
+                  {
+                      print("check" + i);
+                      string snapNickName = childSnapshot.Child("nickName").Value.ToString();
+                      print("check" + snapNickName);
                     //   print("check");
                     if (nickName.Equals(snapNickName))
-                    {
-                        print(nickName);
-                        print(snapNickName);
-                        print("사용불가");
-                        callback.Invoke(false);
-                        break;
-                    }
+                      {
+                          print(nickName);
+                          print(snapNickName);
+                          print("사용불가");
+                          callback.Invoke(false);
+                          break;
+                      }
 
-                    i++;
-                    if (i >= cnt)
-                    {
-                        print("사용가능");
-                        callback.Invoke(true);
+                      i++;
+                      if (i >= cnt)
+                      {
+                          print("사용가능");
+                          callback.Invoke(true);
 
-                        break;
-                    }
+                          break;
+                      }
 
-                }
-            }
-        });
+                  }
+              }
+          });
+        GameManager.instance.tasks.Add(t);
     }
 
 
@@ -275,21 +278,22 @@ public class FirebaseManager : MonoBehaviour
             {
                 DisplayName = nickName
             };
-            user.UpdateUserProfileAsync(profile).ContinueWith(task =>
-            {
-                if (task.IsCanceled)
-                {
-                    Debug.LogError("UpdateUserProfileAsync was canceled.");
-                    return;
-                }
-                if (task.IsFaulted)
-                {
-                    Debug.LogError("UpdateUserProfileAsync encountered an error: " + task.Exception);
-                    return;
-                }
+            Task t = user.UpdateUserProfileAsync(profile).ContinueWith(task =>
+             {
+                 if (task.IsCanceled)
+                 {
+                     Debug.LogError("UpdateUserProfileAsync was canceled.");
+                     return;
+                 }
+                 if (task.IsFaulted)
+                 {
+                     Debug.LogError("UpdateUserProfileAsync encountered an error: " + task.Exception);
+                     return;
+                 }
 
-                Debug.LogFormat("User profile updated successfully: {0} ({1})", user.DisplayName, user.UserId);
-            });
+                 Debug.LogFormat("User profile updated successfully: {0} ({1})", user.DisplayName, user.UserId);
+             });
+            GameManager.instance.tasks.Add(t);
         }
     }
 
@@ -326,90 +330,93 @@ public class FirebaseManager : MonoBehaviour
         SendData("coin", GameManager.instance.coin, 2);
     }
 
-  public  void CheckRank()
+    public void CheckRank()
     {
-        FirebaseDatabase.DefaultInstance.GetReference("rank").OrderByChild("orderNum").GetValueAsync().ContinueWithOnMainThread(task =>
-        {
-            if (task.IsFaulted)
-            {
+        Task t = FirebaseDatabase.DefaultInstance.GetReference("rank").OrderByChild("orderNum").GetValueAsync().ContinueWithOnMainThread(task =>
+         {
+             if (task.IsFaulted)
+             {
                 // Handle the error...
                 SceneManager.instance.PanelOn(SceneManager.HOME.loading);
-                SceneManager.instance.Popup("get rank error");
-                print("get rank error");
-            }
-            else if (task.IsCompleted)
-            {
-                DataSnapshot snapshot = task.Result;
+                 SceneManager.instance.Popup("get rank error");
+                 print("get rank error");
+             }
+             else if (task.IsCompleted)
+             {
+                 DataSnapshot snapshot = task.Result;
 
-                long topNum = 10;
-                if (snapshot.ChildrenCount < topNum)
-                {
-                    topNum = snapshot.ChildrenCount;
-                }
+                 long topNum = 10;
+                 if (snapshot.ChildrenCount < topNum)
+                 {
+                     topNum = snapshot.ChildrenCount;
+                 }
 
-                int tmpOrder = GameManager.instance.BestScore * 10;
-                int num = 0;
-                int idx = 0;
-                bool inRank = false;
-                string path="";
-                int beforeOrderNum = 0;
-                foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
-                {
-                    int orderNum = int.Parse(childSnapshot.Child("orderNum").Value.ToString());
-                    string name = childSnapshot.Child("name").Value.ToString();
-                    print(orderNum);
+                 int tmpOrder = GameManager.instance.BestScore * 10;
+                 int num = 0;
+                 int idx = 0;
+                 bool inRank = false;
+                 string path = "";
+                 int beforeOrderNum = 0;
+                 foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
+                 {
+                     int orderNum = int.Parse(childSnapshot.Child("orderNum").Value.ToString());
+                     string name = childSnapshot.Child("name").Value.ToString();
                     // 내 점수보다 높은경우
                     if (tmpOrder < orderNum)
-                    {
+                     {
                         // 내 점수대인경우
                         if (orderNum < tmpOrder + 10)
-                        {
+                         {
                             // 해당 점수대 인원수 카운트
                             num++;
-                            print(num);
-                        }
+                         }
                         // 이미 내 이름이 높이 기록돼있는경우
                         if (name == GameManager.instance.nickName)
-                            break;
-                    }
+                             break;
+                     }
                     // 해당 랭킹 점수보다 높은 경우
                     else
-                    {
-                        inRank = true;
+                     {
+                         inRank = true;
                         // 내 이름이 지금 점수보다 낮은 점수로 기록돼있는경우
                         if (name == GameManager.instance.nickName)
-                        {
-                            path = childSnapshot.Key;
-                            beforeOrderNum = orderNum;
-                        }
+                         {
+                             path = childSnapshot.Key;
+                             beforeOrderNum = orderNum;
+                         }
                         // 해당 낮은 기록 점수대 인 경우
                         if (beforeOrderNum - beforeOrderNum % 10 < orderNum && orderNum < beforeOrderNum)
-                        {
+                         {
 
-                            reference.Child("rank").Child(childSnapshot.Key).Child("orderNum").SetValueAsync(beforeOrderNum);
-                            beforeOrderNum--;
-                        }
-                    }
+                             Task t = reference.Child("rank").Child(childSnapshot.Key).Child("orderNum").SetValueAsync(beforeOrderNum);
+                             GameManager.instance.tasks.Add(t);
+                             beforeOrderNum--;
+                         }
+                     }
 
-                    idx++;
-                    if (idx >= topNum)
-                    {
-                        if (inRank)
-                        {
-                            if (path.Length == 0)
-                            {
-                                path = childSnapshot.Key;
-                                print(path);
-                            }
-                            reference.Child("rank").Child(path).Child("name").SetValueAsync(GameManager.instance.nickName);
-                            reference.Child("rank").Child(path).Child("orderNum").SetValueAsync(tmpOrder + 10 - 1 - num);
-                            reference.Child("rank").Child(path).Child("score").SetValueAsync(GameManager.instance.BestScore);
-                        }
-                        break;
-                    }
-                }
-            }
-        });
+                     idx++;
+                     if (idx >= topNum)
+                     {
+                         if (inRank)
+                         {
+                             if (path.Length == 0)
+                             {
+                                 path = childSnapshot.Key;
+                                 print(path);
+                             }
+                             Task t1 = reference.Child("rank").Child(path).Child("name").SetValueAsync(GameManager.instance.nickName);
+                             GameManager.instance.tasks.Add(t1);
+                             Task t2 = reference.Child("rank").Child(path).Child("orderNum").SetValueAsync(tmpOrder + 10 - 1 - num);
+                             GameManager.instance.tasks.Add(t2);
+                             Task t3 = reference.Child("rank").Child(path).Child("score").SetValueAsync(GameManager.instance.BestScore);
+                             GameManager.instance.tasks.Add(t3);
+                         }
+                         break;
+                     }
+                 }
+             }
+         });
+        GameManager.instance.tasks.Add(t);
     }
 
     public SceneManager.HOME afterSend;
@@ -428,7 +435,7 @@ public class FirebaseManager : MonoBehaviour
     {
         string kye = uid;
         if (string.IsNullOrEmpty(kye)) return;
-        reference.Child("users").Child(kye).Child(path).SetValueAsync(data).ContinueWithOnMainThread(task =>
+        Task t = reference.Child("users").Child(kye).Child(path).SetValueAsync(data).ContinueWithOnMainThread(task =>
         {
             if (task.IsFaulted)
             {
@@ -440,6 +447,7 @@ public class FirebaseManager : MonoBehaviour
                 AfterSend(sendNum);
             }
         });
+        GameManager.instance.tasks.Add(t);
     }
 
 
@@ -447,36 +455,38 @@ public class FirebaseManager : MonoBehaviour
     {
         string kye = uid;
         if (string.IsNullOrEmpty(kye)) return;
-        reference.Child("users").Child(kye).Child(path).SetValueAsync(data).ContinueWithOnMainThread(task =>
-        {
-            if (task.IsFaulted)
-            {
+        Task task = reference.Child("users").Child(kye).Child(path).SetValueAsync(data).ContinueWithOnMainThread(task =>
+         {
+             if (task.IsFaulted)
+             {
                 // Handle the error...
                 print("get rank error");
-            }
-            else if (task.IsCompleted)
-            {
-                AfterSend(sendNum);
-            }
-        });
+             }
+             else if (task.IsCompleted)
+             {
+                 AfterSend(sendNum);
+             }
+         });
+        GameManager.instance.tasks.Add(task);
     }
 
     public void SendData(string path, float data, int sendNum)
     {
         string kye = uid;
         if (string.IsNullOrEmpty(kye)) return;
-        reference.Child("users").Child(kye).Child(path).SetValueAsync(data).ContinueWithOnMainThread(task =>
-        {
-            if (task.IsFaulted)
-            {
+        Task task = reference.Child("users").Child(kye).Child(path).SetValueAsync(data).ContinueWithOnMainThread(task =>
+         {
+             if (task.IsFaulted)
+             {
                 // Handle the error...
                 print("get rank error");
-            }
-            else if (task.IsCompleted)
-            {
-                AfterSend(sendNum);
-            }
-        });
+             }
+             else if (task.IsCompleted)
+             {
+                 AfterSend(sendNum);
+             }
+         });
+        GameManager.instance.tasks.Add(task);
     }
 
     void AfterSend(int sendNum)
@@ -502,48 +512,49 @@ public class FirebaseManager : MonoBehaviour
             return;
         }
 
-        reference.Child("users").Child(uid).GetValueAsync().ContinueWithOnMainThread(task =>
-    {
-        if (task.IsFaulted)
-        {
-                // Handle the error...
-                SceneManager.instance.Popup("get my info error");
-            print("get my info error");
-                //callback2.Invoke();
-            }
-        else if (task.IsCompleted)
-        {
-            DataSnapshot snapshot = task.Result;
-            if (snapshot.ChildrenCount > 0)
-            {
-                string nickName = snapshot.Child("nickName").Value.ToString();
-
-                if (string.IsNullOrEmpty(nickName))
-                {
-                    afterSend = SceneManager.HOME.setNickName;
-                    AfterSend(1);
-                }
-                else
-                {
-                    callback.Invoke();
-                    GameManager.instance.BestScore = int.Parse(snapshot.Child("score").Value.ToString());
-                        //GameManager.instance.selectedCharacter = int.Parse(snapshot.Child("selectedCharacter").Value.ToString());
-                        //GameManager.instance.characters = snapshot.Child("characters").Value.ToString();
-                        GameManager.instance.coin = int.Parse(snapshot.Child("coin").Value.ToString());
-                    GameManager.instance.nickName = nickName;
-                    print("sucssese my info");
-
-                }
-            }
-            else
-            {
-                    // 닉네임 설정 패널
-                    print("nickName");
-                afterSend = SceneManager.HOME.setNickName;
-                SendDataAll();
-            }
+        Task task = reference.Child("users").Child(uid).GetValueAsync().ContinueWithOnMainThread(task =>
+     {
+         if (task.IsFaulted)
+         {
+            // Handle the error...
+            SceneManager.instance.Popup("get my info error");
+             print("get my info error");
+            //callback2.Invoke();
         }
-    });
+         else if (task.IsCompleted)
+         {
+             DataSnapshot snapshot = task.Result;
+             if (snapshot.ChildrenCount > 0)
+             {
+                 string nickName = snapshot.Child("nickName").Value.ToString();
+
+                 if (string.IsNullOrEmpty(nickName))
+                 {
+                     afterSend = SceneManager.HOME.setNickName;
+                     AfterSend(1);
+                 }
+                 else
+                 {
+                     callback.Invoke();
+                     GameManager.instance.BestScore = int.Parse(snapshot.Child("score").Value.ToString());
+                    //GameManager.instance.selectedCharacter = int.Parse(snapshot.Child("selectedCharacter").Value.ToString());
+                    //GameManager.instance.characters = snapshot.Child("characters").Value.ToString();
+                    GameManager.instance.coin = int.Parse(snapshot.Child("coin").Value.ToString());
+                     GameManager.instance.nickName = nickName;
+                     print("sucssese my info");
+
+                 }
+             }
+             else
+             {
+                // 닉네임 설정 패널
+                print("nickName");
+                 afterSend = SceneManager.HOME.setNickName;
+                 SendDataAll();
+             }
+         }
+     });
+        GameManager.instance.tasks.Add(task);
     }
     public List<RankInfo> rankInfos = new List<RankInfo>();
     public void GetRankInfo()
@@ -603,62 +614,65 @@ public class FirebaseManager : MonoBehaviour
         });
 
     }
-
+    [SerializeField] bool test;
+    [SerializeField] bool onRankingPnl;
     public void GetRankInfo2()
     {
-        FirebaseDatabase.DefaultInstance.GetReference("rank").OrderByChild("orderNum").GetValueAsync().ContinueWithOnMainThread(task =>
-        {
-            if (task.IsFaulted)
-            {
+        Task task = FirebaseDatabase.DefaultInstance.GetReference("rank").OrderByChild("orderNum").GetValueAsync().ContinueWithOnMainThread(task =>
+         {
+             if (task.IsFaulted)
+             {
                 // Handle the error...
                 SceneManager.instance.PanelOn(SceneManager.HOME.loading);
-                SceneManager.instance.Popup("get rank error");
-                print("get rank error");
-            }
-            else if (task.IsCompleted)
-            {
-                DataSnapshot snapshot = task.Result;
-                int rank = 0;
-                rankInfos.Clear();
-                long topNum = 10;
-                if (snapshot.ChildrenCount < topNum)
-                {
-                    topNum = snapshot.ChildrenCount;
-                }
+                 SceneManager.instance.Popup("get rank error");
+                 print("get rank error");
+             }
+             else if (task.IsCompleted)
+             {
+                 DataSnapshot snapshot = task.Result;
+                 int rank = 0;
+                 rankInfos.Clear();
+                 long topNum = 10;
+                 if (snapshot.ChildrenCount < topNum)
+                 {
+                     topNum = snapshot.ChildrenCount;
+                 }
 
-                print(topNum);
+                 int beforeScore = 0;
+                 int beforeRank = 0;
+                 foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
+                 {
+                     int score = int.Parse(childSnapshot.Child("score").Value.ToString());
+                     string nickName = childSnapshot.Child("name").Value.ToString();
 
-                int beforeScore = 0;
-                int beforeRank = 0;
-                foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
-                {
-                    int score = int.Parse(childSnapshot.Child("score").Value.ToString());
-                    string nickName = childSnapshot.Child("name").Value.ToString();
+                     rank++;
+                     RankInfo info = new RankInfo();
+                     info.nickName = nickName;
+                     info.score = score;
+                     if (beforeScore == score)
+                         info.rank = beforeRank;
+                     else
+                     {
+                         info.rank = rank;
+                         beforeScore = score;
+                         beforeRank = rank;
+                     }
 
-                    rank++;
-                    RankInfo info = new RankInfo();
-                    info.nickName = nickName;
-                    info.score = score;
-                    if (beforeScore == score)
-                        info.rank = beforeRank;
-                    else
-                    {
-                        info.rank = rank;
-                        beforeScore = score;
-                        beforeRank = rank;
-                    }
+                     rankInfos.Add(info);
+                     if (rank >= topNum)
+                     {
+                         print("break");
+                         //break;
+                     }
+                 }
 
-                    rankInfos.Add(info);
-                    if (rank >= topNum)
-                    {
-                        print("break");
-                        break;
-                    }
-                }
-                SceneManager.instance.PanelOn(SceneManager.HOME.ranking);
+                 SceneManager.instance.PanelOn(SceneManager.HOME.ranking);
+                 
                 //GetMyRank();
             }
-        });
+         });
+        GameManager.instance.tasks.Add(task);
+
     }
 
     public RankInfo targetRank;
@@ -807,22 +821,23 @@ public class FirebaseManager : MonoBehaviour
 
     public void GuestAutoLogIn()
     {
-        auth.SignInAnonymouslyAsync().ContinueWith(task =>
-        {
-            if (task.IsCanceled)
-            {
-                Debug.LogError("SignInAnonymouslyAsync was canceled.");
-                return;
-            }
-            if (task.IsFaulted)
-            {
-                Debug.LogError("SignInAnonymouslyAsync encountered an error: " + task.Exception);
-                return;
-            }
+        Task task = auth.SignInAnonymouslyAsync().ContinueWith(task =>
+         {
+             if (task.IsCanceled)
+             {
+                 Debug.LogError("SignInAnonymouslyAsync was canceled.");
+                 return;
+             }
+             if (task.IsFaulted)
+             {
+                 Debug.LogError("SignInAnonymouslyAsync encountered an error: " + task.Exception);
+                 return;
+             }
 
-            user = task.Result;
-            Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.UserId);
-        });
+             user = task.Result;
+             Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.UserId);
+         });
+        GameManager.instance.tasks.Add(task);
 
     }
 

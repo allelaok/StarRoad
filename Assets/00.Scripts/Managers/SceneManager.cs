@@ -66,6 +66,7 @@ public class SceneManager : MonoBehaviour
             }
             else if (panel == HOME.loading)
             {
+                GameManager.instance.tasks.Clear();
                 loading.gameObject.SetActive(true);
             }
             else
