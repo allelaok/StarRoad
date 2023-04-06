@@ -445,6 +445,7 @@ public class Player : MonoBehaviour
             hearts.Add(collision.transform.parent);
             // ???? ????
             GameManager.instance.Score += point;
+            GameManager.instance.coin += point;
             //scoreText.text = GameManager.instance.Score.ToString();
             if (hearts.Count < 10)
             {

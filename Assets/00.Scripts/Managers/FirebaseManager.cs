@@ -542,7 +542,6 @@ public class FirebaseManager : MonoBehaviour
                     GameManager.instance.coin = int.Parse(snapshot.Child("coin").Value.ToString());
                      GameManager.instance.nickName = nickName;
                      print("sucssese my info");
-
                  }
              }
              else
@@ -618,6 +617,8 @@ public class FirebaseManager : MonoBehaviour
     [SerializeField] bool onRankingPnl;
     public void GetRankInfo2()
     {
+        //CheckRank();
+
         Task task = FirebaseDatabase.DefaultInstance.GetReference("rank").OrderByChild("orderNum").GetValueAsync().ContinueWithOnMainThread(task =>
          {
              if (task.IsFaulted)
