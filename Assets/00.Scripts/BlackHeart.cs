@@ -78,6 +78,7 @@ public class BlackHeart : MonoBehaviour
             print("coll");
             Player.state = STATE.GameOver;
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

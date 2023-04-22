@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
             case (STATE.Start):
                 break;
             case (STATE.Play):
-                Move2();
+                Move();
                 InverseTime();
                 SetHeartsPosition(1, 0);
                 if (nowTarget)
@@ -134,7 +134,7 @@ public class Player : MonoBehaviour
         }
 
         state = STATE.Defualt;
-        SceneManager.instance.LoadingPanelOn();
+        SceneManager.instance.PanelOn(SceneManager.PANEL.EndLoading);
         FirebaseManager.instance.SaveScore();
     }
     private void LateUpdate()
@@ -334,7 +334,7 @@ public class Player : MonoBehaviour
             tornado.gameObject.SetActive(true);
 
         transform.Rotate(new Vector3(0,0, 300 * Time.deltaTime));
-        transform.localScale -= Vector3.one * GameManager.instance.BaseSpeed * Time.deltaTime;
+        transform.localScale -= Vector3.one * Time.deltaTime;
         if (transform.localScale.x < 0.1f)
         {
             transform.localScale = initSize;
@@ -419,8 +419,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
             //DestroyAllHearts();
-            if (nowTarget)
-                Destroy(nowTarget.gameObject);
+            //if (nowTarget)
+            //    Destroy(nowTarget.gameObject);
 
             dieCnt++;
             lifeImg[lifeCnt - dieCnt].enabled = false;
@@ -429,7 +429,7 @@ public class Player : MonoBehaviour
 
             if (dieCnt < lifeCnt)
             {
-                CreateHeart();
+                //CreateHeart();
                 invincibility = true;
             }
             else
@@ -440,7 +440,7 @@ public class Player : MonoBehaviour
         // ????
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Heart"))
         {
-            state = STATE.Pop;
+            //state = STATE.Pop;
 
             hearts.Add(collision.transform.parent);
             // ???? ????

@@ -548,6 +548,9 @@ MonoBehaviour:
   nickName: {fileID: 2054610702883691634}
   score: {fileID: 2699041262637337832}
   circle: {fileID: 21300000, guid: cb5b6bac6ea0e4249959cbc6de326fe5, type: 3}
+  img:
+  - {fileID: 6104164043774642662}
+  - {fileID: 85990638365212008}
 --- !u!1 &8481792391925634757
 GameObject:
   m_ObjectHideFlags: 0

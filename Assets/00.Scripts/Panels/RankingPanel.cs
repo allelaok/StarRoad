@@ -51,6 +51,6 @@ public class RankingPanel : BasePanel
 
     void OnClick_ExitBtn()
     {
-        SceneManager.instance.PanelOn(SceneManager.HOME.home);
+        SceneManager.instance.PanelOn(SceneManager.PANEL.home);
     }
 }

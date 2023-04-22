@@ -10,7 +10,7 @@ public class StartCanvas : MonoBehaviour
         ranking,
         setting,
         sound,
-        account,
+        //account,
         logout,
         setNickName
     }

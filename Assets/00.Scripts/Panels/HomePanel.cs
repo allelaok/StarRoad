@@ -9,7 +9,6 @@ public class HomePanel : BasePanel
     public BaseButton soundBtn;
     public BaseButton playBtn;
     public BaseButton howToBtn;
-
     private void Start()
     {
         rankingBtn.OnClickMethod.AddListener(OnCliCk_RankingBtn);
@@ -20,7 +19,7 @@ public class HomePanel : BasePanel
 
     private void OnClick_howToBtn()
     {
-        SceneManager.instance.PanelOn(SceneManager.HOME.howTo);
+        SceneManager.instance.PanelOn(SceneManager.PANEL.howTo);
     }
 
     void OnCliCk_RankingBtn()
@@ -32,7 +31,7 @@ public class HomePanel : BasePanel
     void OnClick_SoundBtn()
     {
 
-        SceneManager.instance.PanelOn(SceneManager.HOME.sound);
+        SceneManager.instance.PanelOn(SceneManager.PANEL.sound);
     }
 
     void OnClick_playBtn()

@@ -17,7 +17,7 @@ public class SceneManager : MonoBehaviour
 
     }
 
-  public  enum HOME
+  public  enum PANEL
     {
         home,
         ranking,
@@ -25,10 +25,11 @@ public class SceneManager : MonoBehaviour
         setNickName,
         howTo,
 
+        end,
+        EndLoading,
+
         Count,
 
-        game,
-        end,
         loading
     }
 
@@ -38,40 +39,37 @@ public class SceneManager : MonoBehaviour
     [SerializeField] GameObject loading;
     [SerializeField] Popup popup;
 
-    public void PanelOn(HOME panel)
+    public void PanelOn(PANEL panel)
     {
         if ((int)panel < panels.Length)
         {
-            for (int i = 0; i < panels.Length; i++)
+            if ((int)panel < (int)PANEL.end)
             {
-                panels[i].SetActice(i == (int)panel);
+                for (int i = 0; i < panels.Length; i++)
+                {
+                    panels[i].SetActice(i == (int)panel);
+                }
+                start.gameObject.SetActive(true);
+                game.gameObject.SetActive(false);
+
             }
-            start.gameObject.SetActive(true);
-            game.gameObject.SetActive(false);
-            loading.gameObject.SetActive(false);
+            else if ((int)panel < (int)PANEL.Count)
+            {
+                for (int i = 0; i < panels.Length; i++)
+                {
+                    panels[i].SetActice(i == (int)panel);
+                }
+                game.gameObject.SetActive(true);
+                start.gameObject.SetActive(false);
+            }
+            loading.SetActive(false);
         }
         else
         {
-            if (panel == HOME.game)
-            {
-                loading.gameObject.SetActive(false);
-                start.gameObject.SetActive(false);
-                game.GamePanelOn();
-            }
-            else if (panel == HOME.end)
-            {
-                game.endPnl.gameObject.SetActive(true);
-                loading.gameObject.SetActive(false);
-
-            }
-            else if (panel == HOME.loading)
-            {
-                GameManager.instance.tasks.Clear();
-                loading.gameObject.SetActive(true);
-            }
+            if ((int)panel == (int)PANEL.loading)
+                loading.SetActive(true);
             else
                 Debug.Log("no panel");
-
         }
     }
 
@@ -84,12 +82,12 @@ public class SceneManager : MonoBehaviour
 
     public void LoadingPanelOn()
     {
-        loading.gameObject.SetActive(true);
+        loading.SetActive(true);
     }
 
     public void Popup(string content)
     {
-        popup.SetActive(content);
+        //popup.SetActive(content);
     }
     //enum STARTCANVAS
     //{

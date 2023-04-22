@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class BaseButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public Image image;
+    public GameObject parent;
     [HideInInspector]
     public UnityEvent OnClickMethod;
     [HideInInspector]
@@ -16,6 +17,9 @@ public class BaseButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public UnityEvent OnExitMethod;
 [HideInInspector]
     public bool scaleEffect;
+
+    [SerializeField]
+    bool inverse;
 
     private void Awake()
     {
@@ -38,6 +42,9 @@ public class BaseButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         if(scaleEffect == false)
         {
+            if(inverse)
+                image.transform.localScale = new Vector3(-0.9f, 0.9f, 0.9f);
+            else
             image.transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
         }
 
@@ -51,6 +58,9 @@ public class BaseButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         if (scaleEffect == false)
         {
+            if(inverse)
+            image.transform.localScale = new Vector3(-1, 1, 1);
+            else
             image.transform.localScale = new Vector3(1, 1, 1);
         }
     }
@@ -63,7 +73,10 @@ public class BaseButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         if (scaleEffect == false)
         {
-            image.transform.localScale = new Vector3(1, 1, 1);
+            if (inverse)
+                image.transform.localScale = new Vector3(-1, 1, 1);
+            else
+                image.transform.localScale = new Vector3(1, 1, 1);
         }
     }
 }

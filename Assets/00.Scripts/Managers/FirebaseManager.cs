@@ -76,9 +76,6 @@ public class FirebaseManager : MonoBehaviour
         reference.Child("users").Child(uid).Child("coin").SetValueAsync(num);
     }
 
-
-
-
     public void GameCenterLogin()
     {
         if (Social.localUser.authenticated == true)
@@ -214,7 +211,7 @@ public class FirebaseManager : MonoBehaviour
                 Debug.LogFormat("Signed in {0}", user.UserId);
                 uid = user.UserId;
 
-                GetMyInfo(delegate { SceneManager.instance.PanelOn(SceneManager.HOME.home); });
+                GetMyInfo(delegate { SceneManager.instance.PanelOn(SceneManager.PANEL.home); });
             }
         }
     }
@@ -322,7 +319,7 @@ public class FirebaseManager : MonoBehaviour
         if (string.IsNullOrEmpty(uid)) return;
         GameManager.instance.coin += GameManager.instance.Score;
 
-        afterSend = SceneManager.HOME.end;
+        afterSend = SceneManager.PANEL.end;
 
         CheckRank();
 
@@ -337,7 +334,7 @@ public class FirebaseManager : MonoBehaviour
              if (task.IsFaulted)
              {
                 // Handle the error...
-                SceneManager.instance.PanelOn(SceneManager.HOME.loading);
+                SceneManager.instance.PanelOn(SceneManager.PANEL.loading);
                  SceneManager.instance.Popup("get rank error");
                  print("get rank error");
              }
@@ -419,10 +416,10 @@ public class FirebaseManager : MonoBehaviour
         GameManager.instance.tasks.Add(t);
     }
 
-    public SceneManager.HOME afterSend;
+    public SceneManager.PANEL afterSend;
     public void SendDataAll()
     {
-        SceneManager.instance.PanelOn(SceneManager.HOME.loading);
+        SceneManager.instance.PanelOn(SceneManager.PANEL.loading);
         SendData("score", GameManager.instance.BestScore, 3);
         SendData("nickName", GameManager.instance.nickName, 3);
         //SendData("selectedCharacter", GameManager.instance.selectedCharacter, 5);
@@ -440,7 +437,7 @@ public class FirebaseManager : MonoBehaviour
             if (task.IsFaulted)
             {
                 // Handle the error...
-                print("get rank error");
+                print("send error");
             }
             else if (task.IsCompleted)
             {
@@ -460,7 +457,7 @@ public class FirebaseManager : MonoBehaviour
              if (task.IsFaulted)
              {
                 // Handle the error...
-                print("get rank error");
+                print("send error");
              }
              else if (task.IsCompleted)
              {
@@ -492,12 +489,13 @@ public class FirebaseManager : MonoBehaviour
     void AfterSend(int sendNum)
     {
         sendCnt++;
-        if (sendCnt == sendNum)
+        if (sendCnt >= sendNum)
         {
-            if (afterSend != SceneManager.HOME.Count)
+            if (afterSend != SceneManager.PANEL.Count)
             {
+                print("go home plz");
                 SceneManager.instance.PanelOn(afterSend);
-                afterSend = SceneManager.HOME.Count;
+                afterSend = SceneManager.PANEL.Count;
             }
             sendCnt = 0;
         }
@@ -519,8 +517,12 @@ public class FirebaseManager : MonoBehaviour
             // Handle the error...
             SceneManager.instance.Popup("get my info error");
              print("get my info error");
-            //callback2.Invoke();
-        }
+             //callback2.Invoke();
+             // 닉네임 설정 패널
+             print("nickName");
+             afterSend = SceneManager.PANEL.setNickName;
+             SendDataAll();
+         }
          else if (task.IsCompleted)
          {
              DataSnapshot snapshot = task.Result;
@@ -530,7 +532,7 @@ public class FirebaseManager : MonoBehaviour
 
                  if (string.IsNullOrEmpty(nickName))
                  {
-                     afterSend = SceneManager.HOME.setNickName;
+                     afterSend = SceneManager.PANEL.setNickName;
                      AfterSend(1);
                  }
                  else
@@ -541,6 +543,8 @@ public class FirebaseManager : MonoBehaviour
                     //GameManager.instance.characters = snapshot.Child("characters").Value.ToString();
                     GameManager.instance.coin = int.Parse(snapshot.Child("coin").Value.ToString());
                      GameManager.instance.nickName = nickName;
+
+                     GameManager.instance.SetNickname();
                      print("sucssese my info");
                  }
              }
@@ -548,7 +552,7 @@ public class FirebaseManager : MonoBehaviour
              {
                 // 닉네임 설정 패널
                 print("nickName");
-                 afterSend = SceneManager.HOME.setNickName;
+                 afterSend = SceneManager.PANEL.setNickName;
                  SendDataAll();
              }
          }
@@ -563,7 +567,7 @@ public class FirebaseManager : MonoBehaviour
             if (task.IsFaulted)
             {
                 // Handle the error...
-                SceneManager.instance.PanelOn(SceneManager.HOME.home);
+                SceneManager.instance.PanelOn(SceneManager.PANEL.home);
                 SceneManager.instance.Popup("get rank error");
                 print("get rank error");
             }
@@ -624,7 +628,7 @@ public class FirebaseManager : MonoBehaviour
              if (task.IsFaulted)
              {
                 // Handle the error...
-                SceneManager.instance.PanelOn(SceneManager.HOME.loading);
+                SceneManager.instance.PanelOn(SceneManager.PANEL.loading);
                  SceneManager.instance.Popup("get rank error");
                  print("get rank error");
              }
@@ -667,7 +671,7 @@ public class FirebaseManager : MonoBehaviour
                      }
                  }
 
-                 SceneManager.instance.PanelOn(SceneManager.HOME.ranking);
+                 SceneManager.instance.PanelOn(SceneManager.PANEL.ranking);
                  
                 //GetMyRank();
             }
@@ -734,7 +738,7 @@ public class FirebaseManager : MonoBehaviour
 
                 }
             }
-            SceneManager.instance.PanelOn(SceneManager.HOME.ranking);
+            SceneManager.instance.PanelOn(SceneManager.PANEL.ranking);
         });
     }
 
@@ -907,7 +911,7 @@ public class FirebaseManager : MonoBehaviour
 
         GameManager.instance.InitData();
 
-        SceneManager.instance.PanelOn(SceneManager.HOME.home);
+        SceneManager.instance.PanelOn(SceneManager.PANEL.home);
 
         auth.SignOut();
     }

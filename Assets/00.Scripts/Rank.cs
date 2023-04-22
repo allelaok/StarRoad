@@ -17,7 +17,13 @@ public class Rank : MonoBehaviour
 
     [SerializeField]
     Sprite circle;
-
+    [SerializeField]
+    Image[] img;
+    Color blue;
+    private void Start()
+    {
+        ColorUtility.TryParseHtmlString("#002F6C", out blue);
+    }
     public void SetInfo(RankInfo rankInfo = null)
     {
         if (rankInfo == null)
@@ -33,6 +39,24 @@ public class Rank : MonoBehaviour
             nickName.text = rankInfo.nickName;
             score.text = rankInfo.score.ToString();
 
+            if(rankInfo.nickName == GameManager.instance.nickName)
+            {
+                for(int i = 0; i < img.Length; i++)
+                {
+                    img[i].color = blue;
+                    rank.color = Color.white;
+                    nickName.color = Color.white;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < img.Length; i++)
+                {
+                    img[i].color = Color.white;
+                    rank.color = blue;
+                    nickName.color = blue;
+                }
+            }
             //profile.sprite = SceneManager.instance.GetProfileSprite(rankInfo.selectedCharacter);
         }
     }

@@ -15,7 +15,7 @@ public class EndPanel : BasePanel
     void Start()
     {
         retryBtn.OnClickMethod.AddListener(OnClick_RetryBtn);
-        homeBtn.OnClickMethod.AddListener(delegate { SceneManager.instance.PanelOn(SceneManager.HOME.home); });
+        homeBtn.OnClickMethod.AddListener(OnClick_HomeBtn);
 
     }
 
@@ -23,6 +23,11 @@ public class EndPanel : BasePanel
     {
         score.text = GameManager.instance.Score.ToString();
         best.text = GameManager.instance.BestScore.ToString();
+    }
+    void OnClick_HomeBtn()
+    {
+        SoundManager.instance.BGM((int)Sound.Lobby_BGM);
+        SceneManager.instance.PanelOn(SceneManager.PANEL.home);
     }
 
     private void OnClick_RetryBtn()

@@ -169,11 +169,11 @@ public class SoundPanel : BasePanel
         bgmV = PlayerPrefs.GetFloat("bgmV");
         effectV = PlayerPrefs.GetFloat("effectV");
         SetPanel();
-        SceneManager.instance.PanelOn(SceneManager.HOME.home);
+        SceneManager.instance.PanelOn(SceneManager.PANEL.home);
     }
     public void OnCLickSoundOKBtn()
     {
         SaveVolume();
-        SceneManager.instance.PanelOn(SceneManager.HOME.home);
+        SceneManager.instance.PanelOn(SceneManager.PANEL.home);
     }
 }

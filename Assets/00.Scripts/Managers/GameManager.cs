@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
         else
         {
             // 네트워크 오류 팝업
-            SceneManager.instance.PanelOn(SceneManager.HOME.home);
+            SceneManager.instance.PanelOn(SceneManager.PANEL.home);
             SceneManager.instance.Popup("인터넷 연결 안됨");
         }
 
@@ -144,10 +144,12 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (string.IsNullOrEmpty(tmpNickName))
-                nickName = tmpNickName;
-            BestScore = tmpBestScore;
-            FirebaseManager.instance.CheckRank();
+            //if (string.IsNullOrEmpty(tmpNickName))
+            //    nickName = tmpNickName;
+            //BestScore = tmpBestScore;
+            //FirebaseManager.instance.CheckRank();
+
+            FirebaseManager.instance.LogOut();
         }
     }
 #endif
@@ -186,7 +188,7 @@ public class GameManager : MonoBehaviour
     public void SetSpring(Transform spring)
     {
         int idx = Random.Range(1, springPos[spring].Length);
-        while (idx == before[spring])
+        while (before.ContainsValue(idx))
         {
             idx = Random.Range(1, springPos[spring].Length);
         }
@@ -216,5 +218,21 @@ public class GameManager : MonoBehaviour
     public void OnClickTornado()
     {
         tornado = true;
+    }
+
+
+    public TMPro.TMP_Text[] nickName_t;
+    bool setNickname;
+    public void SetNickname()
+    {
+        if (setNickname) return;
+        if (string.IsNullOrEmpty(nickName)) return;
+
+        print("nickname");
+        for (int i = 0; i < nickName_t.Length; i++)
+        {
+            nickName_t[i].text = nickName;
+        }
+        setNickname = true;
     }
 }

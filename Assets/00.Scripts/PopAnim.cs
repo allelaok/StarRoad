@@ -9,9 +9,6 @@ public class PopAnim : MonoBehaviour
 
     public void AfterPop()
     {
-        print("ÆË");
-        Player.state = STATE.Play;
-
         if (first)
             pet.layer = LayerMask.NameToLayer("Default");
         else
