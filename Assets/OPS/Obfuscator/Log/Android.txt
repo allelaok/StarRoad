@@ -40,7 +40,7 @@
 [Info][OPS.OBF][OnProcess_Assets] Process component Analyse Unity Animation Methods
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Iterate components in loaded build scene Assets/04.Scenes/MainScene.unity.
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found 6 Root GameObjects in Scene Assets/04.Scenes/MainScene.unity
-[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found 1526 Components in Scene Assets/04.Scenes/MainScene.unity
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found 1528 Components in Scene Assets/04.Scenes/MainScene.unity
 [Info][OPS.OBF][OnAnalyse_Component_Scenes] Process component Analyse Unity Event Component
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in Map of type UnityEngine.Transform
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in Map of type UnityEngine.SpriteRenderer
@@ -1432,11 +1432,13 @@
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in TMP SubMeshUI [Jua-Regular SDF Material + LiberationSans SDF Atlas] of type TMPro.TMP_SubMeshUI
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in OKBtn (3) of type UnityEngine.RectTransform
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in OKBtn (3) of type UnityEngine.CanvasRenderer
-[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in OKBtn (3) of type UnityEngine.UI.Image
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in OKBtn (1) of type UnityEngine.RectTransform
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in OKBtn (1) of type UnityEngine.CanvasRenderer
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in OKBtn (1) of type UnityEngine.UI.Image
-[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in OKBtn (1) of type BaseButton
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in OKBtn (2) of type UnityEngine.RectTransform
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in OKBtn (2) of type UnityEngine.CanvasRenderer
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in OKBtn (2) of type UnityEngine.UI.Image
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in OKBtn (2) of type BaseButton
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in Text (TMP) of type UnityEngine.RectTransform
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in Text (TMP) of type UnityEngine.CanvasRenderer
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in Text (TMP) of type TMPro.TextMeshProUGUI
@@ -3285,16 +3287,16 @@
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference in serialized properties for TMP SubMeshUI [Jua-Regular SDF Material + LiberationSans SDF Atlas] (1):
   - TMPro.TMP_SubMeshUI
 
-[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference UnityEngine.UI.Image for OKBtn (3)
-[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference in serialized properties for OKBtn (3) (1):
-  - UnityEngine.UI.Image
-
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference UnityEngine.UI.Image for OKBtn (1)
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference in serialized properties for OKBtn (1) (1):
   - UnityEngine.UI.Image
 
-[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference BaseButton for OKBtn (1)
-[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference in serialized properties for OKBtn (1) (1):
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference UnityEngine.UI.Image for OKBtn (2)
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference in serialized properties for OKBtn (2) (1):
+  - UnityEngine.UI.Image
+
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference BaseButton for OKBtn (2)
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference in serialized properties for OKBtn (2) (1):
   - BaseButton
 
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference TMPro.TextMeshProUGUI for Text (TMP)
