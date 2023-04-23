@@ -40,7 +40,7 @@
 [Info][OPS.OBF][OnProcess_Assets] Process component Analyse Unity Animation Methods
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Iterate components in loaded build scene Assets/04.Scenes/MainScene.unity.
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found 6 Root GameObjects in Scene Assets/04.Scenes/MainScene.unity
-[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found 1523 Components in Scene Assets/04.Scenes/MainScene.unity
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found 1526 Components in Scene Assets/04.Scenes/MainScene.unity
 [Info][OPS.OBF][OnAnalyse_Component_Scenes] Process component Analyse Unity Event Component
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in Map of type UnityEngine.Transform
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in Map of type UnityEngine.SpriteRenderer
@@ -1440,6 +1440,9 @@
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in Text (TMP) of type UnityEngine.RectTransform
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in Text (TMP) of type UnityEngine.CanvasRenderer
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in Text (TMP) of type TMPro.TextMeshProUGUI
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in DebugText of type UnityEngine.RectTransform
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in DebugText of type UnityEngine.CanvasRenderer
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in DebugText of type TMPro.TextMeshProUGUI
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in EventSystem of type UnityEngine.Transform
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in EventSystem of type UnityEngine.EventSystems.EventSystem
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in EventSystem of type UnityEngine.EventSystems.StandaloneInputModule
@@ -3298,6 +3301,10 @@
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference in serialized properties for Text (TMP) (1):
   - TMPro.TextMeshProUGUI
 
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference TMPro.TextMeshProUGUI for DebugText
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference in serialized properties for DebugText (1):
+  - TMPro.TextMeshProUGUI
+
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference UnityEngine.EventSystems.EventSystem for EventSystem
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference in serialized properties for EventSystem (1):
   - UnityEngine.EventSystems.EventSystem
@@ -3766,15 +3773,16 @@
 [Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] EnemyToward]  Analyse Type References in Custom Attribute References...
 [Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] Loading]  Analyse Type References in Custom Attribute References...
 [Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] RankInfo]  Analyse Type References in Custom Attribute References...
-[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass17_0]  Analyse Type References in Custom Attribute References...
+[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<TryFirebaseLogin>d__18]  Analyse Type References in Custom Attribute References...
+[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass20_0]  Analyse Type References in Custom Attribute References...
 [Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c]  Analyse Type References in Custom Attribute References...
-[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass22_0]  Analyse Type References in Custom Attribute References...
-[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass23_0]  Analyse Type References in Custom Attribute References...
-[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass30_0]  Analyse Type References in Custom Attribute References...
-[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass31_0]  Analyse Type References in Custom Attribute References...
-[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass32_0]  Analyse Type References in Custom Attribute References...
+[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass25_0]  Analyse Type References in Custom Attribute References...
+[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass26_0]  Analyse Type References in Custom Attribute References...
+[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass33_0]  Analyse Type References in Custom Attribute References...
 [Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass34_0]  Analyse Type References in Custom Attribute References...
-[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass44_0]  Analyse Type References in Custom Attribute References...
+[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass35_0]  Analyse Type References in Custom Attribute References...
+[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass37_0]  Analyse Type References in Custom Attribute References...
+[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass47_0]  Analyse Type References in Custom Attribute References...
 [Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager]  Analyse Type References in Custom Attribute References...
 [Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] STATE]  Analyse Type References in Custom Attribute References...
 [Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] GameManager]  Analyse Type References in Custom Attribute References...
@@ -4273,15 +4281,16 @@
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] EnemyToward] Obfuscator Free is used.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] Loading] Obfuscator Free is used.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] RankInfo] Obfuscator Free is used.
-[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass17_0] Obfuscator Free is used.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager/<TryFirebaseLogin>d__18] Obfuscator Free is used.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass20_0] Obfuscator Free is used.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager/<>c] Obfuscator Free is used.
-[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass22_0] Obfuscator Free is used.
-[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass23_0] Obfuscator Free is used.
-[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass30_0] Obfuscator Free is used.
-[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass31_0] Obfuscator Free is used.
-[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass32_0] Obfuscator Free is used.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass25_0] Obfuscator Free is used.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass26_0] Obfuscator Free is used.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass33_0] Obfuscator Free is used.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass34_0] Obfuscator Free is used.
-[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass44_0] Obfuscator Free is used.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass35_0] Obfuscator Free is used.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass37_0] Obfuscator Free is used.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass47_0] Obfuscator Free is used.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] FirebaseManager] Obfuscator Free is used.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] STATE] Obfuscator Free is used.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Types Namespace [[Assembly-CSharp] GameManager] Obfuscator Free is used.
@@ -4515,15 +4524,16 @@
 [Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] EnemyToward]  Analyse Type References in Custom Attribute References...
 [Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] Loading]  Analyse Type References in Custom Attribute References...
 [Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] RankInfo]  Analyse Type References in Custom Attribute References...
-[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass17_0]  Analyse Type References in Custom Attribute References...
+[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<TryFirebaseLogin>d__18]  Analyse Type References in Custom Attribute References...
+[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass20_0]  Analyse Type References in Custom Attribute References...
 [Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c]  Analyse Type References in Custom Attribute References...
-[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass22_0]  Analyse Type References in Custom Attribute References...
-[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass23_0]  Analyse Type References in Custom Attribute References...
-[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass30_0]  Analyse Type References in Custom Attribute References...
-[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass31_0]  Analyse Type References in Custom Attribute References...
-[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass32_0]  Analyse Type References in Custom Attribute References...
+[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass25_0]  Analyse Type References in Custom Attribute References...
+[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass26_0]  Analyse Type References in Custom Attribute References...
+[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass33_0]  Analyse Type References in Custom Attribute References...
 [Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass34_0]  Analyse Type References in Custom Attribute References...
-[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass44_0]  Analyse Type References in Custom Attribute References...
+[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass35_0]  Analyse Type References in Custom Attribute References...
+[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass37_0]  Analyse Type References in Custom Attribute References...
+[Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass47_0]  Analyse Type References in Custom Attribute References...
 [Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] FirebaseManager]  Analyse Type References in Custom Attribute References...
 [Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] STATE]  Analyse Type References in Custom Attribute References...
 [Info][OPS.OBF][OnAnalyse_Assemblies] [[Assembly-CSharp] GameManager]  Analyse Type References in Custom Attribute References...
@@ -4870,16 +4880,18 @@
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void Loading::Update()] Because of compatibility component: Unity - Compatibility : Is MonoBehaviour Method.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void Loading::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void RankInfo::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
-[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass17_0::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<TryFirebaseLogin>d__18::.ctor(System.Int32)] Because of compatibility component: .Net Framework - Compatibility : Is Special.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Boolean FirebaseManager/<TryFirebaseLogin>d__18::MoveNext()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass20_0::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<>c::.cctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<>c::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
-[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass22_0::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
-[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass23_0::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
-[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass30_0::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
-[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass31_0::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
-[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass32_0::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass25_0::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass26_0::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass33_0::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass34_0::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
-[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass44_0::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass35_0::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass37_0::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass47_0::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager::Awake()] Because of compatibility component: Unity - Compatibility : Is MonoBehaviour Method.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void FirebaseManager::.ctor()] Because of compatibility component: .Net Framework - Compatibility : Is Special.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Method [[Assembly-CSharp] System.Void GameManager::Awake()] Because of compatibility component: Unity - Compatibility : Is MonoBehaviour Method.
@@ -5170,8 +5182,8 @@
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Field [[Assembly-CSharp] EnemyToward[] EnemyToward::nexts] Because of compatibility component: Unity - Compatibility : The field is serializable and the settings 'Obfuscate SerializeAble fields' got deactivated.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Field [[Assembly-CSharp] System.Single Loading::speed] Because of compatibility component: Unity - Compatibility : The field is serializable and the settings 'Obfuscate SerializeAble fields' got deactivated.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Field [[Assembly-CSharp] FirebaseManager/<>c FirebaseManager/<>c::<>9] Because of compatibility component: Unity - Compatibility : The field is serializable and the settings 'Obfuscate SerializeAble fields' got deactivated.
-[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Field [[Assembly-CSharp] System.Action FirebaseManager/<>c::<>9__21_0] Because of compatibility component: Unity - Compatibility : The field is serializable and the settings 'Obfuscate SerializeAble fields' got deactivated.
-[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Field [[Assembly-CSharp] System.Action`1<System.Threading.Tasks.Task> FirebaseManager/<>c::<>9__47_0] Because of compatibility component: Unity - Compatibility : The field is serializable and the settings 'Obfuscate SerializeAble fields' got deactivated.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Field [[Assembly-CSharp] System.Action FirebaseManager/<>c::<>9__24_0] Because of compatibility component: Unity - Compatibility : The field is serializable and the settings 'Obfuscate SerializeAble fields' got deactivated.
+[Info][OPS.OBF][OnAnalyse_Assemblies] Skip Field [[Assembly-CSharp] System.Action`1<System.Threading.Tasks.Task> FirebaseManager/<>c::<>9__50_0] Because of compatibility component: Unity - Compatibility : The field is serializable and the settings 'Obfuscate SerializeAble fields' got deactivated.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Field [[Assembly-CSharp] FirebaseManager FirebaseManager::instance] Because of compatibility component: Unity - Compatibility : The class is a Unity class (MonoBehaviour/...) and the setting 'Obfuscate Public unity fields' is deactivated.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Field [[Assembly-CSharp] Firebase.Auth.FirebaseUser FirebaseManager::user] Because of compatibility component: Unity - Compatibility : The class is a Unity class (MonoBehaviour/...) and the setting 'Obfuscate Public unity fields' is deactivated.
 [Info][OPS.OBF][OnAnalyse_Assemblies] Skip Field [[Assembly-CSharp] TMPro.TMP_Text FirebaseManager::debugMsg] Because of compatibility component: Unity - Compatibility : The field is serializable and the settings 'Obfuscate SerializeAble fields' got deactivated.
@@ -5757,245 +5769,263 @@
 [Info][OPS.OBF][OnFindMemberNames_Assemblies] Process component Namespace - Settings
 [Info][OPS.OBF][OnFindMemberNames_Assemblies] Process component Class - Obfuscation
 [Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] RankInfo] : a
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass17_0] : b
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass22_0] : c
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass23_0] : f
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass30_0] : g
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass31_0] : h
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass32_0] : j
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass34_0] : k
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass44_0] : l
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] STATE] : m
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] SceneManager/PANEL] : n
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] Sound] : o
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] SoundPanel/<>c__DisplayClass10_0] : p
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] SoundPanel/<>c__DisplayClass10_1] : q
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] StartCanvas/PANEL] : r
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] FirebaseManager/<TryFirebaseLogin>d__18] : b
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass20_0] : c
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass25_0] : f
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass26_0] : g
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass33_0] : h
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass34_0] : j
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass35_0] : k
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass37_0] : l
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass47_0] : m
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] STATE] : n
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] SceneManager/PANEL] : o
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] Sound] : p
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] SoundPanel/<>c__DisplayClass10_0] : q
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] SoundPanel/<>c__DisplayClass10_1] : r
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found a new Type Name [[Assembly-CSharp] StartCanvas/PANEL] : s
 [Info][OPS.OBF][OnFindMemberNames_Assemblies] Process component Method - Obfuscation
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void BlackHeart::RandomPosition()] : s
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void CharacterIContent::SetContent()] : t
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] UnityEngine.Transform CreateRandomPos::CreatePrefab()] : u
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] EnemyToward EnemyToward::Next(EnemyToward)] : x
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Threading.Tasks.Task FirebaseManager/<>c__DisplayClass17_0::<SignInWithGameCenterAsync>b__0(System.Threading.Tasks.Task`1<Firebase.Auth.Credential>)] : y
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c::<AuthStateChanged>b__21_0()] : z
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c::<SendEmailVerification>b__47_0(System.Threading.Tasks.Task)] : ba
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass22_0::<CheckNickName>b__0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] : bb
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass23_0::<SetNickName>b__0(System.Threading.Tasks.Task)] : bc
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass30_0::<SendData>b__0(System.Threading.Tasks.Task)] : bd
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass31_0::<SendData>b__0(System.Threading.Tasks.Task)] : be
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass32_0::<SendData>b__0(System.Threading.Tasks.Task)] : bf
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass34_0::<GetMyInfo>b__0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] : bg
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass44_0::<SignUp>b__0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] : bh
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass44_0::<SignUp>b__1(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] : bi
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Boolean FirebaseManager::get_IsSignIn()] : bj
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Object FirebaseManager::get_SystemMessageManager()] : bk
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::set_SystemMessageManager(System.Object)] : bl
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Boolean FirebaseManager::InternetOn()] : bm
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::InitData()] : bn
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::GameCenterLogin()] : bo
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Threading.Tasks.Task FirebaseManager::SignInWithGameCenterAsync()] : bp
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::HandleSignInWithUser(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] : bq
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Boolean FirebaseManager::LogTaskCompletion(System.Threading.Tasks.Task,System.String)] : br
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::GuestLogIn()] : bs
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::AuthStateChanged(System.Object,System.EventArgs)] : bt
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::CheckNickName(System.String,System.Action`1<System.Boolean>)] : bu
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::SetNickName(System.String)] : bv
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Boolean FirebaseManager::ExceptedString(System.String)] : bw
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::SaveScore()] : bx
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::CheckRank()] : by
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::SendDataAll()] : bz
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::SendData(System.String,System.Int32,System.Int32)] : ca
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::SendData(System.String,System.String,System.Int32)] : cc
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::SendData(System.String,System.Single,System.Int32)] : cd
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::AfterSend(System.Int32)] : ce
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::GetMyInfo(System.Action)] : cf
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::GetRankInfo()] : cg
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::GetRankInfo2()] : ch
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::GetMyRank()] : ci
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::SignUp(System.String,System.String,System.String)] : cj
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::GuestAutoLogIn()] : ck
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::LogOut()] : cl
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::SendEmailVerification()] : cm
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::<GameCenterLogin>b__16_0(System.Boolean)] : cn
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::<GuestLogIn>b__20_0(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] : co
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::<CheckRank>b__26_0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] : cp
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::<GetRankInfo>b__36_0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] : cq
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::<GetRankInfo2>b__39_0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] : cr
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::<GetMyRank>b__43_0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] : cs
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::<GuestAutoLogIn>b__45_0(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] : ct
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Single GameManager::get_BaseSpeed()] : cu
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Single GameManager::get_Interval()] : cv
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Single GameManager::get_Pow()] : cw
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Int32 GameManager::get_TornadoCnt()] : cx
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Int32 GameManager::get_Price()] : cy
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Single GameManager::get_IntervalSpeed()] : cz
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Int32 GameManager::get_Score()] : da
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameManager::set_Score(System.Int32)] : db
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameManager::InitData()] : dc
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameManager::SetResolution()] : dd
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameManager::SetSpring(UnityEngine.Transform)] : de
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameManager::OnClickLeftBtn()] : df
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameManager::OnClickRightBtn()] : dg
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameManager::OnClickTornado()] : dh
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameManager::SetNickname()] : di
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SceneManager::PanelOn(SceneManager/PANEL)] : dj
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SceneManager::GamePanelOn()] : dk
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SceneManager::LoadingPanelOn()] : dl
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SceneManager::Popup(System.String)] : dm
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundManager::SetBGMVolume(System.Single)] : dn
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundManager::SetEffectVolume(System.Single)] : do
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundManager::ClickBtnSound()] : dp
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundManager::BGM(System.Int32)] : dq
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundManager::SoundOneShot(Sound)] : dr
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundManager::WalkSound1()] : ds
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundManager::WalkSound2()] : dt
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void BasePanel::SetActice(System.Boolean)] : du
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void EndLoadingPanel::OnClick_HomeBtn()] : dv
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void EndPanel::OnClick_HomeBtn()] : dw
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void EndPanel::OnClick_RetryBtn()] : dx
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameCanvas::GamePanelOn()] : dy
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameCanvas::OnClick_leftBtn()] : dz
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameCanvas::OnClick_rightBtn()] : ea
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameCanvas::OnClick_tornadoBtn()] : eb
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void HomePanel::OnClick_howToBtn()] : ec
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void HomePanel::OnCliCk_RankingBtn()] : ed
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void HomePanel::OnClick_SoundBtn()] : ee
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void HomePanel::OnClick_playBtn()] : ef
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void HowToPanel::OnClick_ExitBtn()] : eg
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void LoadingPanel::OnClick_HomeBtn()] : eh
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Popup::OnClick_ExitBtn()] : ei
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Popup::SetActive(System.String)] : ej
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found group Method Name [[Assembly-CSharp] System.Void RankingPanel::SetActice(System.Boolean)] : du
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void RankingPanel::AfterGetRank()] : ek
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void RankingPanel::OnClick_ExitBtn()] : el
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found group Method Name [[Assembly-CSharp] System.Void SetNickNamePanel::SetActice(System.Boolean)] : du
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SetNickNamePanel::ChangeText(System.String)] : em
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SetNickNamePanel::OnClickCheckBtn()] : en
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SetNickNamePanel::State(System.Boolean)] : eo
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SetNickNamePanel::OnClickOkBtn()] : ep
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SetNickNamePanel::OnClickExitBtn()] : eq
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SettingPanel/<>c::<Start>b__3_0()] : er
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SettingPanel/<>c::<Start>b__3_1()] : es
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SettingPanel/<>c::<Start>b__3_2()] : et
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel/<>c__DisplayClass10_0::<Start>b__4()] : eu
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel/<>c__DisplayClass10_0::<Start>b__5()] : ev
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel/<>c__DisplayClass10_1::<Start>b__7()] : ew
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel/<>c__DisplayClass10_1::<Start>b__8()] : ex
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::SetPanel()] : ey
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::SaveVolume()] : ez
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::OnClick_BGMBtn(System.Boolean)] : fa
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::OnClick_EffectBtn(System.Boolean)] : fb
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::SetBGMContents(System.Single)] : fc
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::SetEffectContents(System.Single)] : fd
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::OnCLickSoundXBtn()] : fe
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::OnCLickSoundOKBtn()] : ff
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_0()] : fg
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_1()] : fh
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_2()] : fi
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_3()] : fj
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_6()] : fk
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_9()] : fl
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void StartCanvas::PanelOn(StartCanvas/PANEL)] : fm
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::GameOver()] : fn
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::Ready()] : fo
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::Move()] : fp
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::Move2()] : fq
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::SetHeartsPosition(System.Int32,System.Int32,System.Boolean,System.Single)] : fr
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::SelectSubway()] : fs
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::CamMove()] : ft
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::initPos()] : fu
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::CreatePop(UnityEngine.Transform)] : fv
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::InverseTime()] : fw
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::DestroyAllHearts()] : fx
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::CreateHeart()] : fy
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::WalkSound1()] : fz
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::WalkSound2()] : ga
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void PlayerController::InitRot(UnityEngine.EventSystems.PointerEventData)] : gb
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Rank::SetInfo(RankInfo)] : gc
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void BlackHeart::RandomPosition()] : t
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void CharacterIContent::SetContent()] : u
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] UnityEngine.Transform CreateRandomPos::CreatePrefab()] : x
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] EnemyToward EnemyToward::Next(EnemyToward)] : y
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<TryFirebaseLogin>d__18::System.IDisposable.Dispose()] : z
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Object FirebaseManager/<TryFirebaseLogin>d__18::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] : ba
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<TryFirebaseLogin>d__18::System.Collections.IEnumerator.Reset()] : bb
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Object FirebaseManager/<TryFirebaseLogin>d__18::System.Collections.IEnumerator.get_Current()] : bc
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Threading.Tasks.Task FirebaseManager/<>c__DisplayClass20_0::<SignInWithGameCenterAsync>b__0(System.Threading.Tasks.Task`1<Firebase.Auth.Credential>)] : bd
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c::<AuthStateChanged>b__24_0()] : be
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c::<SendEmailVerification>b__50_0(System.Threading.Tasks.Task)] : bf
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass25_0::<CheckNickName>b__0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] : bg
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass26_0::<SetNickName>b__0(System.Threading.Tasks.Task)] : bh
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass33_0::<SendData>b__0(System.Threading.Tasks.Task)] : bi
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass34_0::<SendData>b__0(System.Threading.Tasks.Task)] : bj
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass35_0::<SendData>b__0(System.Threading.Tasks.Task)] : bk
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass37_0::<GetMyInfo>b__0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] : bl
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass47_0::<SignUp>b__0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] : bm
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass47_0::<SignUp>b__1(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] : bn
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Boolean FirebaseManager::get_IsSignIn()] : bo
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Object FirebaseManager::get_SystemMessageManager()] : bp
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::set_SystemMessageManager(System.Object)] : bq
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Boolean FirebaseManager::InternetOn()] : br
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::InitData()] : bs
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::GoogleLogin()] : bt
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::FirebaseWithGooglePlay()] : bu
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Collections.IEnumerator FirebaseManager::TryFirebaseLogin()] : bv
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::GameCenterLogin()] : bw
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Threading.Tasks.Task FirebaseManager::SignInWithGameCenterAsync()] : bx
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::HandleSignInWithUser(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] : by
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Boolean FirebaseManager::LogTaskCompletion(System.Threading.Tasks.Task,System.String)] : bz
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::GuestLogIn()] : ca
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::AuthStateChanged(System.Object,System.EventArgs)] : cc
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::CheckNickName(System.String,System.Action`1<System.Boolean>)] : cd
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::SetNickName(System.String)] : ce
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Boolean FirebaseManager::ExceptedString(System.String)] : cf
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::SaveScore()] : cg
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::CheckRank()] : ch
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::SendDataAll()] : ci
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::SendData(System.String,System.Int32,System.Int32)] : cj
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::SendData(System.String,System.String,System.Int32)] : ck
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::SendData(System.String,System.Single,System.Int32)] : cl
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::AfterSend(System.Int32)] : cm
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::GetMyInfo(System.Action)] : cn
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::GetRankInfo()] : co
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::GetRankInfo2()] : cp
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::GetMyRank()] : cq
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::SignUp(System.String,System.String,System.String)] : cr
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::GuestAutoLogIn()] : cs
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::LogOut()] : ct
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::SendEmailVerification()] : cu
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::<GoogleLogin>b__16_0(System.Boolean)] : cv
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::<FirebaseWithGooglePlay>b__17_0(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] : cw
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::<TryFirebaseLogin>b__18_0(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] : cx
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::<GameCenterLogin>b__19_0(System.Boolean)] : cy
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::<GuestLogIn>b__23_0(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] : cz
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::<CheckRank>b__29_0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] : da
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::<GetRankInfo>b__39_0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] : db
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::<GetRankInfo2>b__42_0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] : dc
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::<GetMyRank>b__46_0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] : dd
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void FirebaseManager::<GuestAutoLogIn>b__48_0(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] : de
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Single GameManager::get_BaseSpeed()] : df
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Single GameManager::get_Interval()] : dg
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Single GameManager::get_Pow()] : dh
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Int32 GameManager::get_TornadoCnt()] : di
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Int32 GameManager::get_Price()] : dj
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Single GameManager::get_IntervalSpeed()] : dk
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Int32 GameManager::get_Score()] : dl
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameManager::set_Score(System.Int32)] : dm
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameManager::InitData()] : dn
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameManager::SetResolution()] : do
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameManager::SetSpring(UnityEngine.Transform)] : dp
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameManager::OnClickLeftBtn()] : dq
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameManager::OnClickRightBtn()] : dr
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameManager::OnClickTornado()] : ds
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameManager::SetNickname()] : dt
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SceneManager::PanelOn(SceneManager/PANEL)] : du
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SceneManager::GamePanelOn()] : dv
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SceneManager::LoadingPanelOn()] : dw
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SceneManager::Popup(System.String)] : dx
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundManager::SetBGMVolume(System.Single)] : dy
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundManager::SetEffectVolume(System.Single)] : dz
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundManager::ClickBtnSound()] : ea
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundManager::BGM(System.Int32)] : eb
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundManager::SoundOneShot(Sound)] : ec
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundManager::WalkSound1()] : ed
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundManager::WalkSound2()] : ee
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void BasePanel::SetActice(System.Boolean)] : ef
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void EndLoadingPanel::OnClick_HomeBtn()] : eg
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void EndPanel::OnClick_HomeBtn()] : eh
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void EndPanel::OnClick_RetryBtn()] : ei
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameCanvas::GamePanelOn()] : ej
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameCanvas::OnClick_leftBtn()] : ek
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameCanvas::OnClick_rightBtn()] : el
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void GameCanvas::OnClick_tornadoBtn()] : em
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void HomePanel::OnClick_howToBtn()] : en
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void HomePanel::OnCliCk_RankingBtn()] : eo
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void HomePanel::OnClick_SoundBtn()] : ep
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void HomePanel::OnClick_playBtn()] : eq
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void HowToPanel::OnClick_ExitBtn()] : er
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void LoadingPanel::OnClick_HomeBtn()] : es
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Popup::OnClick_ExitBtn()] : et
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Popup::SetActive(System.String)] : eu
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found group Method Name [[Assembly-CSharp] System.Void RankingPanel::SetActice(System.Boolean)] : ef
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void RankingPanel::AfterGetRank()] : ev
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void RankingPanel::OnClick_ExitBtn()] : ew
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found group Method Name [[Assembly-CSharp] System.Void SetNickNamePanel::SetActice(System.Boolean)] : ef
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SetNickNamePanel::ChangeText(System.String)] : ex
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SetNickNamePanel::OnClickCheckBtn()] : ey
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SetNickNamePanel::State(System.Boolean)] : ez
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SetNickNamePanel::OnClickOkBtn()] : fa
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SetNickNamePanel::OnClickExitBtn()] : fb
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SettingPanel/<>c::<Start>b__3_0()] : fc
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SettingPanel/<>c::<Start>b__3_1()] : fd
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SettingPanel/<>c::<Start>b__3_2()] : fe
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel/<>c__DisplayClass10_0::<Start>b__4()] : ff
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel/<>c__DisplayClass10_0::<Start>b__5()] : fg
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel/<>c__DisplayClass10_1::<Start>b__7()] : fh
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel/<>c__DisplayClass10_1::<Start>b__8()] : fi
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::SetPanel()] : fj
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::SaveVolume()] : fk
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::OnClick_BGMBtn(System.Boolean)] : fl
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::OnClick_EffectBtn(System.Boolean)] : fm
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::SetBGMContents(System.Single)] : fn
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::SetEffectContents(System.Single)] : fo
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::OnCLickSoundXBtn()] : fp
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::OnCLickSoundOKBtn()] : fq
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_0()] : fr
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_1()] : fs
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_2()] : ft
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_3()] : fu
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_6()] : fv
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_9()] : fw
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void StartCanvas::PanelOn(StartCanvas/PANEL)] : fx
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::GameOver()] : fy
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::Ready()] : fz
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::Move()] : ga
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::Move2()] : gb
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::SetHeartsPosition(System.Int32,System.Int32,System.Boolean,System.Single)] : gc
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::SelectSubway()] : gd
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::CamMove()] : ge
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::initPos()] : gf
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::CreatePop(UnityEngine.Transform)] : gg
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::InverseTime()] : gh
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::DestroyAllHearts()] : gi
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::CreateHeart()] : gj
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::WalkSound1()] : gk
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Player::WalkSound2()] : gl
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void PlayerController::InitRot(UnityEngine.EventSystems.PointerEventData)] : gm
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Method Name [[Assembly-CSharp] System.Void Rank::SetInfo(RankInfo)] : gn
 [Info][OPS.OBF][OnFindMemberNames_Assemblies] Process component Field - Obfuscation
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] EnemyToward[] BlackHeart::targets] : gd
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] EnemyToward BlackHeart::target] : ge
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] EnemyToward BlackHeart::before] : gf
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 CreateRandomPos::beforePosIndx] : gg
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 CreateRandomPos::idx] : gh
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int64 RankInfo::rank] : gi
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.String RankInfo::nickName] : gj
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 RankInfo::score] : gk
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 RankInfo::selectedCharacter] : gl
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] Firebase.Auth.FirebaseAuth FirebaseManager/<>c__DisplayClass17_0::auth] : gm
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass17_0::<>4__this] : gn
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass22_0::nickName] : go
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Action`1<System.Boolean> FirebaseManager/<>c__DisplayClass22_0::callback] : gp
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] Firebase.Auth.FirebaseUser FirebaseManager/<>c__DisplayClass23_0::user] : gq
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass30_0::<>4__this] : gr
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 FirebaseManager/<>c__DisplayClass30_0::sendNum] : gs
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass31_0::<>4__this] : gt
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 FirebaseManager/<>c__DisplayClass31_0::sendNum] : gu
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass32_0::<>4__this] : gv
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 FirebaseManager/<>c__DisplayClass32_0::sendNum] : gw
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass34_0::<>4__this] : gx
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Action FirebaseManager/<>c__DisplayClass34_0::callback] : gy
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass44_0::id] : gz
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass44_0::password] : ha
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass44_0::<>4__this] : hb
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass44_0::key] : hc
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass44_0::nickName] : hd
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Action`1<System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>> FirebaseManager/<>c__DisplayClass44_0::<>9__1] : he
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] Firebase.Database.DatabaseReference FirebaseManager::reference] : hf
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] Firebase.Auth.FirebaseAuth FirebaseManager::auth] : hg
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Object FirebaseManager::<SystemMessageManager>k__BackingField] : hh
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Boolean FirebaseManager::isSignIn] : hi
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.String FirebaseManager::uid] : hj
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 FirebaseManager::sendCnt] : hk
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.String FirebaseManager::authCode] : hl
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 GameManager::score] : hm
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Collections.Generic.Dictionary`2<UnityEngine.Transform,UnityEngine.Transform[]> GameManager::springPos] : hn
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Collections.Generic.Dictionary`2<UnityEngine.Transform,System.Int32> GameManager::before] : ho
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] FirebaseManager GameManager::FMng] : hp
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] SceneManager GameManager::SceneMng] : hq
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Boolean GameManager::setNickname] : hr
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] Rank[] RankingPanel::ranks] : hs
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Color SetNickNamePanel::red] : ht
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Color SetNickNamePanel::blue] : hu
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Single SoundPanel/<>c__DisplayClass10_0::bgmv] : hv
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] SoundPanel SoundPanel/<>c__DisplayClass10_0::<>4__this] : hw
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Single SoundPanel/<>c__DisplayClass10_1::effectV] : hx
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] SoundPanel SoundPanel/<>c__DisplayClass10_1::<>4__this] : hy
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.UI.Image[] SoundPanel::bgms] : hz
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.UI.Image[] SoundPanel::effects] : ia
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Single SoundPanel::bgmV] : ib
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Single SoundPanel::effectV] : ic
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 Player::lifeCnt] : ie
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Camera Player::cam] : if
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 Player::dieCnt] : ig
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 Player::tornadoCnt] : ih
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 Player::point] : ii
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Collections.Generic.List`1<System.Int32> Player::targetIndx] : ij
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Transform[] Player::subways] : ik
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.GameObject Player::heartPool] : il
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Vector3 Player::initSize] : im
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Transform Player::nowTarget] : in
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Transform[] Player::heartPos] : io
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 Player::beforePosIndx] : ip
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 Player::idx] : iq
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Single Player::inverseTime] : ir
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Single Player::inversedTime] : is
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Single Player::invincibilityTime] : it
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Single Player::invincibilityCurrentTime] : iu
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Transform Player::beforeSubway] : iv
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Vector2 PlayerController::m_vecNormal] : iw
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Vector2 PlayerController::start] : ix
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Color Rank::blue] : iy
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] EnemyToward[] BlackHeart::targets] : go
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] EnemyToward BlackHeart::target] : gp
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] EnemyToward BlackHeart::before] : gq
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 CreateRandomPos::beforePosIndx] : gr
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 CreateRandomPos::idx] : gs
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int64 RankInfo::rank] : gt
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.String RankInfo::nickName] : gu
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 RankInfo::score] : gv
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 RankInfo::selectedCharacter] : gw
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 FirebaseManager/<TryFirebaseLogin>d__18::<>1__state] : gx
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Object FirebaseManager/<TryFirebaseLogin>d__18::<>2__current] : gy
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] FirebaseManager FirebaseManager/<TryFirebaseLogin>d__18::<>4__this] : gz
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] Firebase.Auth.FirebaseAuth FirebaseManager/<>c__DisplayClass20_0::auth] : ha
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass20_0::<>4__this] : hb
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass25_0::nickName] : hc
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Action`1<System.Boolean> FirebaseManager/<>c__DisplayClass25_0::callback] : hd
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] Firebase.Auth.FirebaseUser FirebaseManager/<>c__DisplayClass26_0::user] : he
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass33_0::<>4__this] : hf
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 FirebaseManager/<>c__DisplayClass33_0::sendNum] : hg
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass34_0::<>4__this] : hh
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 FirebaseManager/<>c__DisplayClass34_0::sendNum] : hi
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass35_0::<>4__this] : hj
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 FirebaseManager/<>c__DisplayClass35_0::sendNum] : hk
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass37_0::<>4__this] : hl
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Action FirebaseManager/<>c__DisplayClass37_0::callback] : hm
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass47_0::id] : hn
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass47_0::password] : ho
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass47_0::<>4__this] : hp
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass47_0::key] : hq
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass47_0::nickName] : hr
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Action`1<System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>> FirebaseManager/<>c__DisplayClass47_0::<>9__1] : hs
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] Firebase.Database.DatabaseReference FirebaseManager::reference] : ht
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] Firebase.Auth.FirebaseAuth FirebaseManager::auth] : hu
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Object FirebaseManager::<SystemMessageManager>k__BackingField] : hv
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Boolean FirebaseManager::isSignIn] : hw
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.String FirebaseManager::uid] : hx
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 FirebaseManager::sendCnt] : hy
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.String FirebaseManager::authCode] : hz
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 GameManager::score] : ia
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Collections.Generic.Dictionary`2<UnityEngine.Transform,UnityEngine.Transform[]> GameManager::springPos] : ib
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Collections.Generic.Dictionary`2<UnityEngine.Transform,System.Int32> GameManager::before] : ic
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] FirebaseManager GameManager::FMng] : ie
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] SceneManager GameManager::SceneMng] : if
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Boolean GameManager::setNickname] : ig
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] Rank[] RankingPanel::ranks] : ih
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Color SetNickNamePanel::red] : ii
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Color SetNickNamePanel::blue] : ij
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Single SoundPanel/<>c__DisplayClass10_0::bgmv] : ik
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] SoundPanel SoundPanel/<>c__DisplayClass10_0::<>4__this] : il
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Single SoundPanel/<>c__DisplayClass10_1::effectV] : im
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] SoundPanel SoundPanel/<>c__DisplayClass10_1::<>4__this] : in
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.UI.Image[] SoundPanel::bgms] : io
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.UI.Image[] SoundPanel::effects] : ip
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Single SoundPanel::bgmV] : iq
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Single SoundPanel::effectV] : ir
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 Player::lifeCnt] : is
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Camera Player::cam] : it
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 Player::dieCnt] : iu
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 Player::tornadoCnt] : iv
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 Player::point] : iw
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Collections.Generic.List`1<System.Int32> Player::targetIndx] : ix
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Transform[] Player::subways] : iy
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.GameObject Player::heartPool] : iz
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Vector3 Player::initSize] : ja
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Transform Player::nowTarget] : jb
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Transform[] Player::heartPos] : jc
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 Player::beforePosIndx] : jd
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Int32 Player::idx] : je
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Single Player::inverseTime] : jf
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Single Player::inversedTime] : jg
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Single Player::invincibilityTime] : jh
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] System.Single Player::invincibilityCurrentTime] : ji
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Transform Player::beforeSubway] : jj
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Vector2 PlayerController::m_vecNormal] : jk
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Vector2 PlayerController::start] : jl
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Field Name [[Assembly-CSharp] UnityEngine.Color Rank::blue] : jm
 [Info][OPS.OBF][OnFindMemberNames_Assemblies] Process component Property - Obfuscation
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Boolean FirebaseManager::IsSignIn()] : iz
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found field belonging Property Name [[Assembly-CSharp] System.Object FirebaseManager::SystemMessageManager()] : hh
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Single GameManager::BaseSpeed()] : ja
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Single GameManager::Interval()] : jb
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Single GameManager::Pow()] : jc
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Int32 GameManager::TornadoCnt()] : jd
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Int32 GameManager::Price()] : je
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Single GameManager::IntervalSpeed()] : jf
-[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Int32 GameManager::Score()] : jg
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found group Property Name [[Assembly-CSharp] System.Object FirebaseManager/<TryFirebaseLogin>d__18::System.Collections.Generic.IEnumerator<System.Object>.Current()] : 
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Object FirebaseManager/<TryFirebaseLogin>d__18::System.Collections.Generic.IEnumerator<System.Object>.Current()] : jn
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found group Property Name [[Assembly-CSharp] System.Object FirebaseManager/<TryFirebaseLogin>d__18::System.Collections.IEnumerator.Current()] : 
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Object FirebaseManager/<TryFirebaseLogin>d__18::System.Collections.IEnumerator.Current()] : jo
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Boolean FirebaseManager::IsSignIn()] : jp
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found field belonging Property Name [[Assembly-CSharp] System.Object FirebaseManager::SystemMessageManager()] : hv
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Single GameManager::BaseSpeed()] : jq
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Single GameManager::Interval()] : jr
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Single GameManager::Pow()] : js
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Int32 GameManager::TornadoCnt()] : jt
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Int32 GameManager::Price()] : ju
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Single GameManager::IntervalSpeed()] : jv
+[Info][OPS.OBF][OnFindMemberNames_Assemblies] Found new Property Name [[Assembly-CSharp] System.Int32 GameManager::Score()] : jw
 [Info][OPS.OBF][OnFindMemberNames_Assemblies] Process component Event - Obfuscation
 [Info][OPS.OBF][OnObfuscate_Assemblies] Process component Unity Animation Methods - Compatibility
 [Info][OPS.OBF][OnObfuscate_Assemblies] Process component Unity Event Methods - Compatibility
@@ -6003,20 +6033,22 @@
 [Info][OPS.OBF][OnObfuscate_Assemblies] Process component Namespace - Settings
 [Info][OPS.OBF][OnObfuscate_Assemblies] Process component Class - Obfuscation
 [Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] RankInfo] to a
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass17_0] to b
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass22_0] to c
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass23_0] to f
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass30_0] to g
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass31_0] to h
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass32_0] to j
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass34_0] to k
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass44_0] to l
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] STATE] to m
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] SceneManager/PANEL] to n
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] Sound] to o
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] SoundPanel/<>c__DisplayClass10_0] to p
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] SoundPanel/<>c__DisplayClass10_1] to q
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] StartCanvas/PANEL] to r
+[Info][OPS.OBF][OnObfuscate_Assemblies] Update Reference Type [[Assembly-CSharp] FirebaseManager/<TryFirebaseLogin>d__18]
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] FirebaseManager/<TryFirebaseLogin>d__18] to b
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass20_0] to c
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass25_0] to f
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass26_0] to g
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass33_0] to h
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass34_0] to j
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass35_0] to k
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass37_0] to l
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] FirebaseManager/<>c__DisplayClass47_0] to m
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] STATE] to n
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] SceneManager/PANEL] to o
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] Sound] to p
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] SoundPanel/<>c__DisplayClass10_0] to q
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] SoundPanel/<>c__DisplayClass10_1] to r
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Type [[Assembly-CSharp] StartCanvas/PANEL] to s
 [Info][OPS.OBF][OnObfuscate_Assemblies] Process component Type Cache Replacement
 [Info][OPS.OBF][OnObfuscate_Assemblies] [Assembly-CSharp] Replace Type Namespace and Name Cache...
 [Info][OPS.OBF][OnObfuscate_Assemblies] Process component MonoBehaviour - Class - Obfuscation
@@ -6024,232 +6056,247 @@
 [Info][OPS.OBF][OnObfuscate_Assemblies] Process component ScriptableObject - Class - Obfuscation
 [Info][OPS.OBF][OnObfuscate_Assemblies] Process component Playable - Class - Obfuscation
 [Info][OPS.OBF][OnObfuscate_Assemblies] Process component Method - Obfuscation
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void BlackHeart::RandomPosition()] to s
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void CharacterIContent::SetContent()] to t
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] UnityEngine.Transform CreateRandomPos::CreatePrefab()] to u
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] EnemyToward EnemyToward::Next(EnemyToward)] to x
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Threading.Tasks.Task FirebaseManager/<>c__DisplayClass17_0::<SignInWithGameCenterAsync>b__0(System.Threading.Tasks.Task`1<Firebase.Auth.Credential>)] to y
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c::<AuthStateChanged>b__21_0()] to z
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c::<SendEmailVerification>b__47_0(System.Threading.Tasks.Task)] to ba
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass22_0::<CheckNickName>b__0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] to bb
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass23_0::<SetNickName>b__0(System.Threading.Tasks.Task)] to bc
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass30_0::<SendData>b__0(System.Threading.Tasks.Task)] to bd
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass31_0::<SendData>b__0(System.Threading.Tasks.Task)] to be
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass32_0::<SendData>b__0(System.Threading.Tasks.Task)] to bf
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass34_0::<GetMyInfo>b__0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] to bg
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass44_0::<SignUp>b__0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] to bh
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass44_0::<SignUp>b__1(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] to bi
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Boolean FirebaseManager::get_IsSignIn()] to bj
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Object FirebaseManager::get_SystemMessageManager()] to bk
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::set_SystemMessageManager(System.Object)] to bl
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Boolean FirebaseManager::InternetOn()] to bm
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::InitData()] to bn
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::GameCenterLogin()] to bo
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Threading.Tasks.Task FirebaseManager::SignInWithGameCenterAsync()] to bp
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::HandleSignInWithUser(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] to bq
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Boolean FirebaseManager::LogTaskCompletion(System.Threading.Tasks.Task,System.String)] to br
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::GuestLogIn()] to bs
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::AuthStateChanged(System.Object,System.EventArgs)] to bt
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::CheckNickName(System.String,System.Action`1<System.Boolean>)] to bu
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::SetNickName(System.String)] to bv
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Boolean FirebaseManager::ExceptedString(System.String)] to bw
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::SaveScore()] to bx
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::CheckRank()] to by
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::SendDataAll()] to bz
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::SendData(System.String,System.Int32,System.Int32)] to ca
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::SendData(System.String,System.String,System.Int32)] to cc
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::SendData(System.String,System.Single,System.Int32)] to cd
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::AfterSend(System.Int32)] to ce
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::GetMyInfo(System.Action)] to cf
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::GetRankInfo()] to cg
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::GetRankInfo2()] to ch
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::GetMyRank()] to ci
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::SignUp(System.String,System.String,System.String)] to cj
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::GuestAutoLogIn()] to ck
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::LogOut()] to cl
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::SendEmailVerification()] to cm
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::<GameCenterLogin>b__16_0(System.Boolean)] to cn
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::<GuestLogIn>b__20_0(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] to co
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::<CheckRank>b__26_0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] to cp
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::<GetRankInfo>b__36_0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] to cq
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::<GetRankInfo2>b__39_0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] to cr
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::<GetMyRank>b__43_0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] to cs
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::<GuestAutoLogIn>b__45_0(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] to ct
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Single GameManager::get_BaseSpeed()] to cu
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Single GameManager::get_Interval()] to cv
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Single GameManager::get_Pow()] to cw
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Int32 GameManager::get_TornadoCnt()] to cx
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Int32 GameManager::get_Price()] to cy
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Single GameManager::get_IntervalSpeed()] to cz
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Int32 GameManager::get_Score()] to da
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameManager::set_Score(System.Int32)] to db
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameManager::InitData()] to dc
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameManager::SetResolution()] to dd
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameManager::SetSpring(UnityEngine.Transform)] to de
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameManager::OnClickLeftBtn()] to df
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameManager::OnClickRightBtn()] to dg
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameManager::OnClickTornado()] to dh
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameManager::SetNickname()] to di
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SceneManager::PanelOn(SceneManager/PANEL)] to dj
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SceneManager::GamePanelOn()] to dk
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SceneManager::LoadingPanelOn()] to dl
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SceneManager::Popup(System.String)] to dm
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundManager::SetBGMVolume(System.Single)] to dn
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundManager::SetEffectVolume(System.Single)] to do
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundManager::ClickBtnSound()] to dp
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundManager::BGM(System.Int32)] to dq
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundManager::SoundOneShot(Sound)] to dr
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundManager::WalkSound1()] to ds
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundManager::WalkSound2()] to dt
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void BasePanel::SetActice(System.Boolean)] to du
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void EndLoadingPanel::OnClick_HomeBtn()] to dv
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void EndPanel::OnClick_HomeBtn()] to dw
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void EndPanel::OnClick_RetryBtn()] to dx
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameCanvas::GamePanelOn()] to dy
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameCanvas::OnClick_leftBtn()] to dz
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameCanvas::OnClick_rightBtn()] to ea
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameCanvas::OnClick_tornadoBtn()] to eb
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void HomePanel::OnClick_howToBtn()] to ec
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void HomePanel::OnCliCk_RankingBtn()] to ed
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void HomePanel::OnClick_SoundBtn()] to ee
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void HomePanel::OnClick_playBtn()] to ef
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void HowToPanel::OnClick_ExitBtn()] to eg
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void LoadingPanel::OnClick_HomeBtn()] to eh
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Popup::OnClick_ExitBtn()] to ei
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Popup::SetActive(System.String)] to ej
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void RankingPanel::SetActice(System.Boolean)] to du
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void RankingPanel::AfterGetRank()] to ek
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void RankingPanel::OnClick_ExitBtn()] to el
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SetNickNamePanel::SetActice(System.Boolean)] to du
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SetNickNamePanel::ChangeText(System.String)] to em
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SetNickNamePanel::OnClickCheckBtn()] to en
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SetNickNamePanel::State(System.Boolean)] to eo
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SetNickNamePanel::OnClickOkBtn()] to ep
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SetNickNamePanel::OnClickExitBtn()] to eq
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SettingPanel/<>c::<Start>b__3_0()] to er
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SettingPanel/<>c::<Start>b__3_1()] to es
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SettingPanel/<>c::<Start>b__3_2()] to et
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel/<>c__DisplayClass10_0::<Start>b__4()] to eu
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel/<>c__DisplayClass10_0::<Start>b__5()] to ev
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel/<>c__DisplayClass10_1::<Start>b__7()] to ew
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel/<>c__DisplayClass10_1::<Start>b__8()] to ex
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::SetPanel()] to ey
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::SaveVolume()] to ez
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::OnClick_BGMBtn(System.Boolean)] to fa
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::OnClick_EffectBtn(System.Boolean)] to fb
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::SetBGMContents(System.Single)] to fc
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::SetEffectContents(System.Single)] to fd
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::OnCLickSoundXBtn()] to fe
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::OnCLickSoundOKBtn()] to ff
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_0()] to fg
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_1()] to fh
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_2()] to fi
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_3()] to fj
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_6()] to fk
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_9()] to fl
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void StartCanvas::PanelOn(StartCanvas/PANEL)] to fm
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::GameOver()] to fn
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::Ready()] to fo
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::Move()] to fp
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::Move2()] to fq
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::SetHeartsPosition(System.Int32,System.Int32,System.Boolean,System.Single)] to fr
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::SelectSubway()] to fs
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::CamMove()] to ft
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::initPos()] to fu
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::CreatePop(UnityEngine.Transform)] to fv
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::InverseTime()] to fw
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::DestroyAllHearts()] to fx
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::CreateHeart()] to fy
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::WalkSound1()] to fz
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::WalkSound2()] to ga
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void PlayerController::InitRot(UnityEngine.EventSystems.PointerEventData)] to gb
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Rank::SetInfo(RankInfo)] to gc
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void BlackHeart::RandomPosition()] to t
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void CharacterIContent::SetContent()] to u
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] UnityEngine.Transform CreateRandomPos::CreatePrefab()] to x
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] EnemyToward EnemyToward::Next(EnemyToward)] to y
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<TryFirebaseLogin>d__18::System.IDisposable.Dispose()] to z
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Object FirebaseManager/<TryFirebaseLogin>d__18::System.Collections.Generic.IEnumerator<System.Object>.get_Current()] to ba
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<TryFirebaseLogin>d__18::System.Collections.IEnumerator.Reset()] to bb
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Object FirebaseManager/<TryFirebaseLogin>d__18::System.Collections.IEnumerator.get_Current()] to bc
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Threading.Tasks.Task FirebaseManager/<>c__DisplayClass20_0::<SignInWithGameCenterAsync>b__0(System.Threading.Tasks.Task`1<Firebase.Auth.Credential>)] to bd
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c::<AuthStateChanged>b__24_0()] to be
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c::<SendEmailVerification>b__50_0(System.Threading.Tasks.Task)] to bf
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass25_0::<CheckNickName>b__0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] to bg
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass26_0::<SetNickName>b__0(System.Threading.Tasks.Task)] to bh
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass33_0::<SendData>b__0(System.Threading.Tasks.Task)] to bi
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass34_0::<SendData>b__0(System.Threading.Tasks.Task)] to bj
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass35_0::<SendData>b__0(System.Threading.Tasks.Task)] to bk
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass37_0::<GetMyInfo>b__0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] to bl
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass47_0::<SignUp>b__0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] to bm
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager/<>c__DisplayClass47_0::<SignUp>b__1(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] to bn
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Boolean FirebaseManager::get_IsSignIn()] to bo
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Object FirebaseManager::get_SystemMessageManager()] to bp
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::set_SystemMessageManager(System.Object)] to bq
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Boolean FirebaseManager::InternetOn()] to br
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::InitData()] to bs
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::GoogleLogin()] to bt
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::FirebaseWithGooglePlay()] to bu
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Collections.IEnumerator FirebaseManager::TryFirebaseLogin()] to bv
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::GameCenterLogin()] to bw
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Threading.Tasks.Task FirebaseManager::SignInWithGameCenterAsync()] to bx
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::HandleSignInWithUser(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] to by
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Boolean FirebaseManager::LogTaskCompletion(System.Threading.Tasks.Task,System.String)] to bz
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::GuestLogIn()] to ca
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::AuthStateChanged(System.Object,System.EventArgs)] to cc
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::CheckNickName(System.String,System.Action`1<System.Boolean>)] to cd
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::SetNickName(System.String)] to ce
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Boolean FirebaseManager::ExceptedString(System.String)] to cf
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::SaveScore()] to cg
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::CheckRank()] to ch
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::SendDataAll()] to ci
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::SendData(System.String,System.Int32,System.Int32)] to cj
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::SendData(System.String,System.String,System.Int32)] to ck
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::SendData(System.String,System.Single,System.Int32)] to cl
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::AfterSend(System.Int32)] to cm
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::GetMyInfo(System.Action)] to cn
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::GetRankInfo()] to co
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::GetRankInfo2()] to cp
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::GetMyRank()] to cq
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::SignUp(System.String,System.String,System.String)] to cr
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::GuestAutoLogIn()] to cs
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::LogOut()] to ct
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::SendEmailVerification()] to cu
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::<GoogleLogin>b__16_0(System.Boolean)] to cv
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::<FirebaseWithGooglePlay>b__17_0(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] to cw
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::<TryFirebaseLogin>b__18_0(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] to cx
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::<GameCenterLogin>b__19_0(System.Boolean)] to cy
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::<GuestLogIn>b__23_0(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] to cz
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::<CheckRank>b__29_0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] to da
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::<GetRankInfo>b__39_0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] to db
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::<GetRankInfo2>b__42_0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] to dc
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::<GetMyRank>b__46_0(System.Threading.Tasks.Task`1<Firebase.Database.DataSnapshot>)] to dd
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void FirebaseManager::<GuestAutoLogIn>b__48_0(System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>)] to de
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Single GameManager::get_BaseSpeed()] to df
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Single GameManager::get_Interval()] to dg
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Single GameManager::get_Pow()] to dh
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Int32 GameManager::get_TornadoCnt()] to di
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Int32 GameManager::get_Price()] to dj
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Single GameManager::get_IntervalSpeed()] to dk
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Int32 GameManager::get_Score()] to dl
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameManager::set_Score(System.Int32)] to dm
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameManager::InitData()] to dn
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameManager::SetResolution()] to do
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameManager::SetSpring(UnityEngine.Transform)] to dp
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameManager::OnClickLeftBtn()] to dq
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameManager::OnClickRightBtn()] to dr
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameManager::OnClickTornado()] to ds
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameManager::SetNickname()] to dt
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SceneManager::PanelOn(SceneManager/PANEL)] to du
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SceneManager::GamePanelOn()] to dv
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SceneManager::LoadingPanelOn()] to dw
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SceneManager::Popup(System.String)] to dx
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundManager::SetBGMVolume(System.Single)] to dy
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundManager::SetEffectVolume(System.Single)] to dz
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundManager::ClickBtnSound()] to ea
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundManager::BGM(System.Int32)] to eb
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundManager::SoundOneShot(Sound)] to ec
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundManager::WalkSound1()] to ed
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundManager::WalkSound2()] to ee
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void BasePanel::SetActice(System.Boolean)] to ef
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void EndLoadingPanel::OnClick_HomeBtn()] to eg
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void EndPanel::OnClick_HomeBtn()] to eh
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void EndPanel::OnClick_RetryBtn()] to ei
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameCanvas::GamePanelOn()] to ej
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameCanvas::OnClick_leftBtn()] to ek
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameCanvas::OnClick_rightBtn()] to el
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void GameCanvas::OnClick_tornadoBtn()] to em
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void HomePanel::OnClick_howToBtn()] to en
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void HomePanel::OnCliCk_RankingBtn()] to eo
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void HomePanel::OnClick_SoundBtn()] to ep
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void HomePanel::OnClick_playBtn()] to eq
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void HowToPanel::OnClick_ExitBtn()] to er
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void LoadingPanel::OnClick_HomeBtn()] to es
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Popup::OnClick_ExitBtn()] to et
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Popup::SetActive(System.String)] to eu
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void RankingPanel::SetActice(System.Boolean)] to ef
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void RankingPanel::AfterGetRank()] to ev
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void RankingPanel::OnClick_ExitBtn()] to ew
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SetNickNamePanel::SetActice(System.Boolean)] to ef
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SetNickNamePanel::ChangeText(System.String)] to ex
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SetNickNamePanel::OnClickCheckBtn()] to ey
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SetNickNamePanel::State(System.Boolean)] to ez
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SetNickNamePanel::OnClickOkBtn()] to fa
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SetNickNamePanel::OnClickExitBtn()] to fb
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SettingPanel/<>c::<Start>b__3_0()] to fc
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SettingPanel/<>c::<Start>b__3_1()] to fd
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SettingPanel/<>c::<Start>b__3_2()] to fe
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel/<>c__DisplayClass10_0::<Start>b__4()] to ff
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel/<>c__DisplayClass10_0::<Start>b__5()] to fg
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel/<>c__DisplayClass10_1::<Start>b__7()] to fh
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel/<>c__DisplayClass10_1::<Start>b__8()] to fi
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::SetPanel()] to fj
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::SaveVolume()] to fk
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::OnClick_BGMBtn(System.Boolean)] to fl
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::OnClick_EffectBtn(System.Boolean)] to fm
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::SetBGMContents(System.Single)] to fn
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::SetEffectContents(System.Single)] to fo
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::OnCLickSoundXBtn()] to fp
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::OnCLickSoundOKBtn()] to fq
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_0()] to fr
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_1()] to fs
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_2()] to ft
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_3()] to fu
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_6()] to fv
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void SoundPanel::<Start>b__10_9()] to fw
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void StartCanvas::PanelOn(StartCanvas/PANEL)] to fx
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::GameOver()] to fy
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::Ready()] to fz
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::Move()] to ga
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::Move2()] to gb
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::SetHeartsPosition(System.Int32,System.Int32,System.Boolean,System.Single)] to gc
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::SelectSubway()] to gd
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::CamMove()] to ge
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::initPos()] to gf
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::CreatePop(UnityEngine.Transform)] to gg
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::InverseTime()] to gh
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::DestroyAllHearts()] to gi
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::CreateHeart()] to gj
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::WalkSound1()] to gk
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Player::WalkSound2()] to gl
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void PlayerController::InitRot(UnityEngine.EventSystems.PointerEventData)] to gm
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Method [[Assembly-CSharp] System.Void Rank::SetInfo(RankInfo)] to gn
 [Info][OPS.OBF][OnObfuscate_Assemblies] Process component Parameter - Obfuscation
 [Info][OPS.OBF][OnObfuscate_Assemblies] [Assembly-CSharp] Obfuscating Parameter...
 [Info][OPS.OBF][OnObfuscate_Assemblies] Process component Field - Obfuscation
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] EnemyToward[] BlackHeart::targets] to gd
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] EnemyToward BlackHeart::target] to ge
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] EnemyToward BlackHeart::before] to gf
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 CreateRandomPos::beforePosIndx] to gg
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 CreateRandomPos::idx] to gh
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int64 RankInfo::rank] to gi
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.String RankInfo::nickName] to gj
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 RankInfo::score] to gk
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 RankInfo::selectedCharacter] to gl
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] Firebase.Auth.FirebaseAuth FirebaseManager/<>c__DisplayClass17_0::auth] to gm
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass17_0::<>4__this] to gn
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass22_0::nickName] to go
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Action`1<System.Boolean> FirebaseManager/<>c__DisplayClass22_0::callback] to gp
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] Firebase.Auth.FirebaseUser FirebaseManager/<>c__DisplayClass23_0::user] to gq
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass30_0::<>4__this] to gr
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 FirebaseManager/<>c__DisplayClass30_0::sendNum] to gs
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass31_0::<>4__this] to gt
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 FirebaseManager/<>c__DisplayClass31_0::sendNum] to gu
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass32_0::<>4__this] to gv
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 FirebaseManager/<>c__DisplayClass32_0::sendNum] to gw
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass34_0::<>4__this] to gx
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Action FirebaseManager/<>c__DisplayClass34_0::callback] to gy
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass44_0::id] to gz
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass44_0::password] to ha
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass44_0::<>4__this] to hb
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass44_0::key] to hc
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass44_0::nickName] to hd
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Action`1<System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>> FirebaseManager/<>c__DisplayClass44_0::<>9__1] to he
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] Firebase.Database.DatabaseReference FirebaseManager::reference] to hf
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] Firebase.Auth.FirebaseAuth FirebaseManager::auth] to hg
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Object FirebaseManager::<SystemMessageManager>k__BackingField] to <hh>k__BackingField
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Boolean FirebaseManager::isSignIn] to hi
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.String FirebaseManager::uid] to hj
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 FirebaseManager::sendCnt] to hk
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.String FirebaseManager::authCode] to hl
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 GameManager::score] to hm
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Collections.Generic.Dictionary`2<UnityEngine.Transform,UnityEngine.Transform[]> GameManager::springPos] to hn
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Collections.Generic.Dictionary`2<UnityEngine.Transform,System.Int32> GameManager::before] to ho
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] FirebaseManager GameManager::FMng] to hp
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] SceneManager GameManager::SceneMng] to hq
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Boolean GameManager::setNickname] to hr
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] Rank[] RankingPanel::ranks] to hs
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Color SetNickNamePanel::red] to ht
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Color SetNickNamePanel::blue] to hu
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Single SoundPanel/<>c__DisplayClass10_0::bgmv] to hv
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] SoundPanel SoundPanel/<>c__DisplayClass10_0::<>4__this] to hw
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Single SoundPanel/<>c__DisplayClass10_1::effectV] to hx
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] SoundPanel SoundPanel/<>c__DisplayClass10_1::<>4__this] to hy
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.UI.Image[] SoundPanel::bgms] to hz
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.UI.Image[] SoundPanel::effects] to ia
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Single SoundPanel::bgmV] to ib
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Single SoundPanel::effectV] to ic
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 Player::lifeCnt] to ie
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Camera Player::cam] to if
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 Player::dieCnt] to ig
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 Player::tornadoCnt] to ih
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 Player::point] to ii
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Collections.Generic.List`1<System.Int32> Player::targetIndx] to ij
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Transform[] Player::subways] to ik
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.GameObject Player::heartPool] to il
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Vector3 Player::initSize] to im
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Transform Player::nowTarget] to in
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Transform[] Player::heartPos] to io
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 Player::beforePosIndx] to ip
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 Player::idx] to iq
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Single Player::inverseTime] to ir
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Single Player::inversedTime] to is
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Single Player::invincibilityTime] to it
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Single Player::invincibilityCurrentTime] to iu
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Transform Player::beforeSubway] to iv
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Vector2 PlayerController::m_vecNormal] to iw
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Vector2 PlayerController::start] to ix
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Color Rank::blue] to iy
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] EnemyToward[] BlackHeart::targets] to go
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] EnemyToward BlackHeart::target] to gp
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] EnemyToward BlackHeart::before] to gq
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 CreateRandomPos::beforePosIndx] to gr
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 CreateRandomPos::idx] to gs
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int64 RankInfo::rank] to gt
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.String RankInfo::nickName] to gu
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 RankInfo::score] to gv
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 RankInfo::selectedCharacter] to gw
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 FirebaseManager/<TryFirebaseLogin>d__18::<>1__state] to gx
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Object FirebaseManager/<TryFirebaseLogin>d__18::<>2__current] to gy
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] FirebaseManager FirebaseManager/<TryFirebaseLogin>d__18::<>4__this] to gz
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] Firebase.Auth.FirebaseAuth FirebaseManager/<>c__DisplayClass20_0::auth] to ha
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass20_0::<>4__this] to hb
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass25_0::nickName] to hc
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Action`1<System.Boolean> FirebaseManager/<>c__DisplayClass25_0::callback] to hd
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] Firebase.Auth.FirebaseUser FirebaseManager/<>c__DisplayClass26_0::user] to he
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass33_0::<>4__this] to hf
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 FirebaseManager/<>c__DisplayClass33_0::sendNum] to hg
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass34_0::<>4__this] to hh
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 FirebaseManager/<>c__DisplayClass34_0::sendNum] to hi
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass35_0::<>4__this] to hj
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 FirebaseManager/<>c__DisplayClass35_0::sendNum] to hk
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass37_0::<>4__this] to hl
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Action FirebaseManager/<>c__DisplayClass37_0::callback] to hm
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass47_0::id] to hn
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass47_0::password] to ho
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] FirebaseManager FirebaseManager/<>c__DisplayClass47_0::<>4__this] to hp
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass47_0::key] to hq
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.String FirebaseManager/<>c__DisplayClass47_0::nickName] to hr
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Action`1<System.Threading.Tasks.Task`1<Firebase.Auth.FirebaseUser>> FirebaseManager/<>c__DisplayClass47_0::<>9__1] to hs
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] Firebase.Database.DatabaseReference FirebaseManager::reference] to ht
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] Firebase.Auth.FirebaseAuth FirebaseManager::auth] to hu
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Object FirebaseManager::<SystemMessageManager>k__BackingField] to <hv>k__BackingField
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Boolean FirebaseManager::isSignIn] to hw
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.String FirebaseManager::uid] to hx
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 FirebaseManager::sendCnt] to hy
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.String FirebaseManager::authCode] to hz
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 GameManager::score] to ia
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Collections.Generic.Dictionary`2<UnityEngine.Transform,UnityEngine.Transform[]> GameManager::springPos] to ib
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Collections.Generic.Dictionary`2<UnityEngine.Transform,System.Int32> GameManager::before] to ic
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] FirebaseManager GameManager::FMng] to ie
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] SceneManager GameManager::SceneMng] to if
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Boolean GameManager::setNickname] to ig
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] Rank[] RankingPanel::ranks] to ih
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Color SetNickNamePanel::red] to ii
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Color SetNickNamePanel::blue] to ij
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Single SoundPanel/<>c__DisplayClass10_0::bgmv] to ik
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] SoundPanel SoundPanel/<>c__DisplayClass10_0::<>4__this] to il
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Single SoundPanel/<>c__DisplayClass10_1::effectV] to im
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] SoundPanel SoundPanel/<>c__DisplayClass10_1::<>4__this] to in
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.UI.Image[] SoundPanel::bgms] to io
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.UI.Image[] SoundPanel::effects] to ip
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Single SoundPanel::bgmV] to iq
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Single SoundPanel::effectV] to ir
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 Player::lifeCnt] to is
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Camera Player::cam] to it
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 Player::dieCnt] to iu
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 Player::tornadoCnt] to iv
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 Player::point] to iw
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Collections.Generic.List`1<System.Int32> Player::targetIndx] to ix
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Transform[] Player::subways] to iy
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.GameObject Player::heartPool] to iz
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Vector3 Player::initSize] to ja
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Transform Player::nowTarget] to jb
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Transform[] Player::heartPos] to jc
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 Player::beforePosIndx] to jd
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Int32 Player::idx] to je
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Single Player::inverseTime] to jf
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Single Player::inversedTime] to jg
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Single Player::invincibilityTime] to jh
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] System.Single Player::invincibilityCurrentTime] to ji
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Transform Player::beforeSubway] to jj
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Vector2 PlayerController::m_vecNormal] to jk
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Vector2 PlayerController::start] to jl
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Field [[Assembly-CSharp] UnityEngine.Color Rank::blue] to jm
 [Info][OPS.OBF][OnObfuscate_Assemblies] Process component Property - Obfuscation
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Boolean FirebaseManager::IsSignIn()] to iz
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Object FirebaseManager::SystemMessageManager()] to hh
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Single GameManager::BaseSpeed()] to ja
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Single GameManager::Interval()] to jb
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Single GameManager::Pow()] to jc
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Int32 GameManager::TornadoCnt()] to jd
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Int32 GameManager::Price()] to je
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Single GameManager::IntervalSpeed()] to jf
-[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Int32 GameManager::Score()] to jg
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Object FirebaseManager/<TryFirebaseLogin>d__18::System.Collections.Generic.IEnumerator<System.Object>.Current()] to jn
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Object FirebaseManager/<TryFirebaseLogin>d__18::System.Collections.IEnumerator.Current()] to jo
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Boolean FirebaseManager::IsSignIn()] to jp
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Object FirebaseManager::SystemMessageManager()] to hv
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Single GameManager::BaseSpeed()] to jq
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Single GameManager::Interval()] to jr
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Single GameManager::Pow()] to js
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Int32 GameManager::TornadoCnt()] to jt
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Int32 GameManager::Price()] to ju
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Single GameManager::IntervalSpeed()] to jv
+[Info][OPS.OBF][OnObfuscate_Assemblies] Rename Property [[Assembly-CSharp] System.Int32 GameManager::Score()] to jw
 [Info][OPS.OBF][OnObfuscate_Assemblies] Process component Event - Obfuscation
 [Info][OPS.OBF][OnObfuscate_Assemblies] Process component Attribute - Settings
 [Info][OPS.OBF][OnObfuscate_Assemblies] Process component Add Random Code

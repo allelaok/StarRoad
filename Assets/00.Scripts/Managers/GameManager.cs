@@ -119,9 +119,10 @@ public class GameManager : MonoBehaviour
         {
 #if UNITY_IOS
             FMng.GameCenterLogin();
-#else
-            FMng.GuestLogIn();
+#elif UNITY_ANDROID
+            FMng.GoogleLogin();
 #endif
+
         }
         else
         {
