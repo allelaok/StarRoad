@@ -11,8 +11,6 @@ using System.Linq;
 using TMPro;
 using System.Threading.Tasks;
 using Firebase.Auth;
-using GooglePlayGames;
-using GooglePlayGames.BasicApi;
 
 public class RankInfo
 {
