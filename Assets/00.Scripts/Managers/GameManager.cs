@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
 
 public enum STATE
 {
     Defualt,
     Ready,
-    Start,
     Play,
     CamMove,
     Tornado,
     Subway,
-    Coll,
     GameOver,
     Pop
 }
@@ -113,16 +113,15 @@ public class GameManager : MonoBehaviour
         SoundManager.instance.BGM((int)Sound.Lobby_BGM);
 
         SceneMng.LoadingPanelOn();
-        //SceneMng.PanelOn(SceneManager.HOME.home);
 
         if (FMng.InternetOn())
         {
 #if UNITY_IOS
             FMng.GameCenterLogin();
 #elif UNITY_ANDROID
-            FMng.GoogleLogin();
+            PlayGamesPlatform.Activate();
+            FMng.GooglePlayLogin();
 #endif
-
         }
         else
         {
@@ -132,6 +131,9 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+  
+
     [SerializeField] int tmpBestScore;
     [SerializeField] string tmpNickName;
 #if UNITY_EDITOR

@@ -66,8 +66,6 @@ public class Player : MonoBehaviour
         {
             case (STATE.Defualt):
                 break;
-            case (STATE.Start):
-                break;
             case (STATE.Play):
                 Move();
                 InverseTime();
@@ -108,8 +106,6 @@ public class Player : MonoBehaviour
                 break;
             case (STATE.Ready):
                 Ready();
-                break;
-            case (STATE.Coll):
                 break;
             case (STATE.GameOver):
                 GameOver();

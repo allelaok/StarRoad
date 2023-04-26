@@ -87,7 +87,7 @@ public class SceneManager : MonoBehaviour
 
     public void Popup(string content)
     {
-        popup.SetActive(content);
+        //popup.SetActive(content);
     }
     //enum STARTCANVAS
     //{

@@ -11,8 +11,10 @@ using System.Linq;
 using TMPro;
 using System.Threading.Tasks;
 using Firebase.Auth;
+#if UNITY_ANDROID
 using GooglePlayGames;
-using GooglePlayGames.BasicApi;
+//using GooglePlayGames.BasicApi;
+#endif
 
 public class RankInfo
 {
@@ -51,20 +53,13 @@ public class FirebaseManager : MonoBehaviour
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
         auth.StateChanged += AuthStateChanged;
-
-#if UNITY_ANDROID
-        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
-         // enables saving game progress.
-         .EnableSavedGames()
-         .RequestIdToken()
-         .Build();
-
-        PlayGamesPlatform.InitializeInstance(config);
-        PlayGamesPlatform.Activate();
-
-#endif
     }
 
+    public void GooglePlayLogin()
+    {
+        PlayGamesPlatform.Activate();
+        LoginGooglePlayGames();
+    }
 
     public bool InternetOn()
     {
@@ -86,85 +81,146 @@ public class FirebaseManager : MonoBehaviour
         reference.Child("users").Child(uid).Child("characters").SetValueAsync("0");
         reference.Child("users").Child(uid).Child("coin").SetValueAsync(num);
     }
-    public void GoogleLogin()
+#if UNITY_ANDROID
+    public string Error;
+    public void LoginGooglePlayGames()
     {
-        // 로그인 되어 있지 않다면
-        if (!Social.localUser.authenticated)
+            debugMsg.text = "구글로그인 시도";
+        Social.localUser.Authenticate((success) =>
         {
-            Social.localUser.Authenticate(success => // 로그인 시도
+            if (success)
             {
-                if (success) // 성공하면
+                Debug.Log("Login with Google Play games successful.");
+                debugMsg.text = "구글로그인 성공";
+
+                PlayGamesPlatform.Instance.RequestServerSideAccess(true, code =>
                 {
-                    debugMsg.text = "google login success";
-                    //SystemMessageManager.Instance.AddMessage("google game service Success");
-                    authCode = PlayGamesPlatform.Instance.GetServerAuthCode();
-                    StartCoroutine(TryFirebaseLogin());
-                    //FirebaseWithGooglePlay(); // Firebase Login 시도
-                }
-                else // 실패하면
-                {
-                    debugMsg.text = "guest login try";
-                    SceneManager.instance.Popup("login fail");
-                }
+                    Debug.Log("Authorization code: " + code);
+                    authCode = code;
+                    // This token serves as an example to be used for SignInWithGooglePlayGames
+                    debugMsg.text = "토큰받기";
+
+                    AfterLogin();
+                });
+            }
+            else
+            {
+                Error = "Failed to retrieve Google play games authorization code";
+                Debug.Log("Login Unsuccessful");
+                SceneManager.instance.Popup("구글 플레이 로그인 실패");
+            debugMsg.text = "구글 플레이 로그인 실패";
+            }
+        });
+    }
+    internal void ProcessAuthentication(bool status)
+    {
+        debugMsg.text = "상태 : " + status;
+        if (status)
+        {
+            Debug.Log("Login with Google Play games successful.");
+            debugMsg.text = "구글로그인 성공 : " + status;
+
+            PlayGamesPlatform.Instance.RequestServerSideAccess(true, code =>
+            {
+                Debug.Log("Authorization code: " + code);
+                authCode = code;
+                // This token serves as an example to be used for SignInWithGooglePlayGames
+                debugMsg.text = "토큰받기";
+
+                AfterLogin();
             });
         }
+        else
+        {
+            Error = "Failed to retrieve Google play games authorization code";
+            Debug.Log("Login Unsuccessful");
+            SceneManager.instance.Popup("구글 플레이 로그인 실패");
+            debugMsg.text = "구글 플레이 로그인 실패 : " + status;
+        }
     }
-
-
-    void FirebaseWithGooglePlay()
+    public void AfterLogin()
     {
         Firebase.Auth.FirebaseAuth auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
         Firebase.Auth.Credential credential =
             Firebase.Auth.PlayGamesAuthProvider.GetCredential(authCode);
-
         auth.SignInWithCredentialAsync(credential).ContinueWith(task => {
             if (task.IsCanceled)
             {
-                debugMsg.text = "SignInWithCredentialAsync was canceled.";
+                SceneManager.instance.Popup("파이어베이스 연동 취소");
+                debugMsg.text = "파이어베이스 연동 취소";
+
                 Debug.LogError("SignInWithCredentialAsync was canceled.");
                 return;
             }
             if (task.IsFaulted)
             {
-                debugMsg.text = "SignInWithCredentialAsync encountered an error: " + task.Exception;
+                SceneManager.instance.Popup("파이어베이스 연동 실패");
+            debugMsg.text = "파이어베이스 연동 실패";
                 Debug.LogError("SignInWithCredentialAsync encountered an error: " + task.Exception);
                 return;
             }
+            debugMsg.text = "파이어베이스 연동";
 
             Firebase.Auth.FirebaseUser newUser = task.Result;
-            debugMsg.text = "User signed in successfully";
             Debug.LogFormat("User signed in successfully: {0} ({1})",
                 newUser.DisplayName, newUser.UserId);
         });
     }
-    IEnumerator TryFirebaseLogin()
-    {
-        while (string.IsNullOrEmpty(((PlayGamesLocalUser)Social.localUser).GetIdToken()))
-            yield return null;
 
-        string idToken = ((PlayGamesLocalUser)Social.localUser).GetIdToken();
+    //public void GoogleLogin()
+    //{
+    //    // 로그인 되어 있지 않다면
+    //    if (!Social.localUser.authenticated)
+    //    {
+    //        Social.localUser.Authenticate(success => // 로그인 시도
+    //        {
+    //            if (success) // 성공하면
+    //            {
+    //                debugMsg.text = "google login success";
+    //                //SystemMessageManager.Instance.AddMessage("google game service Success");
+    //                authCode = PlayGamesPlatform.Instance.GetServerAuthCode();
+    //                StartCoroutine(TryFirebaseLogin());
+    //                //FirebaseWithGooglePlay(); // Firebase Login 시도
+    //            }
+    //            else // 실패하면
+    //            {
+    //                debugMsg.text = "guest login try";
+    //                SceneManager.instance.Popup("login fail");
+    //            }
+    //        });
+    //    }
+    //}
 
-        Credential credential = GoogleAuthProvider.GetCredential(idToken, null);
-        auth.SignInWithCredentialAsync(credential).ContinueWithOnMainThread(task => {
-            if (task.IsCanceled)
-            {
-                debugMsg.text = "firebase canceled" + task.Exception;
-                Debug.Log("firebase canceled" + task.Exception);
-                return;
-            }
-            if (task.IsFaulted)
-            {
-                debugMsg.text = "firebase  id faulted" + task.Exception;
-                Debug.Log("firebase id faulted" + task.Exception);
-                return;
-            }
+    //IEnumerator TryFirebaseLogin()
+    //{
+    //    while (string.IsNullOrEmpty(((PlayGamesLocalUser)Social.localUser).GetIdToken()))
+    //        yield return null;
 
-            user = task.Result;
+    //    string idToken = ((PlayGamesLocalUser)Social.localUser).GetIdToken();
 
-            debugMsg.text = "google firebase success!";
-            Debug.Log("Success!");
-        });
-    }
+    //    Credential credential = GoogleAuthProvider.GetCredential(idToken, null);
+    //    auth.SignInWithCredentialAsync(credential).ContinueWithOnMainThread(task =>
+    //    {
+    //        if (task.IsCanceled)
+    //        {
+    //            debugMsg.text = "firebase canceled" + task.Exception;
+    //            Debug.Log("firebase canceled" + task.Exception);
+    //            return;
+    //        }
+    //        if (task.IsFaulted)
+    //        {
+    //            debugMsg.text = "firebase  id faulted" + task.Exception;
+    //            Debug.Log("firebase id faulted" + task.Exception);
+    //            return;
+    //        }
+
+    //        user = task.Result;
+
+    //        debugMsg.text = "google firebase success!";
+    //        Debug.Log("Success!");
+    //    });
+    //}
+#endif
 
     public void GameCenterLogin()
     {
