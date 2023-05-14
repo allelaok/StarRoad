@@ -117,7 +117,10 @@ public class GameManager : MonoBehaviour
 
         if (FMng.InternetOn())
         {
-#if UNITY_IOS
+
+#if UNITY_EDITOR
+            FMng.GuestLogIn();
+#elif UNITY_IOS
             FMng.GameCenterLogin();
 #else
             FMng.GuestLogIn();

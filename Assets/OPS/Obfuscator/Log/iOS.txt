@@ -40,7 +40,7 @@
 [Info][OPS.OBF][OnProcess_Assets] Process component Analyse Unity Animation Methods
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Iterate components in loaded build scene Assets/04.Scenes/MainScene.unity.
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found 6 Root GameObjects in Scene Assets/04.Scenes/MainScene.unity
-[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found 1523 Components in Scene Assets/04.Scenes/MainScene.unity
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found 1526 Components in Scene Assets/04.Scenes/MainScene.unity
 [Info][OPS.OBF][OnAnalyse_Component_Scenes] Process component Analyse Unity Event Component
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in Map of type UnityEngine.Transform
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in Map of type UnityEngine.SpriteRenderer
@@ -616,6 +616,9 @@
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in PlayBtn_Text (TMP) (3) of type UnityEngine.RectTransform
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in PlayBtn_Text (TMP) (3) of type UnityEngine.CanvasRenderer
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in PlayBtn_Text (TMP) (3) of type TMPro.TextMeshProUGUI
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in BG of type UnityEngine.RectTransform
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in BG of type UnityEngine.CanvasRenderer
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in BG of type UnityEngine.UI.Image
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in PlayBtn of type UnityEngine.RectTransform
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in PlayBtn of type UnityEngine.CanvasRenderer
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Find unity event methods in PlayBtn of type UnityEngine.UI.Image
@@ -2089,6 +2092,10 @@
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference TMPro.TextMeshProUGUI for PlayBtn_Text (TMP) (3)
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference in serialized properties for PlayBtn_Text (TMP) (3) (1):
   - TMPro.TextMeshProUGUI
+
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference UnityEngine.UI.Image for BG
+[Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference in serialized properties for BG (1):
+  - UnityEngine.UI.Image
 
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference UnityEngine.UI.Image for PlayBtn
 [Debug][OPS.OBF][OnAnalyse_Component_Scenes] Found mono script reference in serialized properties for PlayBtn (1):
